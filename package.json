@@ -5,13 +5,13 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "compile:sass": "node-sass sass/main.scss css/style.css -w"
+    "compile:sass": "node-sass -w public/sass/main.scss public/css/style.css -o"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/joeldelatte/JAM-DEV.git"
   },
-  "author": "joeldelatte and karsonkreig",
+  "author": "joeldelatte and karsonkrieg",
   "license": "ISC",
   "devDependencies": {
     "live-server": "^1.2.1",
