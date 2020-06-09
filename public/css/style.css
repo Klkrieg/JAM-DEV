@@ -11,6 +11,92 @@ html {
 body {
   box-sizing: border-box; }
 
+.nav__button {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 1rem;
+  align-content: center; }
+
+.btn:link, .btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  max-height: 3.5rem;
+  width: 10rem;
+  border-radius: 3px; }
+
+.btn--light {
+  background-color: #d8d8d8;
+  color: black;
+  text-align: center;
+  padding: .35rem; }
+  .btn--light:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
+    .btn--light:hover::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0; }
+  .btn--light:active {
+    transform: translateY(-1px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); }
+
+.btn--dark {
+  background-color: #4a4a4a;
+  border: 1px solid #d8d8d8;
+  color: white;
+  text-align: center;
+  padding: .35rem; }
+  .btn--dark:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
+    .btn--dark:hover::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0; }
+  .btn--dark:active {
+    transform: translateY(-1px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); }
+
+.navbar {
+  background-color: #4a4a4a;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-template-rows: 10rem;
+  grid-gap: 1rem;
+  font-size: 2rem;
+  box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.5);
+  overflow: hidden; }
+  .navbar__logo {
+    justify-content: start; }
+  .navbar__logo-1 {
+    width: 10rem;
+    height: 10rem; }
+  .navbar ul {
+    list-style: none;
+    padding: 2.75rem; }
+    .navbar ul li {
+      padding-left: 4rem;
+      float: left; }
+      .navbar ul li a {
+        text-decoration: none;
+        text-align: center;
+        color: white;
+        font-size: 3rem;
+        display: block; }
+        .navbar ul li a:hover:not(:active) {
+          color: #979797; }
+        .navbar ul li a:active {
+          color: #d8d8d8; }
+  .navbar__burger {
+    display: grid;
+    justify-content: center;
+    align-content: center; }
+    .navbar__burger--svg:hover {
+      transform: translateY(-2px); }
+      .navbar__burger--svg:hover::after {
+        transform: scaleX(1.4) scaleY(1.6);
+        opacity: 0; }
+    .navbar__burger--svg:active {
+      transform: translateY(-1px); }
+
 .footer {
   width: 100%;
   position: fixed;
