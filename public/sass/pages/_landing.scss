@@ -1,0 +1,65 @@
+.about{
+    width:100%;
+    height: 200px;
+    text-align: left;
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    padding-left: 120px;
+
+    h2{
+        margin: 32px 0;
+    }
+    p{
+        font-size: 24px;
+        color: #4a4a4a;
+    }
+}
+
+.survey-section{
+    width: 100%;
+    height: 240px;
+    border-top: solid 1px #979797;
+    padding: 55px 120px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #d8d8d8;
+
+
+
+
+    .info-box{
+        width: 863px;
+        font-size: 16px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: #4a4a4a;
+        margin-right:105px;
+        
+        p{
+            font-size: 20px;
+        }
+    }
+
+    button{
+        cursor: pointer;
+        width: 225px;
+        height: 50px;
+        border-radius: 5px;
+        border: solid 1px #979797;
+        background-color: #4a4a4a;
+        font-family: AvenirNext;
+        font-size: 24px;
+        font-weight: 600;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: center;
+        color: #ffffff;
+    }
+}

@@ -55,48 +55,6 @@ body {
     transform: translateY(-1px);
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); }
 
-.navbar {
-  background-color: #4a4a4a;
-  display: grid;
-  grid-template-columns: auto auto auto auto;
-  grid-template-rows: 10rem;
-  grid-gap: 1rem;
-  font-size: 2rem;
-  box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.5);
-  overflow: hidden; }
-  .navbar__logo {
-    justify-content: start; }
-  .navbar__logo-1 {
-    width: 10rem;
-    height: 10rem; }
-  .navbar ul {
-    list-style: none;
-    padding: 2.75rem; }
-    .navbar ul li {
-      padding-left: 4rem;
-      float: left; }
-      .navbar ul li a {
-        text-decoration: none;
-        text-align: center;
-        color: white;
-        font-size: 3rem;
-        display: block; }
-        .navbar ul li a:hover:not(:active) {
-          color: #979797; }
-        .navbar ul li a:active {
-          color: #d8d8d8; }
-  .navbar__burger {
-    display: grid;
-    justify-content: center;
-    align-content: center; }
-    .navbar__burger--svg:hover {
-      transform: translateY(-2px); }
-      .navbar__burger--svg:hover::after {
-        transform: scaleX(1.4) scaleY(1.6);
-        opacity: 0; }
-    .navbar__burger--svg:active {
-      transform: translateY(-1px); }
-
 .footer {
   width: 100%;
   position: fixed;
@@ -154,3 +112,97 @@ body {
       color: #fff; }
       .footer .footer-form .subscribe:hover {
         background-color: #221f1f; }
+
+.navbar {
+  background-color: #4a4a4a;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-template-rows: 10rem;
+  grid-gap: 1rem;
+  font-size: 2rem;
+  box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.5);
+  overflow: hidden; }
+  .navbar__logo {
+    justify-content: start; }
+  .navbar__logo-1 {
+    width: 10rem;
+    height: 10rem; }
+  .navbar ul {
+    list-style: none;
+    padding: 2.75rem; }
+    .navbar ul li {
+      padding-left: 4rem;
+      float: left; }
+      .navbar ul li a {
+        text-decoration: none;
+        text-align: center;
+        color: white;
+        font-size: 3rem;
+        display: block; }
+        .navbar ul li a:hover:not(:active) {
+          color: #979797; }
+        .navbar ul li a:active {
+          color: #d8d8d8; }
+  .navbar__burger {
+    display: grid;
+    justify-content: center;
+    align-content: center; }
+    .navbar__burger--svg:hover {
+      transform: translateY(-2px); }
+      .navbar__burger--svg:hover::after {
+        transform: scaleX(1.4) scaleY(1.6);
+        opacity: 0; }
+    .navbar__burger--svg:active {
+      transform: translateY(-1px); }
+
+.about {
+  width: 100%;
+  height: 200px;
+  text-align: left;
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  padding-left: 120px; }
+  .about h2 {
+    margin: 32px 0; }
+  .about p {
+    font-size: 24px;
+    color: #4a4a4a; }
+
+.survey-section {
+  width: 100%;
+  height: 240px;
+  border-top: solid 1px #979797;
+  padding: 55px 120px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #d8d8d8; }
+  .survey-section .info-box {
+    width: 863px;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #4a4a4a;
+    margin-right: 105px; }
+    .survey-section .info-box p {
+      font-size: 20px; }
+  .survey-section button {
+    cursor: pointer;
+    width: 225px;
+    height: 50px;
+    border-radius: 5px;
+    border: solid 1px #979797;
+    background-color: #4a4a4a;
+    font-family: AvenirNext;
+    font-size: 24px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #ffffff; }
