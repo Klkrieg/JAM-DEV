@@ -1,10 +1,12 @@
 $base-dark: #221f1f;
+$headingFont: "Lato";
+$subheadFont: "Open Sans";
 
 .footer{
     width:100%;
-    position: fixed;
+    position: static;
     bottom: 0;
-    padding: 40px 20px;
+    padding: 40px 20px 0;
     height: 354px;
     background-color: $base-dark;
     display: flex;
@@ -12,6 +14,7 @@ $base-dark: #221f1f;
     flex-direction: row;
     font-family: Lato;
     color: white;
+    overflow: hidden;
     
     .logo-container{
         text-align: center;
@@ -25,8 +28,6 @@ $base-dark: #221f1f;
         }
     }
     
-    
-
     h2{
         font-family: 'Lato';
         font-size: 18px;
