@@ -16,7 +16,11 @@ app.use(express.static("public"));
 // });
 
 // routes
-app.use(require("./routes/api.js"));
+///////////////////////////////////////
+//api route
+// app.use(require("./routes/api.js"));\
+//html route
+require("./routes/html-routes.js")(app);
 
 app.listen(PORT, () => {
   console.log(`App running on port ${PORT}!`);
