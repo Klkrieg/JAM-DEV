@@ -14,14 +14,16 @@ app.use(function (req, res, next) {
   next();
 });
 
-app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser());
 
 app.use(express.static(path.join(__dirname, "public")));
 
 app.post("/", function(req, res) {
-  res.end("success")
+  
+  
+
 })
 
 //MongoDB
