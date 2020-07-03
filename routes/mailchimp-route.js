@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const https = require("https");
 const bodyParser = require("body-parser");
+const path = require("path");
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
@@ -37,9 +38,13 @@ module.exports = function(app) {
         const request = https.request(url, options, function(response){
 
             if(response.statusCode === 200) {
-                res.send("Hi");//sendFile(landing page html)? with alert?
+                res.sendFile(
+                  path.join(__dirname, "../public/html/sub-cess.html")
+                );
             } else {
-                res.send("Bye");
+                res.sendFile(
+                  path.join(__dirname, "../public/html/subscribe-fail.html")
+                );
             }
 
             response.on("data", function(data) {
@@ -50,6 +55,14 @@ module.exports = function(app) {
         request.write(jsonData);
         request.end();  
 
+    });
+
+    app.post("/subscribe-fail", (req, res) => {
+        res.redirect("/")
+    });
+
+    app.post("/subscribe-success", (req, res) => {
+      res.redirect("/");
     });
 
 }
