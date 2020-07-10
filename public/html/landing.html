@@ -65,13 +65,15 @@
                 <p>noellebugaj@gmail.com</p>
             </div>
             <div class="subscribe">
-                <form class='footer-form'>
+                <form class='footer-form' action="/" method="post">
                     <h2 class="footer-head">Stay informed</h2>
-                    <input type='text' class="input" placeholder="First Name">
-                    <input type='text' class="input" placeholder="Last Name">
-                    <input type='email' class="input" placeholder="Email" required>
-                    <input type="submit" class="subscribe" value="Subscribe"></input>
+                    <input type='text' name="fName" class="input" placeholder="First Name">
+                    <input type='text' name="lName" class="input" placeholder="Last Name">
+                    <input type='email' name="email" class="input" placeholder="Email" required>
+                    <input type="submit" name="submit" class="subscribe" id="subscribeButton" value="Subscribe"></input>
                 </form>
             </div>
         </footer>
+        <script src="../js/landing.js" type="text/javascript"></script>
     </body>
+    </html>

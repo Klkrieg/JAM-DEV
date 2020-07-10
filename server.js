@@ -1,16 +1,32 @@
 const express = require("express");
+const path = require("path");
+const bodyParser = require("body-parser");
+const cookieParser = require("cookie-parser");
+const https = require("https");
 const mongoose = require("mongoose");
-
-const PORT = process.env.PORT || 3000;
-
 const app = express();
 
-app.use(express.urlencoded({ extended: true }));
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+});
+
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(cookieParser());
 
-app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, "public")));
 
-// mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/budget", {
+
+
+//MongoDB
+////////////////////////////////////////////////////////////////////////////////
+
+// mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/<yourDB>", {
 //   useNewUrlParser: true,
 //   useFindAndModify: false,
 // });
@@ -21,7 +37,13 @@ app.use(express.static("public"));
 // app.use(require("./routes/api.js"));\
 //html route
 require("./routes/html-routes.js")(app);
-
+require("./routes/mailchimp-route.js")(app);
+/////////////////////////////////////////
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`App running on port ${PORT}!`);
 });
+
+
+//api key: c5ceca682ed3b8a05dcf08b20d3c4b85-us18//
+//list_id: 760d64ef0d
