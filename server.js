@@ -1,7 +1,8 @@
 const express = require("express");
 const path = require("path");
-var bodyParser = require("body-parser");
-var cookieParser = require("cookie-parser");
+const bodyParser = require("body-parser");
+const cookieParser = require("cookie-parser");
+const https = require("https");
 const mongoose = require("mongoose");
 const app = express();
 
@@ -20,20 +21,12 @@ app.use(cookieParser());
 
 app.use(express.static(path.join(__dirname, "public")));
 
-app.post("/", function(req, res) {
-  
-  const firstName = req.body.fName;
-  const lastName = req.body.lName;
-  const email = req.body.email;
 
-  console.log(firstName, lastName, email);
-
-})
 
 //MongoDB
 ////////////////////////////////////////////////////////////////////////////////
 
-// mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/budget", {
+// mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/<yourDB>", {
 //   useNewUrlParser: true,
 //   useFindAndModify: false,
 // });
@@ -44,9 +37,13 @@ app.post("/", function(req, res) {
 // app.use(require("./routes/api.js"));\
 //html route
 require("./routes/html-routes.js")(app);
-
+require("./routes/mailchimp-route.js")(app);
 /////////////////////////////////////////
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`App running on port ${PORT}!`);
 });
+
+
+//api key: c5ceca682ed3b8a05dcf08b20d3c4b85-us18//
+//list_id: 760d64ef0d
