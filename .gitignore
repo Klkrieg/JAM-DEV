@@ -3,3 +3,6 @@
 
 # misc
 .history
+
+#environment variables
+.env

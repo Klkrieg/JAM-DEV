@@ -29,10 +29,10 @@ module.exports = function(app) {
         };
 
         const jsonData = JSON.stringify(data);
-        const url = "https://us18.api.mailchimp.com/3.0/lists/760d64ef0d";//replace X with number after US on api key
+        const url = `https://us18.api.mailchimp.com/3.0/lists/${process.env.MAILCHIMP_LISTID}`;//replace X with number after US on api key
         const options = {
-            method: "POST",
-            auth: "JAM-DEV:c5ceca682ed3b8a05dcf08b20d3c4b85-us18",
+          method: "POST",
+          auth: `${process.env.MAILCHIMP_API_KEY_AUTH}`,
         };
 
         const request = https.request(url, options, function(response){
