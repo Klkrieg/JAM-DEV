@@ -9,7 +9,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 module.exports = function(app) {
 
-    app.post("/", function(req, res) {
+    app.post("/api/subscription", function(req, res) {
         
         const firstName = req.body.fName;
         const lastName = req.body.lName;
@@ -27,7 +27,7 @@ module.exports = function(app) {
             }
             ]
         };
-
+        
         const jsonData = JSON.stringify(data);
         const url = `https://us18.api.mailchimp.com/3.0/lists/${process.env.MAILCHIMP_LISTID}`;//replace X with number after US on api key
         const options = {
@@ -66,3 +66,7 @@ module.exports = function(app) {
     });
 
 }
+
+//if user already has a subscription through mailchimp then send modal with message "you are already subscribed"
+//vallidate user input. email is correct format?
+//
