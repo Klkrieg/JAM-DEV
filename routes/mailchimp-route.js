@@ -57,16 +57,5 @@ module.exports = function(app) {
 
     });
 
-    app.post("/subscribe-fail", (req, res) => {
-        res.redirect("/")
-    });
-
-    app.post("/subscribe-success", (req, res) => {
-      res.redirect("/");
-    });
-
 }
 
-//if user already has a subscription through mailchimp then send modal with message "you are already subscribed"
-//vallidate user input. email is correct format?
-//

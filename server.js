@@ -22,20 +22,22 @@ app.use(cookieParser());
 
 app.use(express.static(path.join(__dirname, "public")));
 
+
 //MongoDB
 ////////////////////////////////////////////////////////////////////////////////
+
 // mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/<yourDB>", {
 //   useNewUrlParser: true,
 //   useFindAndModify: false,
 // });
 
-//api route
-// app.use(require("./routes/api.js"));
 
+//api route
+require("./routes/mailchimp-route.js")(app);
 //html route
 require("./routes/html-routes.js")(app);
-require("./routes/mailchimp-route.js")(app);
-//////////////////////////////////////////////////////////////////////////////////
+
+/////////////////////////////////////////
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`App running on port ${PORT}!`);
