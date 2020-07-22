@@ -40,7 +40,6 @@ subscribe.addEventListener("submit", function (event) {
 
 });
 
-<<<<<<< HEAD
 const signInBtn = document.getElementById('sign-in-btn');
 const signUpBtn = document.getElementById('sign-up-btn');
 const signUpWrapper = document.getElementById('sign-up__modal-wrapper');
@@ -79,5 +78,3 @@ window.addEventListener('click', (e)=>{
 
 
 
-=======
->>>>>>> 4d934b232e8a742f82832ef2d10a78a6a74723ba
