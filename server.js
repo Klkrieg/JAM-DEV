@@ -5,6 +5,7 @@ const cookieParser = require("cookie-parser");
 const https = require("https");
 const mongoose = require("mongoose");
 const app = express();
+require("dotenv").config()
 
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -22,7 +23,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 
-
 //MongoDB
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -31,13 +31,12 @@ app.use(express.static(path.join(__dirname, "public")));
 //   useFindAndModify: false,
 // });
 
-// routes
-///////////////////////////////////////
+
 //api route
-// app.use(require("./routes/api.js"));\
+require("./routes/mailchimp-route.js")(app);
 //html route
 require("./routes/html-routes.js")(app);
-require("./routes/mailchimp-route.js")(app);
+
 /////////////////////////////////////////
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
@@ -45,5 +44,3 @@ app.listen(PORT, () => {
 });
 
 
-//api key: c5ceca682ed3b8a05dcf08b20d3c4b85-us18//
-//list_id: 760d64ef0d

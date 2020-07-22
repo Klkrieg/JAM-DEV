@@ -9,7 +9,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 module.exports = function(app) {
 
-    app.post("/", function(req, res) {
+    app.post("/api/subscription", function(req, res) {
         
         const firstName = req.body.fName;
         const lastName = req.body.lName;
@@ -27,12 +27,12 @@ module.exports = function(app) {
             }
             ]
         };
-
+        
         const jsonData = JSON.stringify(data);
-        const url = "https://us18.api.mailchimp.com/3.0/lists/760d64ef0d";//replace X with number after US on api key
+        const url = `https://us18.api.mailchimp.com/3.0/lists/${process.env.MAILCHIMP_LISTID}`;//replace X with number after US on api key
         const options = {
-            method: "POST",
-            auth: "JAM-DEV:c5ceca682ed3b8a05dcf08b20d3c4b85-us18",
+          method: "POST",
+          auth: `${process.env.MAILCHIMP_API_KEY_AUTH}`,
         };
 
         const request = https.request(url, options, function(response){
@@ -57,12 +57,5 @@ module.exports = function(app) {
 
     });
 
-    app.post("/subscribe-fail", (req, res) => {
-        res.redirect("/")
-    });
-
-    app.post("/subscribe-success", (req, res) => {
-      res.redirect("/");
-    });
-
 }
+
