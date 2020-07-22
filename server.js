@@ -23,7 +23,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 
-
 //MongoDB
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -32,13 +31,12 @@ app.use(express.static(path.join(__dirname, "public")));
 //   useFindAndModify: false,
 // });
 
-// routes
-///////////////////////////////////////
+
 //api route
-// app.use(require("./routes/api.js"));\
+require("./routes/mailchimp-route.js")(app);
 //html route
 require("./routes/html-routes.js")(app);
-require("./routes/mailchimp-route.js")(app);
+
 /////////////////////////////////////////
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
