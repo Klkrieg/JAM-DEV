@@ -49,21 +49,17 @@ const signInWrapper = document.getElementById('sign-in__modal-wrapper');
 signInBtn.addEventListener("click", modalDisplay);
 signUpBtn.addEventListener("click", modalDisplay);
       
-function closeModal(target){
-    document.body.addEventListener('click', (event)=>{
-        let target = event.target.class;
-        if(target !== "modal-content-wrapper"){
-            console.log(target);
-        }
-    });
-    };
+function closeModal(event){
+    if(event.key === 'Escape'){
+      signUpWrapper.style.display = 'none';
+      signInWrapper.style.display = 'none';
+    }
+};
 
 function modalDisplay({target}){
     target.id === "sign-in-btn" ? signInWrapper.style.display = "block" : signUpWrapper.style.display = "block" ;
-
-    
-    //closeModal();
-}
+    document.body.addEventListener('keydown', closeModal);
+  };
 
 window.addEventListener('click', (e)=>{
     if(e.target.id === 'sign-up__modal-wrapper' || e.target.id === 'sign-in__modal-wrapper'){
