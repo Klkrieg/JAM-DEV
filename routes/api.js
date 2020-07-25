@@ -1,7 +1,25 @@
 const router = require("express").Router();
-const Transaction = require("../models/transaction.js");
+const Users = require("../models/users.js");
 
+router.post("api/user", ({ body }, res) => {
+    Users.create(body)
+      .then((dbUsers) => {
+        res.json(dbUsers);
+      })
+      .catch((err)=> {
+          res.status(400).json(err);
+      });
+});
 
+router.post("api/users", (req, res)=> {
+    Users.find({}, (err, data)=> {
+        if (err) {
+            res.send(err);
+        } else {
+            res.json(data);
+        }
+    })
+}) 
 
 module.exports = router;
 

@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-const transactionSchema = new Schema({
+const userSchema = new Schema({
     //////example//////
 //   name: {
 //     type: String,
