@@ -58,10 +58,8 @@ toSignUp.addEventListener('click', modalSwitch);
 
 //////////////MODAL FUNCTIONALITY/////////////
 function closeModal(){
-    //if(event.key === 'Escape'){
       signUpWrapper.style.display = 'none';
       signInWrapper.style.display = 'none';
-    //}
 };
 
 function modalSwitch({target}){
