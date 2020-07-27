@@ -9,13 +9,25 @@
     background-color: rgba(74, 74, 74, 0.7);
     
     
-    .close{
-        cursor: pointer;
-        font-size: 28px;
-        font-weight: bold;
-        display: block;
-        float: right;
-        
+
+    .form-head{
+        margin-bottom: 16px;
+        display: flex;
+        flex-flow: row nowrap;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+
+        h1{
+            font-size: 24px;
+        }
+
+
+        .close{
+            cursor: pointer;
+            font-size: 28px;
+            font-weight: bold;
+        }
     }
 
     .modal-content-wrapper{
@@ -36,16 +48,45 @@
         input{
             width: 100%;
             height: 35px;
-            margin: 16px auto 0;
+            margin-top: 16px;
+            border-radius: 8px;
+            border: solid 1px #979797;
+            font-size: 16px;
+            padding-left: 25px;
         }
         .modal-switch{
             display: block;
             float: left;
         }
-        button{
-            display: block;
-            float: right;
-            width: 46px;
+       
+
+        .form-footer{
+            display: flex;
+            width: 100%;
+            margin-top: 32px; 
+            flex-flow: row nowrap;
+            align-items: center;
+            justify-content: space-between;
+
+            button{
+                cursor: pointer;
+                width: 132px;
+                height: 46px;
+                border-radius: 5px;
+                border: solid 1px #979797;
+                background-color: #4a4a4a;
+                font-size: 20px;
+                color: #fff;
+            }
+
+            p{
+                font-size: 16px;
+
+                span{
+                    font-weight: bold;
+                    cursor: pointer;
+                }
+            }
         }
 
     }

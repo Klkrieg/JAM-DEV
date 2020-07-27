@@ -37,30 +37,37 @@
         <!----------------- MODAL WINDOW -------------------->
         <div class="modal-wrapper" id="sign-in__modal-wrapper">
             <div class="modal-content-wrapper" id="sign-in-wrapper">
-                <h1>Sign in</h1>
-                <span class="close" id="sign-in-close">&times;</span>
+                <div class="form-head">
+                    <h1>Sign in</h1>
+                    <span class="close" id="sign-in-close">&times;</span>
+                </div>
                 <form>
                     <input type="email" placeholder="Email">
                     <input type="password" placeholder="Password">
-                    <p class="modal-switch">Not a member of JAM? <span>Sign up.</span></p>
-
-                    <button type="submit">Sign in</button>
+                    <div class="form-footer">
+                        <p class="modal-switch">Not a member of JAM? <span id="switch-to-sign-up">Sign up.</span></p>
+                        <button type="submit">Sign in</button>
+                    </div>
                 </form>
             </div>
         </div>          
         <div class="modal-wrapper" id="sign-up__modal-wrapper">
             <div class="modal-content-wrapper" id="sign-up-wrapper">
-                <h1>Sign up</h1>
-                <span class="close" id="sign-up-close">&times;</span>
+                <div class="form-head">
+                    <h1>Sign up</h1>
+                    <span class="close" id="sign-up-close">&times;</span>
+                </div>
                 <form>
                     <input type="first-name" placeholder="First name">
                     <input type="last-name" placeholder="Last name">
                     <input type="email" placeholder="Email">
                     <input type="password" placeholder="Password">
                     <input type="password" placeholder="Confirm password">
-                    <label>Birthday</label><input type="date" placeholder="Birthday">
-                    <p class="modal-switch">Already have an account> <span>Sign in.</span></p>
-                    <button type="submit" class="sign-in-up-btn">Sign up</button>
+                    <input type="date" placeholder="Birthday">
+                    <div class="form-footer">
+                        <p class="modal-switch">Already have an account? <span id="switch-to-sign-in">Sign in.</span></p>
+                        <button type="submit" class="sign-in-up-btn">Sign up</button>
+                    </div>
                 </form>
             </div>
         </div>
