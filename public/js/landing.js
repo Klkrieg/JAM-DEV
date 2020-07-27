@@ -57,11 +57,11 @@ toSignIn.addEventListener('click', modalSwitch);
 toSignUp.addEventListener('click', modalSwitch);
 
 //////////////MODAL FUNCTIONALITY/////////////
-function closeModal(event){
-    if(event.key === 'Escape'){
+function closeModal(){
+    //if(event.key === 'Escape'){
       signUpWrapper.style.display = 'none';
       signInWrapper.style.display = 'none';
-    }
+    //}
 };
 
 function modalSwitch({target}){
@@ -76,16 +76,18 @@ function modalSwitch({target}){
 };
 function modalDisplay({target}){
     target.id === "sign-in-btn" ? signInWrapper.style.display = "block" : signUpWrapper.style.display = "block" ;
-    document.body.addEventListener('keydown', closeModal);
+    document.body.addEventListener('keydown', (event)=>{
+      if(event.key === 'Escape'){
+        closeModal();
+      }
+    });
   };
 
 window.addEventListener('click', (e)=>{
     if(e.target.id === 'sign-up__modal-wrapper' || e.target.id === 'sign-in__modal-wrapper'){
-        signUpWrapper.style.display = 'none';
-        signInWrapper.style.display = 'none';
+        closeModal();
     }else if(e.target.id === "sign-up-close" || e.target.id === "sign-in-close"){
-        signUpWrapper.style.display = 'none';
-        signInWrapper.style.display = 'none';
+        closeModal();
     }
 })
 
