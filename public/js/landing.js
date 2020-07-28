@@ -40,34 +40,52 @@ subscribe.addEventListener("submit", function (event) {
 
 });
 
+/////////DECLARE DOCUMENT SELECTORS////////
+
 const signInBtn = document.getElementById('sign-in-btn');
 const signUpBtn = document.getElementById('sign-up-btn');
 const signUpWrapper = document.getElementById('sign-up__modal-wrapper');
 const signInWrapper = document.getElementById('sign-in__modal-wrapper');
+const toSignIn = document.getElementById('switch-to-sign-in');
+const toSignUp = document.getElementById('switch-to-sign-up');
 
+////////////ADD EVENTLISTENERS FOR MODAL DISPLAY////////////
 
 signInBtn.addEventListener("click", modalDisplay);
 signUpBtn.addEventListener("click", modalDisplay);
-      
-function closeModal(event){
-    if(event.key === 'Escape'){
+toSignIn.addEventListener('click', modalSwitch);
+toSignUp.addEventListener('click', modalSwitch);
+//////////////MODAL FUNCTIONALITY/////////////
+function closeModal(){
       signUpWrapper.style.display = 'none';
       signInWrapper.style.display = 'none';
-    }
+
 };
 
+function modalSwitch({target}){
+  console.log(target.id);
+  if(target.id === 'switch-to-sign-in'){
+    signUpWrapper.style.display = 'none';
+    signInWrapper.style.display = 'block';
+  }else{
+    signInWrapper.style.display = 'none';
+    signUpWrapper.style.display = 'block';
+  }
+};
 function modalDisplay({target}){
     target.id === "sign-in-btn" ? signInWrapper.style.display = "block" : signUpWrapper.style.display = "block" ;
-    document.body.addEventListener('keydown', closeModal);
+    document.body.addEventListener('keydown', (event)=>{
+      if(event.key === 'Escape'){
+        closeModal();
+      }
+    });
   };
 
 window.addEventListener('click', (e)=>{
     if(e.target.id === 'sign-up__modal-wrapper' || e.target.id === 'sign-in__modal-wrapper'){
-        signUpWrapper.style.display = 'none';
-        signInWrapper.style.display = 'none';
+        closeModal();
     }else if(e.target.id === "sign-up-close" || e.target.id === "sign-in-close"){
-        signUpWrapper.style.display = 'none';
-        signInWrapper.style.display = 'none';
+        closeModal();
     }
 })
 
