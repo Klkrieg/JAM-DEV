@@ -55,11 +55,18 @@ signInBtn.addEventListener("click", modalDisplay);
 signUpBtn.addEventListener("click", modalDisplay);
 toSignIn.addEventListener('click', modalSwitch);
 toSignUp.addEventListener('click', modalSwitch);
+<<<<<<< HEAD
+=======
+
+>>>>>>> a159ad10760288fa82721076135a1d1e03b7fadc
 //////////////MODAL FUNCTIONALITY/////////////
 function closeModal(){
       signUpWrapper.style.display = 'none';
       signInWrapper.style.display = 'none';
+<<<<<<< HEAD
 
+=======
+>>>>>>> a159ad10760288fa82721076135a1d1e03b7fadc
 };
 
 function modalSwitch({target}){
