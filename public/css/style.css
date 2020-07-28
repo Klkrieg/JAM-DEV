@@ -165,12 +165,19 @@ body {
   top: 0;
   left: 0;
   background-color: rgba(74, 74, 74, 0.7); }
-  #sign-in__modal-wrapper .close, #sign-up__modal-wrapper .close {
-    cursor: pointer;
-    font-size: 28px;
-    font-weight: bold;
-    display: block;
-    float: right; }
+  #sign-in__modal-wrapper .form-head, #sign-up__modal-wrapper .form-head {
+    margin-bottom: 16px;
+    display: flex;
+    flex-flow: row nowrap;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center; }
+    #sign-in__modal-wrapper .form-head h1, #sign-up__modal-wrapper .form-head h1 {
+      font-size: 24px; }
+    #sign-in__modal-wrapper .form-head .close, #sign-up__modal-wrapper .form-head .close {
+      cursor: pointer;
+      font-size: 28px;
+      font-weight: bold; }
   #sign-in__modal-wrapper .modal-content-wrapper, #sign-up__modal-wrapper .modal-content-wrapper {
     border-radius: 8px;
     box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.5);
@@ -187,14 +194,35 @@ body {
     #sign-in__modal-wrapper form input, #sign-up__modal-wrapper form input {
       width: 100%;
       height: 35px;
-      margin: 16px auto 0; }
+      margin-top: 16px;
+      border-radius: 8px;
+      border: solid 1px #979797;
+      font-size: 16px;
+      padding-left: 25px; }
     #sign-in__modal-wrapper form .modal-switch, #sign-up__modal-wrapper form .modal-switch {
       display: block;
       float: left; }
-    #sign-in__modal-wrapper form button, #sign-up__modal-wrapper form button {
-      display: block;
-      float: right;
-      width: 46px; }
+    #sign-in__modal-wrapper form .form-footer, #sign-up__modal-wrapper form .form-footer {
+      display: flex;
+      width: 100%;
+      margin-top: 32px;
+      flex-flow: row nowrap;
+      align-items: center;
+      justify-content: space-between; }
+      #sign-in__modal-wrapper form .form-footer button, #sign-up__modal-wrapper form .form-footer button {
+        cursor: pointer;
+        width: 132px;
+        height: 46px;
+        border-radius: 5px;
+        border: solid 1px #979797;
+        background-color: #4a4a4a;
+        font-size: 20px;
+        color: #fff; }
+      #sign-in__modal-wrapper form .form-footer p, #sign-up__modal-wrapper form .form-footer p {
+        font-size: 16px; }
+        #sign-in__modal-wrapper form .form-footer p span, #sign-up__modal-wrapper form .form-footer p span {
+          font-weight: bold;
+          cursor: pointer; }
 
 .hero-container {
   width: 100%;
