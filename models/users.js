@@ -32,8 +32,16 @@ const userSchema = new Schema({
         required: true,
     },
     birthday: {
-        type: String,
+        type: Date,
         //unsure as to the exact type  this should be!!
+        required: true
+    },
+    phoneNumber: {
+        type: String,
+        required: true
+    },
+    profileType: {
+        type: Mixed,
 
     }
 
