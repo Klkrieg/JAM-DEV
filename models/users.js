@@ -41,7 +41,7 @@ const userSchema = new Schema({
         required: true
     },
     profileType: {
-        type: Mixed,
+        type: String,
 
     }
 
