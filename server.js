@@ -26,10 +26,10 @@ app.use(express.static(path.join(__dirname, "public")));
 //MongoDB
 ////////////////////////////////////////////////////////////////////////////////
 
-// mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/JAM", {
-//   useNewUrlParser: true,
-//   useFindAndModify: false,
-// });
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/JAM", {
+  useNewUrlParser: true,
+  useFindAndModify: false,
+});
 
 
 //api route
