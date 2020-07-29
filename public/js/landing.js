@@ -55,7 +55,6 @@ signInBtn.addEventListener("click", modalDisplay);
 signUpBtn.addEventListener("click", modalDisplay);
 toSignIn.addEventListener('click', modalSwitch);
 toSignUp.addEventListener('click', modalSwitch);
-
 //////////////MODAL FUNCTIONALITY/////////////
 function closeModal(){
       signUpWrapper.style.display = 'none';
