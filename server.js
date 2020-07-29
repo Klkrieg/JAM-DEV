@@ -29,7 +29,9 @@ app.use(express.static(path.join(__dirname, "public")));
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/JAM", {
   useNewUrlParser: true,
   useFindAndModify: false,
+  useUnifiedTopology: true,
 });
+
 
 
 //API.js route

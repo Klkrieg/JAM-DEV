@@ -5,13 +5,16 @@ router.post("api/user", ({ body }, res) => {
     Users.create(body)
       .then((dbUsers) => {
         res.json(dbUsers);
+        console.log(res);
       })
       .catch((err)=> {
+          console.log(err);
           res.status(400).json(err);
+          
       });
 });
 
-router.post("api/users", (req, res)=> {
+router.get("api/users", (req, res)=> {
     Users.find({}, (err, data)=> {
         if (err) {
             res.send(err);
