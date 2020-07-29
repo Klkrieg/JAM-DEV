@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-const transactionSchema = new Schema({
+const userSchema = new Schema({
     //////example//////
 //   name: {
 //     type: String,
@@ -17,6 +17,34 @@ const transactionSchema = new Schema({
 //     type: Date,
 //     default: Date.now,
 //   },
+    email:{
+        type: String,
+        trim: true,
+        required: true,
+    },
+    password:{
+        type: String,
+        required: true
+    },
+    name: {
+        type: String,
+        trim: true,
+        required: true,
+    },
+    birthday: {
+        type: Date,
+        //unsure as to the exact type  this should be!!
+        required: true
+    },
+    phoneNumber: {
+        type: String,
+        required: true
+    },
+    profileType: {
+        type: Mixed,
+
+    }
+
 });
 
 const Users = mongoose.model("Users", userSchema);
