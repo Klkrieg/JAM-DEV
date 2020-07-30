@@ -5,10 +5,12 @@ router.post("/api/users", ({ body }, res) => {
     Users.create(body)
       .then((dbUsers) => {
         res.json(dbUsers);
+        console.log(res);
       })
       .catch((err)=> {
           console.log(err);
           res.status(400).json(err);
+          
       });
 });
 

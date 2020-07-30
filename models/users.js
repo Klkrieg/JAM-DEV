@@ -28,7 +28,6 @@ const userSchema = new Schema({
     },
     profileType: {
         type: String,
-
     }
 
 });
