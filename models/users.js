@@ -13,21 +13,27 @@ const userSchema = new Schema({
         type: String,
         required: true
     },
-    name: {
+    firstName: {
         type: String,
         trim: true,
         required: true,
     },
+    lastName: {
+        type: String,
+        trim: true,
+        required: false,
+    },
     birthday: {
         type: Date,
-        required: true
+        required: true,
     },
     phoneNumber: {
         type: String,
-        required: true
+        required: true,
     },
     profileType: {
         type: String,
+        required: true,
     }
 
 });

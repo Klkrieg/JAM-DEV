@@ -2,6 +2,8 @@ var subscribe = document.querySelector(".footer-form");
 var formHeader = document.querySelector("#form-tagline");
 var subscribeButton = document.querySelector("#subscribeButton");
 
+
+//Mailchimp Subscribe Call and Form handling///
 subscribe.addEventListener("submit", function (event) {
   event.preventDefault();
 
@@ -39,6 +41,54 @@ subscribe.addEventListener("submit", function (event) {
     });
 
 });
+
+//USER SIGN-UP FORM HANDLING AND API POST CALL
+///////////
+const signUpForm= document.getElementById('sign-up-form');
+
+signUpForm.addEventListener('submit', function(event){
+  event.preventDefault();
+  const signUpEmail = document.getElementById('sign-up-email').value;
+  const signUpfName = document.getElementById('sign-up-fName').value;
+  const signUplName = document.getElementById('sign-up-lName').value;
+  const signUpPassword = document.getElementById('sign-up-password').value;
+  const signUpBirthday = document.getElementById('sign-up-birthday').value;
+  const signUpPhoneNumber = document.getElementById('sign-up-phoneNumber').value;
+  const signUpProfileType = document.getElementById('sign-up-profileType').value;  
+  const signUpData = {
+    email: signUpEmail,
+    password: signUpPassword,
+    firstName: signUpfName,
+    lastName: signUplName,
+    birthday: signUpBirthday,
+    phoneNumber: signUpPhoneNumber,
+    profileType: signUpProfileType,
+  };
+  console.log(JSON.stringify(signUpData));
+  const options = {
+    method: "POST",
+    headers: {
+      "content-type": "application/json; charset=UTF-8",
+    },
+    body: JSON.stringify(signUpData),
+  };
+
+  fetch("/api/users", options)
+    .then((res) => {
+      if (res.status == 200) {
+        signUpForm.reset();
+        closeModal();
+      }
+      console.log(res);
+      res.json();
+    })
+    // .then(data=>console.log(data))
+    .catch((err) => {
+      console.error("Error:", err);
+    });
+})
+
+
 
 /////////DECLARE DOCUMENT SELECTORS////////
 
