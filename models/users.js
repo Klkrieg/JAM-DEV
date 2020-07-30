@@ -3,20 +3,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
-    //////example//////
-//   name: {
-//     type: String,
-//     trim: true,
-//     required: "Enter a name for transaction",
-//   },
-//   value: {
-//     type: Number,
-//     required: "Enter an amount",
-//   },
-//   date: {
-//     type: Date,
-//     default: Date.now,
-//   },
+
     email:{
         type: String,
         trim: true,
@@ -33,7 +20,6 @@ const userSchema = new Schema({
     },
     birthday: {
         type: Date,
-        //unsure as to the exact type  this should be!!
         required: true
     },
     phoneNumber: {

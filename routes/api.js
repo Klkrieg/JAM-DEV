@@ -1,17 +1,18 @@
 const router = require("express").Router();
 const Users = require("../models/users.js");
 
-router.post("api/users", ({ body }, res) => {
+router.post("/api/users", ({ body }, res) => {
     Users.create(body)
       .then((dbUsers) => {
         res.json(dbUsers);
       })
       .catch((err)=> {
+          console.log(err);
           res.status(400).json(err);
       });
 });
 
-router.get("api/users", (req, res)=> {
+router.get("/api/users", (req, res)=> {
     Users.find({}, (err, data)=> {
         if (err) {
             res.send(err);
