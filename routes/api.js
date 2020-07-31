@@ -1,17 +1,32 @@
 const router = require("express").Router();
 const Users = require("../models/users.js");
+const bcrypt = require('bcrypt');
 
-router.post("/api/users", ({ body }, res) => {
-    Users.create(body)
+router.post("/api/users", async ({ body }, res) => {
+    const salt = await bcrypt.genSalt();
+    body.password = hashedPass = await bcrypt.hash(body.password, salt);
+
+
+  Users.create(body)
       .then((dbUsers) => {
         res.json(dbUsers);
-        console.log(res);
+        console.log(res.body);
       })
       .catch((err)=> {
           console.log(err);
           res.status(400).json(err);
           
       });
+
+// {
+//     email: 'klkrieg3@gmail.com',
+//     password: '$2b$10$Y.Y7BZUkyE6ou89M7cCms.qfTA.PwFJfxKtA4JtiXiwNKi1x3YKou',
+//     firstName: 'Karson',
+//     lastName: 'Krieg',
+//     birthday: '1995-03-12',
+//     phoneNumber: '5209822388',
+//     profileType: 'individual'
+//   }
 });
 
 router.get("/api/users", (req, res)=> {
@@ -23,6 +38,7 @@ router.get("/api/users", (req, res)=> {
         }
     })
 }) 
+
 
 module.exports = router;
 

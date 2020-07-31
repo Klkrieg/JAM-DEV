@@ -3,6 +3,9 @@ var formHeader = document.querySelector("#form-tagline");
 var subscribeButton = document.querySelector("#subscribeButton");
 
 
+
+
+
 //Mailchimp Subscribe Call and Form handling///
 subscribe.addEventListener("submit", function (event) {
   event.preventDefault();
@@ -37,7 +40,7 @@ subscribe.addEventListener("submit", function (event) {
     })
     // .then(data=>console.log(data))
     .catch((err) => {
-      console.error("Error:", err);
+      console.log("Error:", err);
     });
 
 });
@@ -54,8 +57,11 @@ signUpForm.addEventListener('submit', function(event){
   const signUpPassword = document.getElementById('sign-up-password').value;
   const signUpBirthday = document.getElementById('sign-up-birthday').value;
   const signUpPhoneNumber = document.getElementById('sign-up-phoneNumber').value;
-  const signUpProfileType = document.getElementById('sign-up-profileType').value;  
-  const signUpData = {
+  const signUpProfileType = document.getElementById('sign-up-profileType').value;
+
+
+
+  let signUpData = {
     email: signUpEmail,
     password: signUpPassword,
     firstName: signUpfName,
@@ -65,6 +71,9 @@ signUpForm.addEventListener('submit', function(event){
     profileType: signUpProfileType,
   };
   console.log(JSON.stringify(signUpData));
+
+
+  ///DECLARE OPTIONS FOR POST
   const options = {
     method: "POST",
     headers: {
@@ -72,9 +81,9 @@ signUpForm.addEventListener('submit', function(event){
     },
     body: JSON.stringify(signUpData),
   };
-
+///////SEND POST REQUEST TO DB
   fetch("/api/users", options)
-    .then((res) => {
+    .then((res , req) => {
       if (res.status == 200) {
         signUpForm.reset();
         closeModal();
