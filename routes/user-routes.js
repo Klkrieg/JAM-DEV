@@ -15,7 +15,7 @@ router.post("/api/users", ({ body }, res) => {
 });
 
 router.get("/api/users", (req, res)=> {
-    Users.find({}, (err, data)=> {
+    Users.findOne({}, (err, data)=> {
         if (err) {
             res.send(err);
         } else {
