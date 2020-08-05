@@ -34,7 +34,7 @@ router.post("/api/users/login", (req, res) =>{
         if (err) return handleError(err);
         console.log(req.body.password);
         console.log(user[0].password);
-        if(user == null){
+        if(!user){
             return res.status(400).send("Cannot Find User");
         }
         try{

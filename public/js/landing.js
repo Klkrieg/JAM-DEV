@@ -114,6 +114,8 @@ signInForm.addEventListener("submit", (event)=>{
 
   fetch("/api/users/login", options)
     .then((res, req)=>{
+      console.log(req);
+      console.log(res);
       if(res.status == 200){
         signInForm.reset();
         closeModal();
