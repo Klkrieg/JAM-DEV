@@ -191,7 +191,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: left; }
-    #sign-in__modal-wrapper form input, #sign-up__modal-wrapper form input {
+    #sign-in__modal-wrapper form input, #sign-in__modal-wrapper form select, #sign-up__modal-wrapper form input, #sign-up__modal-wrapper form select {
       width: 100%;
       height: 35px;
       margin-top: 16px;

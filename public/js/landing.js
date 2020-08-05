@@ -2,6 +2,7 @@ var subscribe = document.querySelector(".footer-form");
 var formHeader = document.querySelector("#form-tagline");
 var subscribeButton = document.querySelector("#subscribeButton");
 
+//Mailchimp Subscribe Call and Form handling///
 subscribe.addEventListener("submit", function (event) {
   event.preventDefault();
 
@@ -35,10 +36,96 @@ subscribe.addEventListener("submit", function (event) {
     })
     // .then(data=>console.log(data))
     .catch((err) => {
-      console.error("Error:", err);
+      console.log("Error:", err);
     });
 
 });
+
+//USER SIGN-UP FORM HANDLING AND API POST CALL
+///////////
+const signUpForm= document.getElementById('sign-up-form');
+
+signUpForm.addEventListener('submit', function(event){
+  event.preventDefault();
+  const signUpEmail = document.getElementById('sign-up-email').value;
+  const signUpfName = document.getElementById('sign-up-fName').value;
+  const signUplName = document.getElementById('sign-up-lName').value;
+  const signUpPassword = document.getElementById('sign-up-password').value;
+  const signUpBirthday = document.getElementById('sign-up-birthday').value;
+  const signUpPhoneNumber = document.getElementById('sign-up-phoneNumber').value;
+  const signUpProfileType = document.getElementById('sign-up-profileType').value;
+
+
+
+  let signUpData = {
+    email: signUpEmail,
+    password: signUpPassword,
+    firstName: signUpfName,
+    lastName: signUplName,
+    birthday: signUpBirthday,
+    phoneNumber: signUpPhoneNumber,
+    profileType: signUpProfileType,
+  };
+  
+
+  ///DECLARE OPTIONS FOR POST
+  const options = {
+    method: "POST",
+    headers: {
+      "content-type": "application/json; charset=UTF-8",
+    },
+    body: JSON.stringify(signUpData),
+  };
+///////SEND POST REQUEST TO API
+  fetch("/api/users", options)
+    .then((res , req) => {
+      if (res.status == 200) {
+        signUpForm.reset();
+        closeModal();
+      }
+      res.json();
+    })
+    // .then(data=>console.log(data))
+    .catch((err) => {
+      console.error("Error:", err);
+    });
+});
+
+//SIGNIN FORM HANDLING///////////////////////////
+const signInForm = document.getElementById('sign-in-form');
+signInForm.addEventListener("submit", (event)=>{
+  event.preventDefault();
+  //DOC SELECTORS
+  const signInEmail = document.getElementById("sign-in-email").value;
+  const signInPassword = document.getElementById("sign-in-password").value;
+
+  let signInData = {
+    email: signInEmail,
+    password: signInPassword
+  };
+
+  const options = {
+    method: "POST",
+    headers: {
+      "content-type": "application/json; charset=UTF-8",
+    },
+    body: JSON.stringify(signInData),
+  };
+
+  fetch("/api/users/login", options)
+    .then((res, req)=>{
+      if(res.status == 200){
+        signInForm.reset();
+        closeModal();
+      }
+      //res.json();
+    })
+    .catch((err)=>{
+       console.log("Error", err);
+    })
+
+})
+
 
 /////////DECLARE DOCUMENT SELECTORS////////
 
@@ -62,7 +149,6 @@ function closeModal(){
 };
 
 function modalSwitch({target}){
-  console.log(target.id);
   if(target.id === 'switch-to-sign-in'){
     signUpWrapper.style.display = 'none';
     signInWrapper.style.display = 'block';
