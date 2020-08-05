@@ -35,7 +35,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/JAM", {
 
 
 //API.js route
-app.use(require("./routes/api.js"));
+app.use(require("./routes/user-routes.js"));
 //mailchimp-api route
 require("./routes/mailchimp-route.js")(app);
 //html route
