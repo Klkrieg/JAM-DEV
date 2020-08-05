@@ -41,9 +41,9 @@
                     <h1>Sign in</h1>
                     <span class="close" id="sign-in-close">&times;</span>
                 </div>
-                <form>
-                    <input type="email" placeholder="Email" required>
-                    <input type="password" placeholder="Password" required>
+                <form id="sign-in-form">
+                    <input type="email" placeholder="Email" id="sign-in-email"required>
+                    <input type="password" placeholder="Password" id="sign-in-password"required>
                     <div class="form-footer">
                         <p class="modal-switch">Not a member of JAM? <span id="switch-to-sign-up">Sign up.</span></p>
                         <button type="submit">Sign in</button>
@@ -57,16 +57,22 @@
                     <h1>Sign up</h1>
                     <span class="close" id="sign-up-close">&times;</span>
                 </div>
-                <form action="api/users" method="POST">
-                    <input type="first-name" placeholder="First name" required>
-                    <input type="last-name" placeholder="Last name" required>
-                    <input type="email" placeholder="Email" required>
-                    <input type="password" placeholder="Password" required>
+                <form id="sign-up-form">
+                    <input type="first-name" placeholder="First name" id="sign-up-fName"required>
+                    <input type="last-name" placeholder="Last name" id="sign-up-lName" >
+                    <input type="email" placeholder="Email" id="sign-up-email" required>
+                    <input type="password" placeholder="Password" id="sign-up-password" required>
                     <input type="password" placeholder="Confirm password" required>
-                    <input type="date" placeholder="Birthday">
+                    <input type="date" id="sign-up-birthday" placeholder="Birthday">
+                    <input type="tel" id="sign-up-phoneNumber" name="phone" placeholder="512-111-1111" pattern="^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$">
+                    <select id="sign-up-profileType" name="profileType">
+                        <option value="individual">Individual</option>
+                        <option value="band">Band</option>
+                        <option value="organization">Organization</option>
+                    </select>
                     <div class="form-footer">
                         <p class="modal-switch">Already have an account? <span id="switch-to-sign-in">Sign in.</span></p>
-                        <button type="submit" class="sign-in-up-btn">Sign up</button>
+                        <button type="submit" class="sign-in-up-btn" >Sign up</button>
                     </div>
                 </form>
             </div>
@@ -116,6 +122,6 @@
                 </form>
             </div>
         </footer>
-        <script src="../js/landing.js" type="text/javascript"></script>
+        <script src="../js/landing.js" type="module"></script>
     </body>
     </html>
