@@ -1,6 +1,10 @@
 const router = require("express").Router();
 const Users = require("../models/users.js");
 const bcrypt = require('bcrypt');
+const jwt = require("jsonwebtoken");
+require("dotenv").config();
+
+
 
 router.post("/api/users", async ({ body }, res) => {
     const salt = await bcrypt.genSalt();
@@ -30,17 +34,32 @@ router.post("/api/users", async ({ body }, res) => {
 //user => user.email === req.body.email
 
 router.post("/api/users/login", (req, res) =>{
-   Users.find({"email": req.body.email}, "email password", async (err, user)=>{
+   //User authenticated with bcrypt
+    Users.find({"email": req.body.email}, "email password firstName lastName profileType",  async (err, users)=>{
         if (err) return handleError(err);
-        console.log(req.body.password);
-        console.log(user[0].password);
-        if(!user){
+        //console.log(req.body.password);
+        //console.log(users[0]);
+        if(!users){
             return res.status(400).send("Cannot Find User");
         }
         try{
-            if(await bcrypt.compare(req.body.password, user[0].password)){
-                res.status(200).send("success");
-                console.log("success");
+            if(await bcrypt.compare(req.body.password, users[0].password)){
+                //prepare data for JWT
+                const user = users[0];
+                //Defnie user data for JWT
+                const payload = {
+                    email: user.email,
+                    profileType: user.profileType,
+                    firstName: user.firstName,
+                    lastName: user.lastName
+                }
+                const token = jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET, {algorithm: 'HS256', expiresIn: "20s"});
+                
+                return res.status(200).json({
+                    "message": "Success",
+                    "token": token
+                });
+                //console.log("success");
             }else{
                 res.status(400).send("You Shall Not Password");
             }
@@ -48,18 +67,25 @@ router.post("/api/users/login", (req, res) =>{
             res.status(500).send();
         }
     });
+
+    //Authentication and serialization of user with JWT
+    // const userEmail = req.body.email;
+
+    // jwt.sign();
     
 });
 
-router.get("/api/users", (req, res)=> {
-    Users.findOne({}, (err, data)=> {
-        if (err) {
-            res.send(err);
-        } else {
-            res.json(data);
-        }
-    })
-}) 
+
+//GET 
+// router.get("/api/users", (req, res)=> {
+//     Users.findOne({}, (err, data)=> {
+//         if (err) {
+//             res.send(err);
+//         } else {
+//             res.json(data);
+//         }
+//     })
+// }) 
 
 
 module.exports = router;
