@@ -1,4 +1,4 @@
-//const { render } = require("node-sass");
+const passwordValidator = require("password-validator");
 
 var subscribe = document.querySelector(".footer-form");
 var formHeader = document.querySelector("#form-tagline");
@@ -45,6 +45,25 @@ subscribe.addEventListener("submit", function (event) {
 
 //USER SIGN-UP FORM HANDLING AND API POST CALL
 ///////////
+
+//password field validator
+///////////
+let passwordSchema = new passwordValidator();
+
+passwordSchema.is().min(8)              // Minimum length 8
+    .is().max(50)               // Maximum length 100
+    .has().uppercase(1)         // Must have uppercase letters
+    .has().lowercase(1)         // Must have lowercase letters
+    .has().digits(2)            // Must have at least 1 digits
+    .has().symbols(1)           // Must have at least 1 symbol                    
+    .has().not().spaces();
+
+const validatePassword = () => {
+  const pswrd = document.getElementById('sign-up-password').value;
+  console.log(schema.validate(pswrd, {list: true}));
+}
+
+/////Form listener
 const signUpForm= document.getElementById('sign-up-form');
 
 signUpForm.addEventListener('submit', function(event){
@@ -57,7 +76,7 @@ signUpForm.addEventListener('submit', function(event){
   const signUpPhoneNumber = document.getElementById('sign-up-phoneNumber').value;
   const signUpProfileType = document.getElementById('sign-up-profileType').value;
 
-
+  
 
   let signUpData = {
     email: signUpEmail,
