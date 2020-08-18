@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "browserify ./src/app.js -o  ./public/js/bundle.js",
+    "watch": "watchify ./src/app.js -o  ./public/js/bundle.js",
     "compile:sass": "node-sass -w public/sass/main.scss public/css/style.css -o"
   },
   "repository": {
@@ -30,6 +32,7 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.19",
     "password-validator": "^5.1.0",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "watchify": "^3.11.1"
   }
 }
