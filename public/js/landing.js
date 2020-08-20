@@ -1,3 +1,5 @@
+/*
+
 const passwordValidator = require("password-validator");
 
 var subscribe = document.querySelector(".footer-form");
@@ -50,7 +52,7 @@ subscribe.addEventListener("submit", function (event) {
 ///////////
 let passwordSchema = new passwordValidator();
 
-passwordSchema.is().min(8)              // Minimum length 8
+passwordSchema.is().min(8)      // Minimum length 8
     .is().max(50)               // Maximum length 100
     .has().uppercase(1)         // Must have uppercase letters
     .has().lowercase(1)         // Must have lowercase letters
@@ -61,7 +63,9 @@ passwordSchema.is().min(8)              // Minimum length 8
 const validatePassword = () => {
   const pswrd = document.getElementById('sign-up-password').value;
   console.log(schema.validate(pswrd, {list: true}));
-}
+};
+
+let 
 
 /////Form listener
 const signUpForm= document.getElementById('sign-up-form');
@@ -167,6 +171,7 @@ toSignIn.addEventListener('click', modalSwitch);
 toSignUp.addEventListener('click', modalSwitch);
 //////////////MODAL FUNCTIONALITY/////////////
 function closeModal(){
+      signUpForm.reset();
       signUpWrapper.style.display = 'none';
       signInWrapper.style.display = 'none';
 };
@@ -197,4 +202,5 @@ window.addEventListener('click', (e)=>{
     }
 })
 
+*/
 //////////

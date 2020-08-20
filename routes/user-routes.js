@@ -7,19 +7,29 @@ require("dotenv").config();
 
 
 
-router.post("/api/users", async ({ body }, res) => {
-    const salt = await bcrypt.genSalt();
-    const hashedPass = await bcrypt.hash(body.password, salt);
-    body.password = hashedPass;
-    Users.create(body)
-        .then((dbUsers) => {
-            res.json(dbUsers);
-            console.log(res.body);
-        })
-        .catch((err)=> {
-            console.log(err);
-            res.status(400).json(err);  
-        });
+router.post("/api/users",  ({ body }, res) => {
+    Users.findOne({"email": body.email}, "email", async (err, user)=>{
+        try{
+            if(!user){
+                console.log("error");
+                res.status(409).send();
+            }
+        }catch{
+            res.status(400);
+        }   
+    });
+    // const salt = await bcrypt.genSalt();
+    // const hashedPass = await bcrypt.hash(body.password, salt);
+    // body.password = hashedPass;
+    // Users.create(body)
+    //     .then((dbUsers) => {
+    //         res.json(dbUsers);
+    //         console.log(res.body);
+    //     })
+    //     .catch((err)=> {
+    //         console.log(err);
+    //         res.status(400).json(err);  
+    //     });
 
 // {
 //     email: 'klkrieg3@gmail.com',
@@ -33,6 +43,7 @@ router.post("/api/users", async ({ body }, res) => {
 });
 
 //user => user.email === req.body.email
+
 
 router.post("/api/users/login", (req, res) =>{
    //User authenticated with bcrypt

@@ -54,14 +54,19 @@ passwordSchema.is().min(8)              // Minimum length 8
     .is().max(50)               // Maximum length 100
     .has().uppercase(1)         // Must have uppercase letters
     .has().lowercase(1)         // Must have lowercase letters
-    .has().digits(2)            // Must have at least 1 digits
+    .has().digits(1)            // Must have at least 1 digits
     .has().symbols(1)           // Must have at least 1 symbol                    
     .has().not().spaces();
 
 const validatePassword = () => {
-  const pswrd = document.getElementById('sign-up-password').value;
-  console.log(schema.validate(pswrd, {list: true}));
-}
+  let pswrd = document.getElementById('sign-up-password').value;
+  console.log(pswrd);
+  console.log(passwordSchema.validate(pswrd, {list: true}));
+};
+let signUpConfirmPassword = document.getElementById('sign-up-password');
+
+signUpConfirmPassword.addEventListener("input", validatePassword);
+
 
 /////Form listener
 const signUpForm= document.getElementById('sign-up-form');
@@ -72,11 +77,11 @@ signUpForm.addEventListener('submit', function(event){
   const signUpfName = document.getElementById('sign-up-fName').value;
   const signUplName = document.getElementById('sign-up-lName').value;
   const signUpPassword = document.getElementById('sign-up-password').value;
+  
   const signUpBirthday = document.getElementById('sign-up-birthday').value;
   const signUpPhoneNumber = document.getElementById('sign-up-phoneNumber').value;
   const signUpProfileType = document.getElementById('sign-up-profileType').value;
 
-  
 
   let signUpData = {
     email: signUpEmail,
@@ -167,16 +172,17 @@ toSignIn.addEventListener('click', modalSwitch);
 toSignUp.addEventListener('click', modalSwitch);
 //////////////MODAL FUNCTIONALITY/////////////
 function closeModal(){
-      signUpWrapper.style.display = 'none';
-      signInWrapper.style.display = 'none';
+  signUpForm.reset();
+  signUpWrapper.style.display = 'none';
+  signInWrapper.style.display = 'none';
 };
 
 function modalSwitch({target}){
   if(target.id === 'switch-to-sign-in'){
-    signUpWrapper.style.display = 'none';
+    closeModal();
     signInWrapper.style.display = 'block';
   }else{
-    signInWrapper.style.display = 'none';
+    closeModal();
     signUpWrapper.style.display = 'block';
   }
 };

@@ -6,5 +6,7 @@ module.exports = function(app) {
       res.sendFile(path.join(__dirname, "../public/html/landing.html"));
     });
 
-    
+    app.get("/connect", (req, res) => {
+      res.sendFile(path.join(__dirname,"../public/html/connect.html"));
+    });
 }
