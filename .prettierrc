@@ -1,0 +1,10 @@
+{
+  "prettier.requireConfig": true,
+  "prettier.arrowParens": "always",
+  "prettier.bracketSpacing": true,
+  "prettier.ignorePath": ".prettierignore",
+  "prettier.printWidth": 80,
+  "prettier.proseWrap": "preserve",
+  "prettier.tabWidth": 4,
+  "prettier.useTabs": true
+}

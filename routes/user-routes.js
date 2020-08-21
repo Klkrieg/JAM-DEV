@@ -1,103 +1,104 @@
 const router = require("express").Router();
 const Users = require("../models/users.js");
-const bcrypt = require('bcrypt');
+const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const checkAuth = require("../routes/middleware/check-auth");
 require("dotenv").config();
 
+router.post("/api/users", ({ body }, res) => {
+  Users.findOne({ email: body.email }, "email", async (err, user) => {
+    try {
+      if (user) {
+        console.log("A user with that email already exists.");
+        res.status(409).send();
+      } else if (!user) {
+        const salt = await bcrypt.genSalt();
+        const hashedPass = await bcrypt.hash(body.password, salt);
+        body.password = hashedPass;
+        Users.create(body)
+          .then((dbUsers) => {
+            res.json(dbUsers);
+          })
+          .catch((err) => {
+            console.log(err);
+            res.status(400).json(err);
+          });
+      }
+    } catch {
+      res.send(err);
+    }
+  });
 
-
-router.post("/api/users",  ({ body }, res) => {
-    Users.findOne({"email": body.email}, "email", async (err, user)=>{
-        try{
-            if(!user){
-                console.log("error");
-                res.status(409).send();
-            }
-        }catch{
-            res.status(400);
-        }   
-    });
-    // const salt = await bcrypt.genSalt();
-    // const hashedPass = await bcrypt.hash(body.password, salt);
-    // body.password = hashedPass;
-    // Users.create(body)
-    //     .then((dbUsers) => {
-    //         res.json(dbUsers);
-    //         console.log(res.body);
-    //     })
-    //     .catch((err)=> {
-    //         console.log(err);
-    //         res.status(400).json(err);  
-    //     });
-
-// {
-//     email: 'klkrieg3@gmail.com',
-//     password: '$2b$10$Y.Y7BZUkyE6ou89M7cCms.qfTA.PwFJfxKtA4JtiXiwNKi1x3YKou',
-//     firstName: 'Karson',
-//     lastName: 'Krieg',
-//     birthday: '1995-03-12',
-//     phoneNumber: '5209822388',
-//     profileType: 'individual'
-//   }
+  // {
+  //     email: 'klkrieg3@gmail.com',
+  //     password: '$2b$10$Y.Y7BZUkyE6ou89M7cCms.qfTA.PwFJfxKtA4JtiXiwNKi1x3YKou',
+  //     firstName: 'Karson',
+  //     lastName: 'Krieg',
+  //     birthday: '1995-03-12',
+  //     phoneNumber: '5209822388',
+  //     profileType: 'individual'
+  //   }
 });
 
 //user => user.email === req.body.email
 
+router.post("/api/users/login", (req, res) => {
+  //User authenticated with bcrypt
+  Users.find(
+    { email: req.body.email },
+    "email password firstName lastName profileType",
+    async (err, users) => {
+      if (err) return handleError(err);
+      //console.log(req.body.password);
+      //console.log(users[0]);
+      if (!users) {
+        return res.status(400).send("Cannot Find User");
+      }
+      try {
+        if (await bcrypt.compare(req.body.password, users[0].password)) {
+          //prepare data for JWT
+          const user = users[0];
+          //Defnie user data for JWT
+          const payload = {
+            email: user.email,
+            profileType: user.profileType,
+            firstName: user.firstName,
+            lastName: user.lastName,
+          };
+          const token = jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET, {
+            algorithm: "HS256",
+            expiresIn: "20s",
+          });
 
-router.post("/api/users/login", (req, res) =>{
-   //User authenticated with bcrypt
-    Users.find({"email": req.body.email}, "email password firstName lastName profileType",  async (err, users)=>{
-        if (err) return handleError(err);
-        //console.log(req.body.password);
-        //console.log(users[0]);
-        if(!users){
-            return res.status(400).send("Cannot Find User");
+          return res.status(200).json({
+            message: "Success",
+            token: token,
+          });
+          //console.log("success");
+        } else {
+          res.status(400).send("You Shall Not Password");
         }
-        try{
-            if(await bcrypt.compare(req.body.password, users[0].password)){
-                //prepare data for JWT
-                const user = users[0];
-                //Defnie user data for JWT
-                const payload = {
-                    email: user.email,
-                    profileType: user.profileType,
-                    firstName: user.firstName,
-                    lastName: user.lastName
-                }
-                const token = jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET, {algorithm: 'HS256', expiresIn: "20s"});
-                
-                return res.status(200).json({
-                    "message": "Success",
-                    "token": token
-                });
-                //console.log("success");
-            }else{
-                res.status(400).send("You Shall Not Password");
-            }
-        }catch{
-            res.status(500).send();
-        }
-    });
+      } catch {
+        res.status(500).send();
+      }
+    }
+  );
 
-    //Authentication and serialization of user with JWT
-    // const userEmail = req.body.email;
+  //Authentication and serialization of user with JWT
+  // const userEmail = req.body.email;
 
-    // jwt.sign();
-    
+  // jwt.sign();
 });
 
-
-router.get("/api/users", checkAuth, async (req, res)=> {
-   await Users.find({},  (err, users)=> {
-        if (err) {
-            res.send(err);
-        } else {
-            res.json(users);
-        }
-    })
-}) 
-
+router.get("/api/users", checkAuth, async (req, res) => {
+  await Users.find({}, (err, users) => {
+    if (err) {
+      res.send(err);
+    } else {
+      res.json(users);
+    }
+  });
+});
 
 module.exports = router;
 
@@ -133,7 +134,7 @@ module.exports = router;
 //     });
 // });
 
-///////////example- this was setup in the server using app = express() 
+///////////example- this was setup in the server using app = express()
 
 // app.post("/submit", (req, res) => {
 //   console.log(req.body);

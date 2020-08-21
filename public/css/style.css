@@ -156,7 +156,8 @@ body {
     .navbar__burger--svg:active {
       transform: translateY(-1px); }
 
-#sign-in__modal-wrapper, #sign-up__modal-wrapper {
+#sign-in__modal-wrapper,
+#sign-up__modal-wrapper {
   z-index: 1;
   display: none;
   position: fixed;
@@ -165,20 +166,24 @@ body {
   top: 0;
   left: 0;
   background-color: rgba(74, 74, 74, 0.7); }
-  #sign-in__modal-wrapper .form-head, #sign-up__modal-wrapper .form-head {
+  #sign-in__modal-wrapper .form-head,
+  #sign-up__modal-wrapper .form-head {
     margin-bottom: 16px;
     display: flex;
     flex-flow: row nowrap;
     width: 100%;
     justify-content: space-between;
     align-items: center; }
-    #sign-in__modal-wrapper .form-head h1, #sign-up__modal-wrapper .form-head h1 {
+    #sign-in__modal-wrapper .form-head h1,
+    #sign-up__modal-wrapper .form-head h1 {
       font-size: 24px; }
-    #sign-in__modal-wrapper .form-head .close, #sign-up__modal-wrapper .form-head .close {
+    #sign-in__modal-wrapper .form-head .close,
+    #sign-up__modal-wrapper .form-head .close {
       cursor: pointer;
       font-size: 28px;
       font-weight: bold; }
-  #sign-in__modal-wrapper .modal-content-wrapper, #sign-up__modal-wrapper .modal-content-wrapper {
+  #sign-in__modal-wrapper .modal-content-wrapper,
+  #sign-up__modal-wrapper .modal-content-wrapper {
     border-radius: 8px;
     box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.5);
     border: solid 1px #979797;
@@ -187,11 +192,15 @@ body {
     background-color: white;
     padding: 32px;
     z-index: 100; }
-  #sign-in__modal-wrapper form, #sign-up__modal-wrapper form {
+  #sign-in__modal-wrapper form,
+  #sign-up__modal-wrapper form {
     display: flex;
     flex-direction: column;
     align-items: left; }
-    #sign-in__modal-wrapper form input, #sign-in__modal-wrapper form select, #sign-up__modal-wrapper form input, #sign-up__modal-wrapper form select {
+    #sign-in__modal-wrapper form input,
+    #sign-in__modal-wrapper form select,
+    #sign-up__modal-wrapper form input,
+    #sign-up__modal-wrapper form select {
       width: 100%;
       height: 35px;
       margin-top: 16px;
@@ -199,17 +208,20 @@ body {
       border: solid 1px #979797;
       font-size: 16px;
       padding-left: 25px; }
-    #sign-in__modal-wrapper form .modal-switch, #sign-up__modal-wrapper form .modal-switch {
+    #sign-in__modal-wrapper form .modal-switch,
+    #sign-up__modal-wrapper form .modal-switch {
       display: block;
       float: left; }
-    #sign-in__modal-wrapper form .form-footer, #sign-up__modal-wrapper form .form-footer {
+    #sign-in__modal-wrapper form .form-footer,
+    #sign-up__modal-wrapper form .form-footer {
       display: flex;
       width: 100%;
       margin-top: 32px;
       flex-flow: row nowrap;
       align-items: center;
       justify-content: space-between; }
-      #sign-in__modal-wrapper form .form-footer button, #sign-up__modal-wrapper form .form-footer button {
+      #sign-in__modal-wrapper form .form-footer button,
+      #sign-up__modal-wrapper form .form-footer button {
         cursor: pointer;
         width: 132px;
         height: 46px;
@@ -218,11 +230,18 @@ body {
         background-color: #4a4a4a;
         font-size: 20px;
         color: #fff; }
-      #sign-in__modal-wrapper form .form-footer p, #sign-up__modal-wrapper form .form-footer p {
+      #sign-in__modal-wrapper form .form-footer p,
+      #sign-up__modal-wrapper form .form-footer p {
         font-size: 16px; }
-        #sign-in__modal-wrapper form .form-footer p span, #sign-up__modal-wrapper form .form-footer p span {
+        #sign-in__modal-wrapper form .form-footer p span,
+        #sign-up__modal-wrapper form .form-footer p span {
           font-weight: bold;
           cursor: pointer; }
+    #sign-in__modal-wrapper form .sign-up-err-msg,
+    #sign-up__modal-wrapper form .sign-up-err-msg {
+      display: none;
+      font-size: 16px;
+      color: red; }
 
 .hero-container {
   width: 100%;
