@@ -1,76 +1,83 @@
+@import "../abstracts/variables";
+
 .navbar {
-    background-color: #4a4a4a;
+  background-color: $uglyBlue;
+  display: grid;
+  grid-template-columns: 10rem auto auto auto;
+  grid-template-rows: 10rem;
+  grid-gap: 1rem;
+  font-size: 2rem;
+  box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+
+  &__logo {
+    justify-content: start;
+  }
+
+  &__logo-1 {
+    width: 10rem;
+    height: 10rem;
+  }
+
+  ul {
+    display: flex;
+    list-style: none;
+    padding-top: 5rem;
+    justify-self: flex-start;
+    font-family: $headFont;
+    //font-size: 10px;
+    //font-weight: bold;
+    // font-stretch: normal;
+    // font-style: normal;
+    // line-height: normal;
+    // letter-spacing: normal;
+    li {
+      padding-left: 4rem;
+      float: left;
+
+      a {
+        text-decoration: none;
+        text-align: center;
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+
+        display: block;
+
+        &:hover:not(:active) {
+          color: #979797;
+        }
+
+        &:active {
+          color: #d8d8d8; //?perhaps some animation or different change besides color
+        }
+      }
+    }
+  }
+
+  &__burger {
+    padding-top: 4.5rem;
     display: grid;
-    grid-template-columns: auto auto auto auto;
-    grid-template-rows: 10rem;
-    grid-gap: 1rem;
-    font-size: 2rem;
-    box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.5);
-    overflow: hidden;
-    
-    &__logo {
-        justify-content: start;
-    }
+    justify-content: center;
+    align-content: center;
 
-    &__logo-1 {
-        width: 10rem;
-        height: 10rem;
-    }
+    &--svg {
+      &:hover {
+        transform: translateY(-2px);
 
-    ul {
-        list-style: none;
-        padding: 2.75rem;
-
-
-        li {
-            padding-left: 4rem;
-            float: left;
-
-            a { 
-                text-decoration: none;
-                text-align: center;
-                color: white;
-                font-size: 3rem;
-                display: block;
-
-                &:hover:not(:active) {
-                    color: #979797;
-                }
-
-                &:active {
-                    color: #d8d8d8;//?perhaps some animation or different change besides color
-                }
-            }
-
-            
+        &::after {
+          transform: scaleX(1.4) scaleY(1.6);
+          opacity: 0;
         }
+      }
 
+      &:active {
+        transform: translateY(-1px);
+      }
     }
-
-    &__burger {
-        display: grid;
-        justify-content: center;
-        align-content: center; 
-
-        &--svg-container {
-
-        }
-
-        &--svg {
-            &:hover {
-                transform: translateY(-2px);
-
-                    &::after {
-                        transform: scaleX(1.4) scaleY(1.6);
-                        opacity: 0;
-                    }
-            }
-
-            &:active {
-                transform: translateY(-1px);
-             }
-
-            
-        }
-    }
+  }
 }

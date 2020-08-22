@@ -1,103 +1,108 @@
-$headFont: "Lato";
-$subheadFont: "Open Sans";
+@import "../abstracts/variables";
 
-.hero-container{
-    width:100%;
-    height: 400px;
-    background-image: url("../../img/landing-hero.jpg");
-    background-color: rgba(255, 189, 90, 0.3);
-    background-blend-mode: multiply;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    font-family: $headFont;
+// $headFont: "Lato";
+// $subheadFont: "Open Sans";
 
-    .hero-text{
-        padding: 100px 127px;
-        color: black;
-        h1{
-            font-size: 52px;
-        }
-        p{
-            font-size: 45px;
-            font-family: $subheadFont;
-        }
+.hero-container {
+  width: 100%;
+  height: 400px;
+  background-image: url("../../img/landing-hero.jpg");
+  background-color: rgba(74, 74, 74, 0.3);
+  background-blend-mode: multiply;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: $subheadFont;
+  font-size: 48px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: italic;
+  line-height: normal;
+  letter-spacing: normal;
+
+  .hero-text {
+    padding: 100px 127px;
+    color: $white;
+    h1 {
+      font-size: 52px;
     }
+    p {
+      font-size: 45px;
+      font-family: $subheadFont;
+    }
+  }
 }
 
-.about{
-    width:100%;
-    height: 200px;
-    text-align: left;
+.about {
+  width: 100%;
+  height: 200px;
+  text-align: left;
+  font-size: 16px;
+  font-family: $headFont;
+  display: flex;
+  flex-direction: column;
+  padding: 0 127px;
+
+  h2 {
+    margin: 32px 0;
+  }
+  p {
+    font-size: 24px;
+    color: #4a4a4a;
+    font-family: $subheadFont;
+  }
+}
+
+.survey-section {
+  width: 100%;
+  height: 240px;
+  border-top: solid 1px #979797;
+  padding: 55px 127px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #d8d8d8;
+
+  .info-box {
+    width: 863px;
     font-size: 16px;
     font-family: $headFont;
-    display: flex;
-    flex-direction: column;
-    padding: 0 127px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #4a4a4a;
+    margin-right: 105px;
 
-    h2{
-        margin: 32px 0;
+    h2 {
+      color: black;
     }
-    p{
-        font-size: 24px;
-        color: #4a4a4a;
-        font-family: $subheadFont;
+    p {
+      font-size: 20px;
+      font-family: $subheadFont;
     }
-}
+  }
 
-.survey-section{
-    width: 100%;
-    height: 240px;
-    border-top: solid 1px #979797;
-    padding: 55px 127px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    background-color: #d8d8d8;
+  button {
+    cursor: pointer;
+    width: 225px;
+    height: 50px;
+    border-radius: 5px;
+    border: solid 1px #979797;
+    background-color: #4a4a4a;
+    font-family: AvenirNext;
+    font-size: 24px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #ffffff;
 
-
-
-
-    .info-box{
-        width: 863px;
-        font-size: 16px;
-        font-family: $headFont;
-        font-weight: normal;
-        font-stretch: normal;
-        font-style: normal;
-        line-height: normal;
-        letter-spacing: normal;
-        color: #4a4a4a;
-        margin-right:105px;
-        
-        h2{
-            color: black;
-        }
-        p{
-            font-size: 20px;
-            font-family: $subheadFont;
-        }
+    &:hover {
+      background-color: #6e6e6e;
     }
-
-    button{
-        cursor: pointer;
-        width: 225px;
-        height: 50px;
-        border-radius: 5px;
-        border: solid 1px #979797;
-        background-color: #4a4a4a;
-        font-family: AvenirNext;
-        font-size: 24px;
-        font-weight: 600;
-        font-stretch: normal;
-        font-style: normal;
-        line-height: normal;
-        letter-spacing: normal;
-        text-align: center;
-        color: #ffffff;
-        
-        &:hover{
-            background-color: #6e6e6e;
-        }
-    }
+  }
 }
