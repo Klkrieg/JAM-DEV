@@ -23,7 +23,8 @@
     border-radius: 3px;
   }
 
-  &--blue {
+  &--white {
+    text-decoration: none;
     background-color: $uglyBlue;
     color: $white;
     text-align: center;
@@ -32,7 +33,6 @@
     &:hover {
       transform: translateY(-2px);
       box-shadow: 0 1rem 2rem rgba(black, 0.2);
-      border-color: $brightOrange;
 
       &::after {
         transform: scaleX(1.4) scaleY(1.6);
@@ -46,26 +46,26 @@
     }
   }
 
-  //   &--dark {
-  //     background-color: #4a4a4a;
-  //     border: 1px solid #d8d8d8;
-  //     color: white;
-  //     text-align: center;
-  //     padding: 0.35rem;
+  &--orange {
+    background-color: $uglyBlue;
+    border: solid 2px $brightOrange;
+    color: white;
+    text-align: center;
+    padding: 0.35rem;
 
-  //     &:hover {
-  //       transform: translateY(-2px);
-  //       box-shadow: 0 1rem 2rem rgba(black, 0.2);
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 1rem 2rem rgba(black, 0.2);
 
-  //       &::after {
-  //         transform: scaleX(1.4) scaleY(1.6);
-  //         opacity: 0;
-  //       }
-  //     }
+      &::after {
+        transform: scaleX(1.4) scaleY(1.6);
+        opacity: 0;
+      }
+    }
 
-  //     &:active {
-  //       transform: translateY(-1px);
-  //       box-shadow: 0 0.5rem 1rem rgba(black, 0.2);
-  //     }
-  //   }
+    &:active {
+      transform: translateY(-1px);
+      box-shadow: 0 0.5rem 1rem rgba(black, 0.2);
+    }
+  }
 }

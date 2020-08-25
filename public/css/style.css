@@ -30,19 +30,34 @@ body {
     max-height: 3.5rem;
     width: 10rem;
     border-radius: 3px; }
-  .btn--blue {
+  .btn--white {
+    text-decoration: none;
     background-color: #287c80;
     color: #ffffff;
     text-align: center;
     padding: 0.35rem; }
-    .btn--blue:hover {
+    .btn--white:hover {
       transform: translateY(-2px);
-      box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
-      border-color: #f55701; }
-      .btn--blue:hover::after {
+      box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
+      .btn--white:hover::after {
         transform: scaleX(1.4) scaleY(1.6);
         opacity: 0; }
-    .btn--blue:active {
+    .btn--white:active {
+      transform: translateY(-1px);
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); }
+  .btn--orange {
+    background-color: #287c80;
+    border: solid 2px #f55701;
+    color: white;
+    text-align: center;
+    padding: 0.35rem; }
+    .btn--orange:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
+      .btn--orange:hover::after {
+        transform: scaleX(1.4) scaleY(1.6);
+        opacity: 0; }
+    .btn--orange:active {
       transform: translateY(-1px);
       box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); }
 
@@ -132,7 +147,7 @@ body {
         text-decoration: none;
         text-align: center;
         color: white;
-        font-size: 16px;
+        font-size: 13px;
         font-weight: bold;
         font-stretch: normal;
         font-style: normal;
