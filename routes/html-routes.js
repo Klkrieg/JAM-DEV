@@ -8,4 +8,7 @@ module.exports = function (app) {
   app.get("/connect", (req, res) => {
     res.sendFile(path.join(__dirname, "../public/html/connect.html"));
   });
+  app.get("/resources", (req, res) => {
+    res.sendFile(path.join(__dirname, "../public/html/resources.html"));
+  });
 };

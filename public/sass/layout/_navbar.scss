@@ -4,7 +4,7 @@
   background-color: $uglyBlue;
   display: grid;
   grid-template-columns: 10rem auto auto auto;
-  grid-template-rows: 10rem;
+  grid-template-rows: 80px;
   grid-gap: 1rem;
   font-size: 2rem;
   box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.5);
@@ -15,22 +15,22 @@
   }
 
   &__logo-1 {
-    width: 10rem;
-    height: 10rem;
+    width: 80px;
+    height: 80px;
   }
 
   ul {
     display: flex;
     list-style: none;
-    padding-top: 5rem;
     justify-self: flex-start;
+    align-items: center;
     font-family: $headFont;
-    //font-size: 10px;
-    //font-weight: bold;
-    // font-stretch: normal;
-    // font-style: normal;
-    // line-height: normal;
-    // letter-spacing: normal;
+    font-size: 10px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
     li {
       padding-left: 4rem;
       float: left;
@@ -60,7 +60,6 @@
   }
 
   &__burger {
-    padding-top: 4.5rem;
     display: grid;
     justify-content: center;
     align-content: center;
