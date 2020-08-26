@@ -1,0 +1,28 @@
+{
+  "name": "JAM-DEV",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joeldelatte/JAM-DEV.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joeldelatte/JAM-DEV/issues"
+  },
+  "homepage": "https://github.com/joeldelatte/JAM-DEV#readme",
+  "dependencies": {
+    "next": "^9.5.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "sass": "^1.26.10"
+  }
+}
