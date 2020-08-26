@@ -1,12 +1,12 @@
 import Layout from "../components/Layout/Layout.component";
-const Resources = () => {
+const Connect = () => {
 	return (
 		<Layout>
 			<div>
-				<h1>RESOURCES</h1>
+				<h1>CONNECT</h1>
 			</div>
 		</Layout>
 	);
 };
 
-export default Resources;
+export default Connect;

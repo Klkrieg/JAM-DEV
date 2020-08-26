@@ -1,1 +1,11 @@
-export default () => <h1>WELCOME HOME</h1>;
+import Layout from "../components/Layout/Layout.component";
+
+const Index = () => (
+	<Layout>
+		<div>
+			<h1>HOME</h1>
+		</div>
+	</Layout>
+);
+
+export default Index;
