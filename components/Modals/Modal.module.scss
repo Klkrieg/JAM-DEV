@@ -1,0 +1,13 @@
+@import "../../globalStyles/variables.scss";
+.modal {
+	position: fixed;
+	margin: 0 auto;
+	top: 18vh;
+	left: calc((100% - 600px) / 2);
+	width: 600px;
+	height: 300px;
+	border-radius: 8px;
+	box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.78);
+	border: solid 1px #979797;
+	background-color: $white;
+}

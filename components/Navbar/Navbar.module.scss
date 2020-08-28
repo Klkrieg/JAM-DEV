@@ -1,6 +1,69 @@
-.navbar__logo {
-	width: 80px;
+@import "../../globalStyles/variables.scss";
+.Navbar {
+	background-color: $uglyBlue;
+	display: grid;
+	grid-template-columns: 80px auto auto;
+	grid-template-rows: 80px;
+	grid-gap: 1rem;
+	font-size: 2rem;
+	box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.5);
+	overflow: hidden;
+	align-items: center;
+
+	.PageLinks {
+		margin-left: 10px;
+		display: flex;
+		width: 36px;
+		height: 16px;
+		font-family: $headFont;
+		font-size: 13px;
+		font-weight: bold;
+		font-stretch: normal;
+		font-style: normal;
+		line-height: normal;
+		letter-spacing: normal;
+		text-align: center;
+
+		li {
+			list-style: none;
+			margin-right: 30px;
+			a {
+				color: $white;
+				text-decoration: none;
+			}
+		}
+	}
+
+	.buttonContainer {
+		justify-self: end;
+		margin-right: 106px;
+
+		button {
+			width: 140px;
+			height: 40px;
+			margin-left: 19px;
+			border-radius: 5px;
+			background-color: $uglyBlue;
+			font-family: $subheadFont;
+			font-size: 16px;
+			font-weight: 600;
+			font-stretch: normal;
+			font-style: normal;
+			line-height: normal;
+			letter-spacing: normal;
+			text-align: center;
+			color: $white;
+			cursor: pointer;
+		}
+		.orange {
+			border: solid 2px $brightOrange;
+		}
+		.white {
+			border: solid 2px $white;
+		}
+	}
 	img {
-		width: 80px;
+		width: 87px;
+		height: 80px;
 	}
 }
