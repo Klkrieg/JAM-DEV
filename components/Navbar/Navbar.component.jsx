@@ -1,7 +1,7 @@
 import Link from "next/link";
 import styles from "./Navbar.module.scss";
 
-const Navbar = () => (
+const Navbar = (props) => (
 	<div className={styles.Navbar}>
 		<img src='/assets/jam-logo-1.png' className={styles.navbar__logo} />
 		<ul className={styles.PageLinks}>
