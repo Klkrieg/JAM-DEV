@@ -1,5 +1,6 @@
 import Link from "next/link";
 import SignInModal from "../Modals/SignInModal.component";
+import SignUpModal from "../Modals/SignUpModal.component";
 import Backdrop from "../Backdrop/Backdrop.component";
 import styles from "./Navbar.module.scss";
 
@@ -20,6 +21,9 @@ class Navbar extends React.Component {
 
 	handleSignInOpen = () => {
 		this.setState({ signInOpen: true });
+	};
+	handleSignUpOpen = () => {
+		this.setState({ signUpOpen: true });
 	};
 
 	handleOffModalClick(e) {
@@ -42,10 +46,7 @@ class Navbar extends React.Component {
 	render() {
 		return (
 			<div className={styles.Navbar}>
-				<img
-					src='/assets/jam-logo-1.png'
-					className={styles.navbar__logo}
-				/>
+				<img src='/assets/jam-logo-1.png' className={styles.navbar__logo} />
 				<ul className={styles.PageLinks}>
 					<li>
 						<Link href='/'>
@@ -64,16 +65,17 @@ class Navbar extends React.Component {
 					</li>
 				</ul>
 				<div className={styles.buttonContainer}>
-					<button
-						className={styles.orange}
-						onClick={this.handleSignInOpen}
-					>
+					<button className={styles.orange} onClick={this.handleSignInOpen}>
 						Sign in
 					</button>
-					<button className={styles.white}>Sign up</button>
+					<button className={styles.white} onClick={this.handleSignUpOpen}>
+						Sign up
+					</button>
 				</div>
 				{this.state.signInOpen && <Backdrop />}
 				{this.state.signInOpen && <SignInModal />}
+				{this.state.signUpOpen && <Backdrop />}
+				{this.state.signUpOpen && <SignUpModal />}
 			</div>
 		);
 	}

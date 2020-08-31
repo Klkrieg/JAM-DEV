@@ -9,7 +9,7 @@ class SignInModal extends React.Component {
 			<div>
 				<div className={styles.modal}>
 					<h1>Sign in</h1>
-					<form>
+					<form className={styles.SignInModal}>
 						<div className={styles.email}>
 							<label>Email</label>
 							<input type='text'></input>
@@ -21,7 +21,9 @@ class SignInModal extends React.Component {
 
 						<div className={styles.switch}>
 							<p>Not a member of JAM?</p>
-							<p className={styles.bold}>Sign up.</p>
+							<a tabIndex='0' className={styles.bold}>
+								Sign up.
+							</a>
 						</div>
 						<button type='submit' className={styles.submit}>
 							Sign in
