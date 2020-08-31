@@ -3,18 +3,7 @@ import styles from "./Modal.module.scss";
 class SignInModal extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = {
-			modalIsOpen: false,
-		};
-		this.modalOpenHandler = this.modalOpenHandler.bind(this);
 	}
-
-	modalOpenHandler() {
-		this.setState((state) => ({
-			modalIsOpen: !state.modalIsOpen,
-		}));
-	}
-
 	render() {
 		return (
 			<div>

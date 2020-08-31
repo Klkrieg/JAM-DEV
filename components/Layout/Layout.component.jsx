@@ -1,16 +1,10 @@
 import Head from "next/head";
 import styles from "./Layout.module.scss";
 import Navbar from "../Navbar/Navbar.component";
-import SignInModal from "../Modals/Modal.component";
-import Backdrop from "../Backdrop/Backdrop.component";
 
 class Layout extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = {
-			signInOpen: false,
-			signUpOpen: false,
-		};
 	}
 	handleModalOpen() {}
 	render() {
@@ -23,10 +17,8 @@ class Layout extends React.Component {
 						rel='stylesheet'
 					/>
 				</Head>
-				<Backdrop />
 				<Navbar />
-				<SignInModal />
-				{props.children}
+				{this.props.children}
 			</div>
 		);
 	}

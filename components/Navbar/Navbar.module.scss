@@ -47,14 +47,14 @@
 			font-family: $subheadFont;
 			font-size: 16px;
 			font-weight: 600;
-			font-stretch: normal;
-			font-style: normal;
-			line-height: normal;
-			letter-spacing: normal;
 			text-align: center;
 			color: $white;
 			cursor: pointer;
+			&:focus {
+				outline: none;
+			}
 		}
+
 		.orange {
 			border: solid 2px $brightOrange;
 		}
