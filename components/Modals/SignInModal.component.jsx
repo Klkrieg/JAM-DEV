@@ -21,7 +21,11 @@ class SignInModal extends React.Component {
 
 						<div className={styles.switch}>
 							<p>Not a member of JAM?</p>
-							<a tabIndex='0' className={styles.bold}>
+							<a
+								tabIndex='0'
+								className={styles.bold}
+								onClick={this.props.switchHandle}
+							>
 								Sign up.
 							</a>
 						</div>

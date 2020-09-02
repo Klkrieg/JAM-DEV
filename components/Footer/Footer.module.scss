@@ -25,7 +25,8 @@
 }
 
 .logoContainer {
-	text-align: center;
+	align-items: left;
+	padding-left: 50px;
 	img {
 		width: 150px;
 		padding-bottom: 13px;
@@ -43,15 +44,14 @@
 	}
 }
 .subscribeContainer {
-	padding-left: 70px;
-	h2 {
-		padding-bottom: 8px;
-	}
 	form {
 		display: grid;
 		grid-template-columns: 1fr;
 		grid-template-rows: 1fr 1fr 1fr 1fr;
 		grid-gap: 8px;
+		width: 232px;
+		float: right;
+
 		input {
 			height: 36px;
 			border-radius: 5px;

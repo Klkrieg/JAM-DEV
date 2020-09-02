@@ -91,7 +91,11 @@ class SignUpModal extends React.Component {
 
 						<div className={styles.switch}>
 							<p>Already have an account?</p>
-							<a tabIndex='0' className={styles.bold}>
+							<a
+								tabIndex='0'
+								className={styles.bold}
+								onClick={this.props.switchHandle}
+							>
 								Sign in.
 							</a>
 						</div>

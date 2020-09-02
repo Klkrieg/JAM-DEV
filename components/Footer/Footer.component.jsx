@@ -23,8 +23,8 @@ class Footer extends React.Component {
 						<p>info@joiningallmusicians.com</p>
 					</div>
 					<div className={styles.subscribeContainer}>
-						<h2>STAY TUNED</h2>
 						<form>
+							<h2>STAY TUNED</h2>
 							<input type='text' placeholder='First name'></input>
 							<input type='text' placeholder='Last name'></input>
 							<input type='email' placeholder='Email'></input>

@@ -13,6 +13,7 @@ class Navbar extends React.Component {
 		};
 		this.handleEscKeyPress = this.handleEscKeyPress.bind(this);
 		this.handleOffModalClick = this.handleOffModalClick.bind(this);
+		this.handleModalSwitch = this.handleModalSwitch.bind(this);
 	}
 	componentDidMount() {
 		document.addEventListener("keydown", this.handleEscKeyPress);
@@ -41,6 +42,19 @@ class Navbar extends React.Component {
 				signUpOpen: false,
 			});
 		}
+	}
+	handleModalSwitch(e) {
+		let text = e.target.innerHTML;
+		text == "Sign up."
+			? this.setState({
+					signInOpen: false,
+					signUpOpen: true,
+			  })
+			: this.setState({
+					signInOpen: true,
+					signUpOpen: false,
+			  });
+		console.log(e.target.innerHTML);
 	}
 
 	render() {
@@ -73,9 +87,9 @@ class Navbar extends React.Component {
 					</button>
 				</div>
 				{this.state.signInOpen && <Backdrop />}
-				{this.state.signInOpen && <SignInModal />}
+				{this.state.signInOpen && <SignInModal switchHandle={this.handleModalSwitch} />}
 				{this.state.signUpOpen && <Backdrop />}
-				{this.state.signUpOpen && <SignUpModal />}
+				{this.state.signUpOpen && <SignUpModal switchHandle={this.handleModalSwitch} />}
 			</div>
 		);
 	}
