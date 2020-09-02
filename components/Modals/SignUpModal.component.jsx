@@ -4,21 +4,11 @@ class SignUpModal extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			profileType: {
-				Ind_prof: false,
-				Band: false,
-				Org_biz: false,
-			},
+			profileType: "",
 		};
 	}
 	handleButtonClick = (e) => {
-		let name = e.target.name;
-		this.setState({
-			profileType: {
-				[name]: !this.state.profileType[name],
-			},
-		});
-		console.log(this.state.profileType[e.target.name]);
+		console.log(styles.profileBtn);
 	};
 
 	render() {
@@ -28,28 +18,50 @@ class SignUpModal extends React.Component {
 					<h1>Sign up</h1>
 					<form className={styles.SignUpModal}>
 						<div className={styles.fName}>
-							<label>First name</label>
-							<input type='text'></input>
+							<label for='firstName'>First name</label>
+							<input type='text' id='firstName'></input>
 						</div>
 						<div className={styles.lName}>
-							<label>Last name</label>
-							<input type='text'></input>
+							<label for='lastName'>Last name</label>
+							<input type='text' id='lastName'></input>
 						</div>
 						<div className={styles.email}>
-							<label>Email</label>
-							<input type='text'></input>
+							<label for='email'>Email</label>
+							<input type='text' id='email'></input>
 						</div>
 						<div className={styles.password}>
-							<label>Password</label>
-							<input type='password'></input>
+							<label for='password'>Password</label>
+							<input type='password' id='password'></input>
 						</div>
 						<div className={styles.confirmPassword}>
-							<label>Confirm Password</label>
-							<input type='password'></input>
+							<label for='confirmPassword'>Confirm Password</label>
+							<input type='password' id='confirmPassword'></input>
 						</div>
 						<div className={styles.profileType}>
-							<label>Profile Type</label>
-							<div className={styles.buttonContainer}>
+							<label for='profileTypeContainer'>Profile Type</label>
+							<div className={styles.buttonContainer} id='profileTypeContainer'>
+								{/*<label for='Individual/Professional'>
+									<input
+										type='radio'
+										name='profileType'
+										value='Individual/Professional'
+										id='Individual/Professional'
+									/>
+									Individual/Professional
+								</label>
+								<label for='Band'>
+									<input type='radio' name='profileType' value='Band' id='Band' />
+									Band
+								</label>
+								<label for='Organization/Business'>
+									<input
+										type='radio'
+										name='profileType'
+										value='Organization/Business'
+										id='Organization/Business'
+									/>
+									Organization/Business
+								</label>*/}
 								<button
 									type='button'
 									name='Ind_prof'

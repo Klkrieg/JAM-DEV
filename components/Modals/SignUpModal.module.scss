@@ -36,6 +36,11 @@
 			font-family: $subheadFont;
 			color: $black;
 		}
+		input[type="radio"] {
+			opacity: 100;
+			position: absolute;
+		}
+
 		label {
 			padding-left: 8px;
 			font-family: $headFont;
