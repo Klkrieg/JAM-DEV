@@ -6,9 +6,10 @@
 	grid-template-rows: 80px;
 	grid-gap: 1rem;
 	font-size: 2rem;
-	box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.5);
+	box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.8);
 	overflow: hidden;
 	align-items: center;
+	z-index: 2;
 
 	.PageLinks {
 		margin-left: 10px;
