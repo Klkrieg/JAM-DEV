@@ -10,7 +10,7 @@ export default async (req, res) => {
 		case "GET":
 			try {
 				const users = await Users.find({});
-				res.status(200).json({ success: "true", data: users });
+				res.status(200).json({ success: true, data: users });
 			} catch {
 				res.status(400);
 			}
@@ -22,5 +22,8 @@ export default async (req, res) => {
 			} catch {
 				res.status(400).json({ succes: false });
 			}
+			break;
+		default:
+			res.status(400).json({ succes: false });
 	}
 };
