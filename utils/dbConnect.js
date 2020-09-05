@@ -1,17 +1,20 @@
-import mongoose, { connection } from "mongoose";
+import mongoose from "mongoose";
 
+const connection = {};
 async function dbConnect() {
-	if (connection.isConnected) {
-		return;
-	}
-	const db = await mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/JAM", {
-		useNewUrlParser: true,
-		useFindAndModify: false,
-		useUnifiedTopology: true,
-	});
+	// if (connection.isConnected) {
+	// 	return;
+	// }
 
-	connection.isConnected = db.connections[0].readyState;
-	console.log(connection.isConnected);
+	try {
+		const db = await mongoose.connect(process.env.MONGODB_URI, {
+			useNewUrlParser: true,
+			useUnifiedTopology: true,
+		});
+		console.log(db.connections[0].readyState);
+	} catch {
+		return "Nope";
+	}
 }
 
 export default dbConnect;

@@ -24,11 +24,11 @@ const userSchema = new Schema({
 	},
 	birthday: {
 		type: Date,
-		required: false,
+		required: true,
 	},
 	phoneNumber: {
 		type: String,
-		required: false,
+		required: true,
 	},
 	profileType: {
 		type: String,
