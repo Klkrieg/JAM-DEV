@@ -1,0 +1,24 @@
+.btn {
+
+    &:link,
+    &:visited {
+        background-color: #d8d8d8;
+        text-transform: uppercase;
+        text-decoration: none;
+        display: inline-block;
+        // float: left;
+        width: 10rem;
+        height: .5rem;
+        // padding: 5rem;
+        border-radius: 3px;
+        // color: black;
+    }
+
+    &--light {
+        color: black;
+    }
+
+    &--dark {
+
+    }
+}

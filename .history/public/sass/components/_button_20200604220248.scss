@@ -1,0 +1,33 @@
+.nav__button {
+    display: grid;
+    
+}
+
+.btn {
+
+    &:link,
+    &:visited {
+        text-transform: uppercase;
+        text-decoration: none;
+        display: block;
+        float: left;
+        width: 10rem;
+        border-radius: 3px;
+    }
+
+    &--light {
+        background-color: #d8d8d8;
+        color: black;
+        text-align: center;
+        padding: .35rem;
+    }
+
+    &--dark {
+        background-color: #4a4a4a;
+        border: 1px solid #d8d8d8;
+        color: white;
+        text-align: center;
+        padding: .35rem;
+
+    }
+}

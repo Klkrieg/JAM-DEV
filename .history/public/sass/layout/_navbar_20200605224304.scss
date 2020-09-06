@@ -1,0 +1,76 @@
+.navbar {
+    background-color: #4a4a4a;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-template-rows: 10rem;
+    grid-gap: 1rem;
+    font-size: 2rem;
+    box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    
+    &__logo {
+        justify-content: start;
+    }
+
+    &__logo-1 {
+        width: 10rem;
+        height: 10rem;
+    }
+
+    ul {
+        list-style: none;
+        padding: 2.75rem;
+
+
+        li {
+            padding-left: 4rem;
+            float: left;
+
+            a { 
+                text-decoration: none;
+                text-align: center;
+                color: white;
+                font-size: 3rem;
+                display: block;
+
+                &:hover:not(:active) {
+                    color: #979797;
+                }
+
+                &:active {
+                    color: #d8d8d8;//?perhaps some animation or different change besides color
+                }
+            }
+
+            
+        }
+
+    }
+
+    &__burger {
+        display: grid;
+        justify-content: center;
+        align-content: center; 
+
+        &--svg-container {
+
+        }
+
+        &--svg {
+            &:hover {
+                transform: translateY(-2px);
+
+                    &::after {
+                        transform: scaleX(1.4) scaleY(1.6);
+                        opacity: 0;
+                    }
+            }
+
+            &:active {
+                transform: translateY(-1px);
+             }
+
+            
+        }
+    }
+}

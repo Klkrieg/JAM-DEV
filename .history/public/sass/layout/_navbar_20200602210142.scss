@@ -1,0 +1,14 @@
+.navbar {
+
+    // overflow: hidden;
+    position: fixed;
+    background-color: orange;
+
+    &ul {
+        &li {
+            &a {
+
+            }
+        }
+    }
+}
