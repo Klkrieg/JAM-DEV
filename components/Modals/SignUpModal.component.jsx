@@ -21,28 +21,13 @@ class SignUpModal extends React.Component {
 		};
 	}
 
-	// handleSubmit = (event) => {
-	// 	event.preventDefault();
-	// 	const { id, value } = event.target;
-	// 	let errors = this.state.errors;
-
-	// 	switch (id) {
-	// 		case "email":
-	// 			errors.email = !RegExp.test(/^[^\s@]+@[^\s@]+\.[^\s@]+$/, value)
-	// 				? "Please enter a valid email"
-	// 				: "";
-	// 			console.log(this.state);
-	// 			break;
-	// 		case "password":
-	// 			errors.password = !validator(this.state.password)
-	// 				? "Please follow the desired format for your password"
-	// 				: "";
-	// 			console.log(this.state);
-	// 	}
-	// };
+	handleSubmit = (event) => {
+		event.preventDefault();
+	};
 
 	handlePasswordChange = (pswd) => {
 		let errs = validator(pswd);
+		console.log(errs);
 		if (errs.length > 0) {
 			let errors = errs.map((error) => {
 				switch (error) {
@@ -74,11 +59,19 @@ class SignUpModal extends React.Component {
 					errors: {
 						password: errors,
 					},
-				},
-				() => console.log(this.state.errors)
+				}
+				//() => console.log(this.state.errors)
 			);
+		} else if (!errs.length) {
+			this.setState({
+				errors: {
+					password: [],
+				},
+			});
+			console.log("Pass pass");
 		}
 	};
+
 	handleChange = (e) => {
 		let id = e.target.id;
 		let value = e.target.value;
@@ -146,9 +139,14 @@ class SignUpModal extends React.Component {
 						</div>
 						<div className={styles.password}>
 							<label htmlFor='password'>Password</label>
-							<span>{`Your password must contain: ${this.state.errors.password.join(
-								", "
-							)}`}</span>
+
+							{!this.state.errors.password.length ? (
+								<span></span>
+							) : (
+								<span>{`Your password must contain: ${this.state.errors.password.join(
+									", "
+								)}`}</span>
+							)}
 							<input
 								type='password'
 								id='password'
