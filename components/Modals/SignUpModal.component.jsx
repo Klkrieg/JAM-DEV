@@ -1,4 +1,7 @@
 import styles from "./SignUpModal.module.scss";
+import { zipList } from "../../utils/ziplist";
+import validator from "../../utils/passwordValidator";
+import axios from "axios";
 
 class SignUpModal extends React.Component {
 	constructor(props) {
@@ -9,21 +12,90 @@ class SignUpModal extends React.Component {
 			email: "",
 			zipcode: "",
 			password: "",
-			//profileType: "",
-			zipList: null,
+			profileType: "",
+			errors: {
+				email: "",
+				zipcode: "",
+				password: [],
+			},
 		};
 	}
 
+	// handleSubmit = (event) => {
+	// 	event.preventDefault();
+	// 	const { id, value } = event.target;
+	// 	let errors = this.state.errors;
+
+	// 	switch (id) {
+	// 		case "email":
+	// 			errors.email = !RegExp.test(/^[^\s@]+@[^\s@]+\.[^\s@]+$/, value)
+	// 				? "Please enter a valid email"
+	// 				: "";
+	// 			console.log(this.state);
+	// 			break;
+	// 		case "password":
+	// 			errors.password = !validator(this.state.password)
+	// 				? "Please follow the desired format for your password"
+	// 				: "";
+	// 			console.log(this.state);
+	// 	}
+	// };
+
+	handlePasswordChange = (pswd) => {
+		let errs = validator(pswd);
+		if (errs.length > 0) {
+			let errors = errs.map((error) => {
+				switch (error) {
+					case "min":
+						return "eight characters";
+						break;
+					case "uppercase":
+						return "one uppercase letter";
+						break;
+					case "lowercase":
+						return "one lowercase letter";
+						break;
+					case "digits":
+						return "one number";
+						break;
+					case "symbols":
+						return "one symbol";
+						break;
+					case "max":
+						return "no more than 50 characters";
+						break;
+					case "spaces":
+						return "no spaces";
+						break;
+				}
+			});
+			this.setState(
+				{
+					errors: {
+						password: errors,
+					},
+				},
+				() => console.log(this.state.errors)
+			);
+		}
+	};
 	handleChange = (e) => {
+		let id = e.target.id;
+		let value = e.target.value;
+		if (id == "password") {
+			this.handlePasswordChange(value);
+		}
+		this.setState({
+			[id]: value,
+		});
+	};
+	handleButtonClick = (e) => {
 		this.setState(
 			{
-				[e.target.id]: e.target.value,
+				profileType: e.target.name,
 			},
 			() => console.log(this.state)
 		);
-	};
-	handleButtonClick = (e) => {
-		console.log(styles.profileBtn);
 	};
 
 	render() {
@@ -31,58 +103,66 @@ class SignUpModal extends React.Component {
 			<div>
 				<div className={styles.modal}>
 					<h1>Sign up</h1>
-					<form className={styles.SignUpModal}>
+					<form className={styles.SignUpModal} onSubmit={this.handleSubmit}>
 						<div className={styles.fName}>
-							<label for='firstName'>First name</label>
+							<label htmlFor='firstName'>First name</label>
 							<input
 								type='text'
 								id='firstName'
 								value={this.state.firstName}
 								onChange={this.handleChange}
+								required
 							></input>
 						</div>
 						<div className={styles.lName}>
-							<label for='lastName'>Last name</label>
+							<label htmlFor='lastName'>Last name</label>
 							<input
 								type='text'
 								id='lastName'
 								value={this.state.lastName}
 								onChange={this.handleChange}
+								required
 							></input>
 						</div>
 						<div className={styles.email}>
-							<label for='email'>Email</label>
+							<label htmlFor='email'>Email</label>
 							<input
 								type='text'
 								id='email'
 								value={this.state.email}
 								onChange={this.handleChange}
+								required
 							></input>
 						</div>
 						<div className={styles.zip}>
-							<label for='zipcode'>Zip code</label>
+							<label htmlFor='zipcode'>Zip code</label>
 							<input
 								type='text'
 								id='zipcode'
 								value={this.state.zipcode}
 								onChange={this.handleChange}
+								required
 							></input>
 						</div>
 						<div className={styles.password}>
-							<label for='password'>Password</label>
+							<label htmlFor='password'>Password</label>
+							<span>{`Your password must contain: ${this.state.errors.password.join(
+								", "
+							)}`}</span>
 							<input
 								type='password'
 								id='password'
 								value={this.state.password}
 								onChange={this.handleChange}
+								required
 							></input>
 						</div>
 						<div className={styles.confirmPassword}>
-							<label for='confirmPassword'>Confirm Password</label>
-							<input type='password' id='confirmPassword'></input>
+							<label htmlFor='confirmPassword'>Confirm Password</label>
+							<input type='password' id='confirmPassword' required></input>
 						</div>
 						<div className={styles.profileType}>
-							<label for='profileTypeContainer'>Profile Type</label>
+							<label htmlFor='profileTypeContainer'>Profile Type</label>
 							<div className={styles.buttonContainer} id='profileTypeContainer'>
 								<button
 									type='button'

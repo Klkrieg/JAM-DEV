@@ -41,6 +41,11 @@
 			opacity: 100;
 			position: absolute;
 		}
+		span {
+			padding-left: 10px;
+			font-size: 10px;
+			color: red;
+		}
 
 		label {
 			padding-left: 8px;
@@ -96,6 +101,10 @@
 					cursor: pointer;
 					&:focus {
 						outline: none;
+					}
+					&::after {
+						background-color: $brightOrange;
+						color: $white;
 					}
 				}
 			}

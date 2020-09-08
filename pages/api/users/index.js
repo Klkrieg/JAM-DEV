@@ -1,4 +1,4 @@
-//import bcrypt from "bcrypt";
+import bcrypt from "bcrypt";
 import Users from "../../../models/users.js";
 import dbConnect from "../../../utils/dbConnect";
 
