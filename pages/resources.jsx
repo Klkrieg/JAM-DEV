@@ -1,10 +1,9 @@
 import Layout from "../components/Layout/Layout.component";
+import styles from "../pageStyles/resources.module.scss";
 const Resources = () => {
 	return (
 		<Layout>
-			<div>
-				<h1>RESOURCES</h1>
-			</div>
+			<div></div>
 		</Layout>
 	);
 };
