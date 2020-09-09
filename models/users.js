@@ -22,20 +22,22 @@ const userSchema = new Schema({
 		trim: true,
 		required: false,
 	},
+	zipcode: {
+		type: String,
+		required: true,
+	},
 	birthday: {
 		type: Date,
-		required: true,
+		required: false,
 	},
 	phoneNumber: {
 		type: String,
-		required: true,
+		required: false,
 	},
 	profileType: {
 		type: String,
-		required: true,
+		required: false,
 	},
 });
 
-const Users = mongoose.model("Users", userSchema);
-
-module.exports = Users;
+module.exports = userSchema;
