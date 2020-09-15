@@ -14,7 +14,7 @@ async function dbConnect() {
 		connection.isConnected = db.connections[0].readyState;
 		console.log(db.connections[0].readyState);
 	} catch {
-		return "Nope";
+		return "Did not connect to Mongo";
 	}
 }
 

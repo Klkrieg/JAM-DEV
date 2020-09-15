@@ -29,6 +29,23 @@ class Resources extends React.Component {
 			},
 		};
 	}
+
+	handleButtonClick = (event) => {
+		let id = event.target.id;
+		switch (id) {
+			case "pandemicImpact":
+			case "industryProfessional":
+			case "incomeMin":
+				this.setState(
+					{
+						financialGroup: {
+							[id]: !this.state.financialGroup[id],
+						},
+					},
+					() => console.log(this.state.financialGroup)
+				);
+		}
+	};
 	render() {
 		return (
 			<Layout>
@@ -40,20 +57,30 @@ class Resources extends React.Component {
 							to Austin musicians and industry.
 						</p>
 						<h2>Select what you can provide and/or is true for you…</h2>
-						<button>
+						<button onClick={this.handleButtonClick} id='pandemicImpact'>
 							Proof that you were financially impacted by the pandemic. (e.g. lost
 							gigs, shows, bookings, contracts, unemployment etc.)
 						</button>
-						<button>
+						<button onClick={this.handleButtonClick} id='industryProfessional'>
 							Proof of professional musicianship and/or music industry employment.
 						</button>
-						<button>The music industry is over 50% of my income</button>
+						<button onClick={this.handleButtonClick} id='incomeMin'>
+							The music industry is over 50% of my income
+						</button>
 						<div className={styles.divider}></div>
 						<div className={styles.rolesContainer}>
-							<p>Musician</p>
-							<p>Engineer/Crew</p>
-							<p>Business</p>
-							<p>Educator</p>
+							<a>
+								<p>Musician</p>
+							</a>
+							<a>
+								<p>Engineer/Crew</p>
+							</a>
+							<a>
+								<p>Business</p>
+							</a>
+							<a>
+								<p>Educator</p>
+							</a>
 						</div>
 						<label>
 							<span>Years in industry:</span> 1
@@ -63,10 +90,18 @@ class Resources extends React.Component {
 						<div className={styles.filtersAndSortContainer}>
 							<div className={styles.filterContainer}>
 								<p>Would you like to see?</p>
-								<button>All</button>
-								<button>Open</button>
-								<button>Paused/Waitlisted</button>
-								<button>Closed</button>
+								<button onClick={this.handleButtonClick} id='all'>
+									All
+								</button>
+								<button onClick={this.handleButtonClick} id='open'>
+									Open
+								</button>
+								<button onClick={this.handleButtonClick} id='wait'>
+									Paused/Waitlisted
+								</button>
+								<button onClick={this.handleButtonClick} id='closed'>
+									Closed
+								</button>
 							</div>
 							<div className={styles.sortContainer}>
 								<span>SORT:</span>

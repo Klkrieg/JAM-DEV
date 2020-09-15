@@ -16,20 +16,41 @@ export default async (req, res) => {
 			}
 			break;
 		case "POST":
-			try {
-				const user = await Users.create(req.body);
-
-				res.status(201).json({ success: true, data: user });
-			} catch {
-				res.status(400).json({ succes: false });
-			}
+			// Users.create(req.body, (err, user) => {
+			// 	if (err) {
+			// 		return res.status(400).json(err);
+			// 	} else {
+			// 		return res.status(200).json({ success: true, user });
+			// 	}
+			// });
+			Users.findOne({ email: req.body.email }, "email", async (err, user) => {
+				try {
+					if (user) {
+						console.log("A user with that email already exists.");
+						res.status(409).send();
+					} else if (!user) {
+						const salt = await bcrypt.genSalt();
+						const hashedPass = await bcrypt.hash(req.body.password, salt);
+						req.body.password = hashedPass;
+						Users.create(req.body, (err, user) => {
+							if (err) {
+								return res.status(400).json(err);
+							} else {
+								return res.status(200).json({ success: true, user });
+							}
+						});
+					}
+				} catch {
+					res.send(err);
+				}
+			});
 			break;
 		default:
 			res.status(400).json({ succes: false });
 	}
 };
 
-// router.post("/api/users", ({ body }, res) => {
+// router.post("/api/users", (req, res) => {
 // 	Users.findOne({ email: req.body.email }, "email", async (err, user) => {
 // 		try {
 // 			if (user) {
@@ -37,8 +58,8 @@ export default async (req, res) => {
 // 				res.status(409).send();
 // 			} else if (!user) {
 // 				const salt = await bcrypt.genSalt();
-// 				const hashedPass = await bcrypt.hash(body.password, salt);
-// 				body.password = hashedPass;
+// 				const hashedPass = await bcrypt.hash(req.body.password, salt);
+// 				req.body.password = hashedPass;
 // 				Users.create(body)
 // 					.then((dbUsers) => {
 // 						res.json(dbUsers);
