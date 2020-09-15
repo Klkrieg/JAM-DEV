@@ -5,4 +5,5 @@
   "/": "pages/index.js",
   "/api/users": "pages/api/users.js",
   "/resources": "pages/resources.js"
+
 }
