@@ -1,7 +1,6 @@
 import mongoose from "mongoose";
 
-import userSchema from "../models/users.js";
-
+const connection = {};
 const dbConnect = async () => {
 	try {
 		const db = await mongoose.connect(process.env.MONGODB_URI, {
