@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 import userSchema from "../models/users.js";
 
-
+const dbConnect = async () => {
 	try {
 		const db = await mongoose.connect(process.env.MONGODB_URI, {
 			useNewUrlParser: true,
@@ -13,6 +13,6 @@ import userSchema from "../models/users.js";
 	} catch {
 		return "Did not connect to Mongo";
 	}
-}
+};
 
 export default dbConnect;
