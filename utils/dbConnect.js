@@ -2,20 +2,17 @@ import mongoose from "mongoose";
 
 import userSchema from "../models/users.js";
 
-const dbConnect = async () => {
-	const connection = await mongoose.createConnection(process.env.MONGODB_URI, {
-		useNewUrlParser: true,
-		bufferCommands: false,
-		bufferMaxEntries: 0,
-		useUnifiedTopology: true,
-	});
-	const Users = connection.model("Users", userSchema);
-	return {
-		connection,
-		models: {
-			Users,
-		},
-	};
-};
+
+	try {
+		const db = await mongoose.connect(process.env.MONGODB_URI, {
+			useNewUrlParser: true,
+			useUnifiedTopology: true,
+		});
+		connection.isConnected = db.connections[0].readyState;
+		console.log(db.connections[0].readyState);
+	} catch {
+		return "Did not connect to Mongo";
+	}
+}
 
 export default dbConnect;

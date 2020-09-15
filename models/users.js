@@ -24,7 +24,8 @@ const userSchema = new Schema({
 	},
 	zipcode: {
 		type: String,
-		required: true,
+		trim: true,
+		required: false,
 	},
 	birthday: {
 		type: Date,
@@ -40,4 +41,6 @@ const userSchema = new Schema({
 	},
 });
 
-module.exports = userSchema;
+const Users = mongoose.models.Users || mongoose.model("Users", userSchema);
+
+module.exports = Users;
