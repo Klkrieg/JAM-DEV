@@ -1,3 +1,4 @@
 node_modules
 .next
+.next/server/pages-manifest.json
 next.config.js
