@@ -62,6 +62,7 @@
 			font-size: 13px;
 			font-weight: 600;
 			color: $black;
+			cursor: pointer;
 		}
 		.vertDivider {
 			height: 17px;
@@ -180,4 +181,63 @@
 			color: $brownGrey;
 		}
 	}
+	.filtersAndSortContainer {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+
+		.filterContainer {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			width: 75%;
+
+			p {
+				font-size: 16px;
+				font-family: $headFont;
+				color: $black;
+			}
+			button {
+				cursor: pointer;
+				margin-left: 10px;
+				height: 25px;
+				min-width: 80px;
+				padding: 5px 8px;
+				border-radius: 5px;
+				border: none;
+				background-color: $brightOrange;
+				font-size: 13px;
+				font-family: $headFont;
+				color: $white;
+			}
+		}
+		.sortContainer {
+			display: flex;
+			flex-direction: row;
+			width: 25%;
+			align-items: center;
+			justify-content: flex-end;
+			font-family: $headFont;
+			font-size: 14px;
+			p {
+				cursor: pointer;
+			}
+
+			span {
+				color: $brownGrey;
+				margin-right: 20px;
+			}
+			.vertDividerThin {
+				height: 15px;
+				width: 1px;
+				background-color: $black;
+				margin: 0 15px;
+			}
+		}
+	}
+}
+.resultsContainer {
+	width: 80%;
+	margin: 40px auto;
 }

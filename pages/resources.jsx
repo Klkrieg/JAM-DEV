@@ -1,4 +1,5 @@
 import Layout from "../components/Layout/Layout.component";
+import ResourceCard from "../components/RecourceCard/ResourceCard.component";
 import styles from "../pageStyles/resources.module.scss";
 
 class Resources extends React.Component {
@@ -28,23 +29,29 @@ class Resources extends React.Component {
 				amount: false,
 			},
 		};
+
+		this.handleButtonClick = this.handleButtonClick.bind(this);
 	}
 
 	handleButtonClick = (event) => {
 		let id = event.target.id;
-		switch (id) {
-			case "pandemicImpact":
-			case "industryProfessional":
-			case "incomeMin":
-				this.setState(
-					{
-						financialGroup: {
-							[id]: !this.state.financialGroup[id],
-						},
+		if (id === "pandemicImpact" || id === "industryProfessional" || id === "incomeMin") {
+			this.setState(
+				{
+					...this.state,
+					financialGroup: {
+						...this.state.financialGroup,
+						[id]: !this.state.financialGroup[id],
 					},
-					() => console.log(this.state.financialGroup)
-				);
+				},
+				() => console.log(this.state.financialGroup)
+			);
 		}
+		// switch (id) {
+		// 	case "pandemicImpact":
+		// 	case "industryProfessional":
+		// 	case "incomeMin":
+		// }
 	};
 	render() {
 		return (
@@ -111,12 +118,25 @@ class Resources extends React.Component {
 							<div className={styles.sortContainer}>
 								<span>SORT:</span>
 								<p>A-Z</p>
+								<div className={styles.vertDividerThin}></div>
 								<p>Z-A</p>
+								<div className={styles.vertDividerThin}></div>
 								<p>$</p>
 							</div>
 						</div>
 					</div>
-					<div className={styles.resultsContainer}></div>
+					<div className={styles.resultsContainer}>
+						<ResourceCard
+							name='ACM Lifting Lives'
+							benefit='Not Listed'
+							status='Paused - Waitlist'
+							eligibilities={[
+								"Must be a Country Musician",
+								"Must have played professionally for 2 years",
+								"Must have proof of loss of income (laid-off, cancelled bookings, etc.)",
+							]}
+						/>
+					</div>
 				</div>
 			</Layout>
 		);

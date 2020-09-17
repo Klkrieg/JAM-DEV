@@ -20,7 +20,7 @@ class Layout extends React.Component {
 				</Head>
 				<Navbar />
 				{this.props.children}
-				<Footer />
+				<Footer className={styles.footer} />
 			</div>
 		);
 	}

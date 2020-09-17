@@ -1,17 +1,17 @@
 @import "../../globalStyles/variables.scss";
 
 .modal {
-	position: fixed;
+	position: absolute;
 	margin: 0 auto;
 	padding: 32px 25px;
-	top: 15vh;
+	top: 8vh;
 	left: calc((100% - 600px) / 2);
 	width: 600px;
 	border-radius: 8px;
 	box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.78);
 	border: solid 1px $midGrey;
 	background-color: $white;
-
+	height: 650px;
 	h1 {
 		font-family: $subheadFont;
 		font-size: 16px;
