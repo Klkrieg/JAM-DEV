@@ -1,7 +1,7 @@
 import styles from "./ResourceCard.module.scss";
 const ResourceCard = (props) => {
 	return (
-		<div className={styles.ResourceCard} key={props.key}>
+		<div className={styles.ResourceCard}>
 			<div className={styles.title}>
 				<h3>
 					<a>{props.name}</a>
@@ -20,7 +20,7 @@ const ResourceCard = (props) => {
 				<label>Eligibilities</label>
 				<div className={styles.infoContainer}>
 					{props.eligibilities.map((el) => (
-						<p>{el}</p>
+						<p key={Math.random()}>{el}</p>
 					))}
 				</div>
 			</div>
