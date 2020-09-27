@@ -18,11 +18,11 @@ const ResourceCard = (props) => {
 					<p>{props.status}</p>
 				</div>
 				<label>Eligibilities</label>
-				<div className={styles.infoContainer}>
+				{/* <div className={styles.infoContainer}>
 					{props.eligibilities.map((el) => (
 						<p key={Math.random()}>{el}</p>
 					))}
-				</div>
+				</div> */}
 			</div>
 		</div>
 	);

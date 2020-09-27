@@ -3,9 +3,10 @@ import ResourceCard from "../components/RecourceCard/ResourceCard.component";
 import styles from "../pageStyles/resources.module.scss";
 import { useEffect, useState } from "react";
 import dbConnect from "../utils/dbConnect";
-import mongoose from "mongoose";
+import Resource from "../models/resource";
 
-const Resources = (data) => {
+const Resources = ({ resourceData }) => {
+	//Creating a state for the different filtering and sorting controllers
 	const [financialGroup, setFinancialGroup] = useState({
 		pandemicImpact: false,
 		industryProfessional: false,
@@ -17,10 +18,12 @@ const Resources = (data) => {
 		business: false,
 		educator: false,
 	});
+
 	const [years, setYears] = useState("1");
 	const [filters, setFilers] = useState("");
 	const [sort, setSort] = useState("");
 
+	//This is what we will refer to to load user inputs
 	const resourceCriteria = {
 		...financialGroup,
 		...roleGroup,
@@ -29,10 +32,10 @@ const Resources = (data) => {
 		sort,
 	};
 
-	const [resources, setResources] = useState([]);
-	useEffect(() => {
-		console.log(data);
-	});
+	const [resource, setResource] = useState(resourceData);
+
+	//changes the style of the filter/sort pressed
+
 	return (
 		<Layout>
 			<div>
@@ -56,19 +59,19 @@ const Resources = (data) => {
 					<div className={styles.divider}></div>
 					<div className={styles.rolesGroup}>
 						<a>
-							<p>Musician</p>
+							<p id='musician'>Musician</p>
 						</a>
 						<div className={styles.vertDivider}></div>
 						<a>
-							<p>Engineer/Crew</p>
+							<p id='engineer'>Engineer/Crew</p>
 						</a>
 						<div className={styles.vertDivider}></div>
 						<a>
-							<p>Business</p>
+							<p id='business'>Business</p>
 						</a>
 						<div className={styles.vertDivider}></div>
 						<a>
-							<p>Educator</p>
+							<p id='educator'>Educator</p>
 						</a>
 					</div>
 					<label>
@@ -95,14 +98,14 @@ const Resources = (data) => {
 					</div>
 				</div>
 				<div className={styles.resultsContainer}>
-					{resources.map((resource) => {
+					{resource.map((data) => {
 						return (
 							<ResourceCard
-								key={resource.key}
-								name={resource.name}
-								benifit={resource.benefit}
-								status={resource.status}
-								eligibilities={resource.eligibilities}
+								key={data["_id"]}
+								name={data.organization}
+								//benifit={resource.benefit}
+								status={data.status}
+								//eligibilities={resource.eligibilities}
 							/>
 						);
 					})}
@@ -123,13 +126,14 @@ const Resources = (data) => {
 	);
 };
 
-export async function getInitialProps() {
+export async function getStaticProps() {
 	dbConnect();
-	const data = await Resources.find({});
-
+	const data = await Resource.find({}, "organization _id status");
+	const string = JSON.stringify(data);
+	const resourceData = JSON.parse(string);
 	return {
 		props: {
-			data,
+			resourceData,
 		},
 	};
 }

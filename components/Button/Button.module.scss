@@ -1,4 +1,20 @@
-.navButton {
-	width: 141px;
-	height: 40px;
+@import "../../globalStyles/variables.scss";
+.container {
+	button {
+		cursor: pointer;
+		padding: 3px 8px;
+		border-radius: 5px;
+		border: none;
+		font-family: $headFont;
+		font-size: 13px;
+		font-weight: bold;
+		text-align: center;
+		color: $white;
+		&.unClicked {
+			background-color: $brownGrey;
+		}
+		&.clicked {
+			background-color: $brightOrange;
+		}
+	}
 }
