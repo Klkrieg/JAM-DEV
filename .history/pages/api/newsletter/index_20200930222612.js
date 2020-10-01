@@ -7,30 +7,17 @@ function getRequestParams(email) {
     const url = `https://us18.api.mailchimp.com/3.0/lists/${process.env.MAILCHIMP_LISTID}`;
     
     const data = {
-		members: [
-			{
-				email_address: email,
-				status: "subscribed",
-				merge_fields: {
-					FNAME: firstName,
-					LNAME: lastName,
-				},
-			},
-		],
-	};
-    
-    const base64ApiKey = Buffer.from(`anystring:${API_KEY}`).toString("base64");
-    const headers = {
-        "Content-Type": "application/json",
-        Authorization: `Basic ${base64ApiKey}`,
-    };
-
-    return {
-        url,
-        data,
-        headers,
-    };
-}
+            members: [
+                {
+                    email_address: email,
+                    status: "subscribed",
+                    merge_fields: {
+                        FNAME: firstName,
+                        LNAME: lastName
+                    }
+                }
+            ]
+        };
 
 export default async (req, res) => {
     const { email } = req.body.email;

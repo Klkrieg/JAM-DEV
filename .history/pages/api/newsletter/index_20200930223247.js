@@ -25,11 +25,7 @@ function getRequestParams(email) {
         Authorization: `Basic ${base64ApiKey}`,
     };
 
-    return {
-        url,
-        data,
-        headers,
-    };
+    
 }
 
 export default async (req, res) => {

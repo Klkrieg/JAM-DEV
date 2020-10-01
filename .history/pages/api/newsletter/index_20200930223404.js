@@ -30,6 +30,8 @@ function getRequestParams(email) {
         data,
         headers,
     };
+
+    
 }
 
 export default async (req, res) => {
