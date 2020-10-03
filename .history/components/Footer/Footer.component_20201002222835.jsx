@@ -10,7 +10,7 @@ class Footer extends React.Component {
 			lName: "",
 			email: "",
 		};
-		this.subscribe = this.subscribe.bind(this);
+		this.handleSubscribe = this.handleSubscribe.bind(this);
 	}
 
 	async subscribe() {
