@@ -17,7 +17,7 @@ class Footer extends React.Component {
 		// this.setState({fName: firstName, lName: lastName, email: emailValue})
 
 		try {
-			axios.post("api/newsletter", { email, fName, lName})
+			const response = await axios.post("api/newsletter", { email, fName, lName})
 			console.log("it worked, bro, you're signed up to the newsletter")
 		} catch (e) {
 			console.log(e.response.data.error)
