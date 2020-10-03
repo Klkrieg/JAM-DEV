@@ -5,8 +5,8 @@
   "devFiles": [],
   "ampDevFiles": [],
   "lowPriorityFiles": [
-    "static/LEY02jwaM3_gk5oyFyltL/_buildManifest.js",
-    "static/LEY02jwaM3_gk5oyFyltL/_ssgManifest.js"
+    "static/HfGoshLG2AoWPPARyDqJY/_buildManifest.js",
+    "static/HfGoshLG2AoWPPARyDqJY/_ssgManifest.js"
   ],
   "pages": {
     "/": [
@@ -14,7 +14,7 @@
       "static/chunks/webpack-ccf5ab034a524403276a.js",
       "static/chunks/framework.ea5d6f7a7099b14097ba.js",
       "static/chunks/commons.136473f176143783e714.js",
-      "static/chunks/c9c404821699043d1abcae0b4681bfd0b6855a39.e03337f764fe7fcfe966.js",
+      "static/chunks/c9c404821699043d1abcae0b4681bfd0b6855a39.21a72522cfee6e33d60c.js",
       "static/css/a48dad635420a7e48de3.css",
       "static/chunks/pages/index-9695d127a1a250f8efe4.js"
     ],
@@ -24,7 +24,7 @@
       "static/chunks/framework.ea5d6f7a7099b14097ba.js",
       "static/chunks/commons.136473f176143783e714.js",
       "static/css/b51bf54b7d6902cc776d.css",
-      "static/chunks/pages/_app-4187e6c761c501fbf70a.js"
+      "static/chunks/pages/_app-7c24d1c0bb4f3529f334.js"
     ],
     "/_error": [
       "static/chunks/main-f01cf1dcca173d7f43b1.js",
@@ -38,7 +38,7 @@
       "static/chunks/webpack-ccf5ab034a524403276a.js",
       "static/chunks/framework.ea5d6f7a7099b14097ba.js",
       "static/chunks/commons.136473f176143783e714.js",
-      "static/chunks/c9c404821699043d1abcae0b4681bfd0b6855a39.e03337f764fe7fcfe966.js",
+      "static/chunks/c9c404821699043d1abcae0b4681bfd0b6855a39.21a72522cfee6e33d60c.js",
       "static/css/32d05928ec75f433ca90.css",
       "static/chunks/pages/connect-085b8fadd51939d75c3a.js"
     ],
@@ -47,7 +47,7 @@
       "static/chunks/webpack-ccf5ab034a524403276a.js",
       "static/chunks/framework.ea5d6f7a7099b14097ba.js",
       "static/chunks/commons.136473f176143783e714.js",
-      "static/chunks/c9c404821699043d1abcae0b4681bfd0b6855a39.e03337f764fe7fcfe966.js",
+      "static/chunks/c9c404821699043d1abcae0b4681bfd0b6855a39.21a72522cfee6e33d60c.js",
       "static/css/f81411495aede9cc0c9c.css",
       "static/chunks/pages/resources-b3eaaa344ee77206cc01.js"
     ]
