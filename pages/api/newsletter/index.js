@@ -1,6 +1,6 @@
 import Axios from "axios";
 
-function getRequestParams(email) {
+function getRequestParams(email, fName, lName) {
 	const API_Key = process.env.MAILCHIMP_API_KEY_AUTH;
 	const LIST_ID = process.env.MAILCHIMP_LISTID;
 
@@ -12,8 +12,8 @@ function getRequestParams(email) {
 				email_address: email,
 				status: "subscribed",
 				merge_fields: {
-					FNAME: firstName,
-					LNAME: lastName,
+					FNAME: fName,
+					LNAME: lName,
 				},
 			},
 		],
@@ -34,6 +34,8 @@ function getRequestParams(email) {
 
 export default async (req, res) => {
     const { email } = req.body.email;
+    const { fName } = req.body.fName;
+    const { lName } = req.body.lName;
 
     if (!email || !email.length) {
         return res.status(400).json({
@@ -42,9 +44,9 @@ export default async (req, res) => {
     }
 
     try {
-        const { url, data, headers } = getRequestParams(email);
+        const { url, data, headers } = getRequestParams(email, fName, lName);
 
-        const response = await axios.post(url, data, { headers });
+        const response = await Axios.post(url, data, { headers });
 
         return res.status(200).json({ error: null });
     } catch (error) {
