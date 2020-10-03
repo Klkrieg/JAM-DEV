@@ -1,13 +1,11 @@
 {
   "/_app": "pages/_app.js",
-  "/_error": "pages/_error.js",
-  "/_document": "pages/_document.js",
-<<<<<<< HEAD
+  "/api/newsletter": "pages/api/newsletter.js",
+  "/api/test": "pages/api/test.js",
+  "/api/users": "pages/api/users.js",
+  "/connect": "pages/connect.js",
   "/": "pages/index.js",
-  "/resources": "pages/resources.js"
-
-=======
   "/resources": "pages/resources.js",
-  "/": "pages/index.js"
->>>>>>> develop
+  "/_error": "pages/_error.js",
+  "/_document": "pages/_document.js"
 }
