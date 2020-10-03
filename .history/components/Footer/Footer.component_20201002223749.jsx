@@ -10,10 +10,10 @@ class Footer extends React.Component {
 			lName: "",
 			email: "",
 		};
-		this.handleSubscribe = this.handleSubscribe.bind(this);
+		this.subscribe = this.subscribe.bind(this);
 	}
 
-	async handleSubscribe() {
+	async subscribe() {
 		// this.setState({fName: firstName, lName: lastName, email: emailValue})
 
 		try {
@@ -42,7 +42,7 @@ class Footer extends React.Component {
 							<input type='text' placeholder='First name' onChange={(e) => this.setState(fName = e.target.value)}></input>
 							<input type='text' placeholder='Last name' onChange={(e) => this.setState(lName = e.target.value)}></input>
 							<input type='email' placeholder='Email' onChange={(e) => this.setState(email = e.target.value)}></input>
-							<button type='submit' onClick={handleSubscribe}>Subscribe</button>
+							<button type='submit' onClick={subscribe()}>Subscribe</button>
 						</form>
 					</div>
 				</footer>

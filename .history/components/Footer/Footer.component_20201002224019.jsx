@@ -13,7 +13,7 @@ class Footer extends React.Component {
 		this.handleSubscribe = this.handleSubscribe.bind(this);
 	}
 
-	async handleSubscribe() {
+	handleSubscribe = () => {
 		// this.setState({fName: firstName, lName: lastName, email: emailValue})
 
 		try {
