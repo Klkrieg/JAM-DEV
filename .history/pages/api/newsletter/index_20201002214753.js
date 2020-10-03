@@ -1,6 +1,6 @@
 import Axios from "axios";
 
-function getRequestParams(email, fName, lName) {
+function getRequestParams(email) {
 	const API_Key = process.env.MAILCHIMP_API_KEY_AUTH;
 	const LIST_ID = process.env.MAILCHIMP_LISTID;
 
@@ -34,8 +34,6 @@ function getRequestParams(email, fName, lName) {
 
 export default async (req, res) => {
     const { email } = req.body.email;
-    const { fName } = req.body.fName;
-    const { lName } = req.body.lName;
 
     if (!email || !email.length) {
         return res.status(400).json({
@@ -44,7 +42,7 @@ export default async (req, res) => {
     }
 
     try {
-        const { url, data, headers } = getRequestParams(email, fName, lName);
+        const { url, data, headers } = getRequestParams(email);
 
         const response = await axios.post(url, data, { headers });
 

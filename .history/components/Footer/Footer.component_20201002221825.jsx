@@ -18,7 +18,6 @@ class Footer extends React.Component {
 
 		try {
 			const response = await axios.post("api/newsletter", { email, fName, lName})
-			console.log("it worked, bro, you're signed up to the newsletter")
 		} catch (e) {
 			console.log(e.response.data.error)
 		}
@@ -42,7 +41,7 @@ class Footer extends React.Component {
 							<input type='text' placeholder='First name' onChange={(e) => this.setState(fName = e.target.value)}></input>
 							<input type='text' placeholder='Last name' onChange={(e) => this.setState(lName = e.target.value)}></input>
 							<input type='email' placeholder='Email' onChange={(e) => this.setState(email = e.target.value)}></input>
-							<button type='submit' onClick={subscribe()}>Subscribe</button>
+							<button type='submit'>Subscribe</button>
 						</form>
 					</div>
 				</footer>

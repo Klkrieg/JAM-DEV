@@ -14,13 +14,8 @@ class Footer extends React.Component {
 	}
 
 	async subscribe() {
-		// this.setState({fName: firstName, lName: lastName, email: emailValue})
-
 		try {
-			const response = await axios.post("api/newsletter", { email, fName, lName})
-			console.log("it worked, bro, you're signed up to the newsletter")
-		} catch (e) {
-			console.log(e.response.data.error)
+			const response = await 
 		}
 	}
 
@@ -39,10 +34,10 @@ class Footer extends React.Component {
 					<div className={styles.subscribeContainer}>
 						<form>
 							<h2>STAY TUNED</h2>
-							<input type='text' placeholder='First name' onChange={(e) => this.setState(fName = e.target.value)}></input>
-							<input type='text' placeholder='Last name' onChange={(e) => this.setState(lName = e.target.value)}></input>
-							<input type='email' placeholder='Email' onChange={(e) => this.setState(email = e.target.value)}></input>
-							<button type='submit' onClick={subscribe()}>Subscribe</button>
+							<input type='text' placeholder='First name'></input>
+							<input type='text' placeholder='Last name'></input>
+							<input type='email' placeholder='Email'></input>
+							<button type='submit'>Subscribe</button>
 						</form>
 					</div>
 				</footer>
