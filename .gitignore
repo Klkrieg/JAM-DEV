@@ -1,5 +1,5 @@
-.history/
-node_modules
+node_modules/
 .next/
 next.config.js
+.history/
 .env
