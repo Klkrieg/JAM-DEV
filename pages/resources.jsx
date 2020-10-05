@@ -1,5 +1,6 @@
 import Layout from "../components/Layout/Layout.component";
 import ResourceCard from "../components/RecourceCard/ResourceCard.component";
+import Button from "../components/Buttons/Button.component";
 import styles from "../pageStyles/resources.module.scss";
 import { useEffect, useState } from "react";
 import dbConnect from "../utils/dbConnect";
@@ -12,6 +13,7 @@ const Resources = ({ resourceData }) => {
 		industryProfessional: false,
 		incomeMin: false,
 	});
+
 	const [roleGroup, setRoleGroup] = useState({
 		musician: false,
 		engineer: false,
@@ -20,7 +22,23 @@ const Resources = ({ resourceData }) => {
 	});
 
 	const [years, setYears] = useState("1");
-	const [filters, setFilers] = useState("");
+
+	//usestate hook for filter buttons
+	const [filters, setFilters] = useState([]);
+	//Use effect to listen to filter buttons and update state conditionally
+	// useEffect(() => {
+	// 	const handleFilterClick = (e) => {
+	// 		let id = e.target.id;
+	// 		if (filters.includes(id)) {
+	// 			return;
+	// 		} else if (id == "all") {
+	// 			setFilters(["all"]);
+	// 		} else if (id == "wait" || id == "closed" || id == "open") {
+	// 			setFilters([...filters, id]);
+	// 		}
+	// 	};
+	// });
+
 	const [sort, setSort] = useState("");
 
 	//This is what we will refer to to load user inputs
@@ -34,8 +52,6 @@ const Resources = ({ resourceData }) => {
 
 	const [resource, setResource] = useState(resourceData);
 
-	//changes the style of the filter/sort pressed
-
 	return (
 		<Layout>
 			<div>
@@ -47,14 +63,15 @@ const Resources = ({ resourceData }) => {
 					</p>
 					<div className={styles.financialGroup}>
 						<h2>Select what you can provide and/or is true for you…</h2>
-						<button id='pandemicImpact'>
+						<Button id='pandemicImpact'>
 							Proof that you were financially impacted by the pandemic. (e.g. lost
 							gigs, shows, bookings, contracts, unemployment etc.)
-						</button>
-						<button id='industryProfessional'>
+						</Button>
+						<Button id='industryProfessional'>
+							{" "}
 							Proof of professional musicianship and/or music industry employment.
-						</button>
-						<button id='incomeMin'>The music industry is over 50% of my income</button>
+						</Button>
+						<Button id='incomeMin'>The music industry is over 50% of my income</Button>
 					</div>
 					<div className={styles.divider}></div>
 					<div className={styles.rolesGroup}>
@@ -82,10 +99,10 @@ const Resources = ({ resourceData }) => {
 					<div className={styles.filtersAndSortContainer}>
 						<div className={styles.filterContainer}>
 							<p>Would you like to see?</p>
-							<button id='all'>All</button>
-							<button id='open'>Open</button>
-							<button id='wait'>Paused/Waitlisted</button>
-							<button id='closed'>Closed</button>
+							<Button id='all'>All</Button>
+							<Button id='open'>Open</Button>
+							<Button id='wait'>Waitlisted</Button>
+							<Button id='closed'>Closed</Button>
 						</div>
 						<div className={styles.sortContainer}>
 							<span>SORT:</span>

@@ -3,6 +3,12 @@
 .controllers {
 	width: 80%;
 	margin: 40px auto;
+	&.unClicked {
+		background-color: $brownGrey;
+	}
+	&.clicked {
+		background-color: $brightOrange;
+	}
 
 	h1 {
 		font-family: $subheadFont;
@@ -32,18 +38,18 @@
 			font-weight: bold;
 			color: $black;
 		}
-		button {
-			cursor: pointer;
-			padding: 3px 8px 5px;
-			border-radius: 5px;
-			background-color: $brownGrey;
-			border: none;
-			font-family: $headFont;
-			font-size: 13px;
-			font-weight: bold;
-			text-align: center;
-			color: $white;
-		}
+		// button {
+		// 	cursor: pointer;
+		// 	padding: 3px 8px 5px;
+		// 	border-radius: 5px;
+		// 	background-color: $brownGrey;
+		// 	border: none;
+		// 	font-family: $headFont;
+		// 	font-size: 13px;
+		// 	font-weight: bold;
+		// 	text-align: center;
+		// 	color: $white;
+		// }
 	}
 
 	.divider {
@@ -191,27 +197,16 @@
 			display: flex;
 			flex-direction: row;
 			align-items: center;
-			width: 75%;
+			justify-content: space-between;
+			width: 530px;
 
 			p {
 				font-size: 16px;
 				font-family: $headFont;
 				color: $black;
 			}
-			button {
-				cursor: pointer;
-				margin-left: 10px;
-				height: 25px;
-				min-width: 80px;
-				padding: 5px 8px;
-				border-radius: 5px;
-				border: none;
-				background-color: $brightOrange;
-				font-size: 13px;
-				font-family: $headFont;
-				color: $white;
-			}
 		}
+
 		.sortContainer {
 			display: flex;
 			flex-direction: row;

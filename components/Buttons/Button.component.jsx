@@ -6,9 +6,10 @@ const Button = (props) => {
 			? (target.className = styles.clicked)
 			: (target.className = styles.unClicked);
 	};
+
 	return (
-		<div className={styles.container}>
-			<button className={styles.unClicked} onClick={handleClick}>
+		<div className={styles.regButton}>
+			<button className={styles.clicked} id={props.id} onClick={handleClick}>
 				{props.children}
 			</button>
 		</div>

@@ -1,8 +1,11 @@
 @import "../../globalStyles/variables.scss";
-.container {
+
+.regButton {
 	button {
 		cursor: pointer;
 		padding: 3px 8px;
+		min-height: 25px;
+		min-width: 80px;
 		border-radius: 5px;
 		border: none;
 		font-family: $headFont;
