@@ -8,50 +8,43 @@ import Resource from "../models/resource";
 
 const Resources = ({ resourceData }) => {
 	//Creating a state for the different filtering and sorting controllers
-	const [financialGroup, setFinancialGroup] = useState({
-		pandemicImpact: false,
-		industryProfessional: false,
-		incomeMin: false,
-	});
+	// const [financialGroup, setFinancialGroup] = useState({
+	// 	pandemicImpact: false,
+	// 	industryProfessional: false,
+	// 	incomeMin: false,
+	// });
 
-	const [roleGroup, setRoleGroup] = useState({
-		musician: false,
-		engineer: false,
-		business: false,
-		educator: false,
-	});
+	// const [roleGroup, setRoleGroup] = useState({
+	// 	musician: false,
+	// 	engineer: false,
+	// 	business: false,
+	// 	educator: false,
+	// });
 
-	const [years, setYears] = useState("1");
+	// const [years, setYears] = useState("1");
 
 	//usestate hook for filter buttons
 	const [filters, setFilters] = useState([]);
 	//Use effect to listen to filter buttons and update state conditionally
-	// useEffect(() => {
-	// 	const handleFilterClick = (e) => {
-	// 		let id = e.target.id;
-	// 		if (filters.includes(id)) {
-	// 			return;
-	// 		} else if (id == "all") {
-	// 			setFilters(["all"]);
-	// 		} else if (id == "wait" || id == "closed" || id == "open") {
-	// 			setFilters([...filters, id]);
-	// 		}
-	// 	};
-	// });
-
-	const [sort, setSort] = useState("");
 
 	//This is what we will refer to to load user inputs
-	const resourceCriteria = {
-		...financialGroup,
-		...roleGroup,
-		years,
-		filters,
-		sort,
-	};
+	// const resourceCriteria = {
+	// 	...financialGroup,
+	// 	...roleGroup,
+	// 	years,
+	// 	filters,
+	// 	sort,
+	// };
 
 	const [resource, setResource] = useState(resourceData);
-
+	//handles the removal of irrelavent items
+	const handleNotRelevantClick = (key) => {
+		setResource(
+			resource.filter((resource) => {
+				return resource._id !== key;
+			})
+		);
+	};
 	return (
 		<Layout>
 			<div>
@@ -99,10 +92,18 @@ const Resources = ({ resourceData }) => {
 					<div className={styles.filtersAndSortContainer}>
 						<div className={styles.filterContainer}>
 							<p>Would you like to see?</p>
-							<Button id='all'>All</Button>
-							<Button id='open'>Open</Button>
-							<Button id='wait'>Waitlisted</Button>
-							<Button id='closed'>Closed</Button>
+							<Button filterClick={() => handleFilterClick("all")} id='all'>
+								All
+							</Button>
+							<Button filterClick={() => handleFilterClick("open")} id='open'>
+								Open
+							</Button>
+							<Button filterClick={() => handleFilterClick("wait")} id='wait'>
+								Waitlisted
+							</Button>
+							<Button filterClick={() => handleFilterClick("closed")} id='closed'>
+								Closed
+							</Button>
 						</div>
 						<div className={styles.sortContainer}>
 							<span>SORT:</span>
@@ -122,21 +123,11 @@ const Resources = ({ resourceData }) => {
 								name={data.organization}
 								//benifit={resource.benefit}
 								status={data.status}
+								handleNotRelevantClick={() => handleNotRelevantClick(data["_id"])}
 								//eligibilities={resource.eligibilities}
 							/>
 						);
 					})}
-					{/* <ResourceCard
-						name='ACM Lifting Lives'
-						benefit='Not Listed'
-						status='Paused - Waitlist'
-						eligibilities={[
-							"Must be a Country Musician",
-							"Must have played professionally for 2 years",
-							"Must have proof of loss of income (laid-off, cancelled bookings, etc.)",
-						]}
-						key='akjshgfkj1'
-					/> */}
 				</div>
 			</div>
 		</Layout>

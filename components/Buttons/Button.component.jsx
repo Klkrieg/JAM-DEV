@@ -1,6 +1,7 @@
 import styles from "./Button.module.scss";
 const Button = (props) => {
 	const handleClick = (e) => {
+		props.filterClick();
 		const target = e.target;
 		target.className == styles.unClicked
 			? (target.className = styles.clicked)

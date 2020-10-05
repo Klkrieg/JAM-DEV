@@ -6,7 +6,7 @@ const ResourceCard = (props) => {
 				<h3>
 					<a>{props.name}</a>
 				</h3>
-				<button> Not relevant to me</button>
+				<button onClick={props.handleNotRelevantClick}> Not relevant to me</button>
 			</div>
 			<div className={styles.content}>
 				<label>Benefit Amount</label>
