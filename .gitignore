@@ -1,5 +1,5 @@
-node_modules
-.next
-.next/server/pages-manifest.json
+node_modules/
+.next/
 next.config.js
-env.local
+.history/
+.env
