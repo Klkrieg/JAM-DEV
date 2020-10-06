@@ -1,0 +1,50 @@
+@import "../../globalStyles/variables.scss";
+
+.ResourceCard {
+	width: 100%;
+	margin: 30px auto;
+
+	.title {
+		display: flex;
+		flex-direction: row;
+		padding-bottom: 20px;
+
+		h3 {
+			cursor: pointer;
+			font-family: $subheadFont;
+			color: $uglyBlue;
+			font-weight: bold;
+			text-decoration: underline;
+			padding-right: 50px;
+		}
+		button {
+			cursor: pointer;
+			border: none;
+			background-color: inherit;
+			font-size: 13px;
+			color: $brownGrey;
+		}
+	}
+	.content {
+		font-family: $headFont;
+		display: grid;
+		grid-template-columns: 115px 1fr;
+		grid-template-rows: 40px 40px 1fr;
+		grid-template-areas:
+			"label" "info"
+			"label" "info"
+			"label" "info";
+
+		label {
+			grid-area: "label";
+			color: $brownGrey;
+			font-size: 13px;
+			font-weight: bold;
+		}
+		p {
+			grid-area: "info";
+			font-size: 16px;
+			padding-bottom: 12px;
+		}
+	}
+}

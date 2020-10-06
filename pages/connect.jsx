@@ -1,4 +1,5 @@
 import Layout from "../components/Layout/Layout.component";
+
 const Connect = () => {
 	return (
 		<Layout>

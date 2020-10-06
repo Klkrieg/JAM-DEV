@@ -1,0 +1,23 @@
+@import "../../globalStyles/variables.scss";
+
+.regButton {
+	button {
+		cursor: pointer;
+		padding: 3px 8px;
+		min-height: 25px;
+		min-width: 80px;
+		border-radius: 5px;
+		border: none;
+		font-family: $headFont;
+		font-size: 13px;
+		font-weight: bold;
+		text-align: center;
+		color: $white;
+		&.unClicked {
+			background-color: $brownGrey;
+		}
+		&.clicked {
+			background-color: $brightOrange;
+		}
+	}
+}
