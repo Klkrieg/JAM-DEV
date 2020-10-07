@@ -8,11 +8,11 @@ import Resource from "../models/resource";
 
 const Resources = ({ resourceData }) => {
 	//Creating a state for the different filtering and sorting controllers
-	// const [financialGroup, setFinancialGroup] = useState({
-	// 	pandemicImpact: false,
-	// 	industryProfessional: false,
-	// 	incomeMin: false,
-	// });
+	const [financialGroup, setFinancialGroup] = useState({
+		pandemicImpact: false,
+		industryProfessional: false,
+		incomeMin: false,
+	});
 
 	// const [roleGroup, setRoleGroup] = useState({
 	// 	musician: false,
@@ -24,8 +24,7 @@ const Resources = ({ resourceData }) => {
 	// const [years, setYears] = useState("1");
 
 	//usestate hook for filter buttons
-	const [filters, setFilters] = useState([]);
-	//Use effect to listen to filter buttons and update state conditionally
+	//const [filters, setFilters] = useState([]);
 
 	//This is what we will refer to to load user inputs
 	// const resourceCriteria = {
@@ -38,6 +37,7 @@ const Resources = ({ resourceData }) => {
 
 	const [resource, setResource] = useState(resourceData);
 	//handles the removal of irrelavent items
+	console.log(resource);
 	const handleNotRelevantClick = (key) => {
 		setResource(
 			resource.filter((resource) => {
@@ -92,18 +92,10 @@ const Resources = ({ resourceData }) => {
 					<div className={styles.filtersAndSortContainer}>
 						<div className={styles.filterContainer}>
 							<p>Would you like to see?</p>
-							<Button filterClick={() => handleFilterClick("all")} id='all'>
-								All
-							</Button>
-							<Button filterClick={() => handleFilterClick("open")} id='open'>
-								Open
-							</Button>
-							<Button filterClick={() => handleFilterClick("wait")} id='wait'>
-								Waitlisted
-							</Button>
-							<Button filterClick={() => handleFilterClick("closed")} id='closed'>
-								Closed
-							</Button>
+							<Button id='all'>All</Button>
+							<Button id='open'>Open</Button>
+							<Button id='wait'>Waitlisted</Button>
+							<Button id='closed'>Closed</Button>
 						</div>
 						<div className={styles.sortContainer}>
 							<span>SORT:</span>
