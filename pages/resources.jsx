@@ -5,6 +5,7 @@ import styles from "../pageStyles/resources.module.scss";
 import { useEffect, useState } from "react";
 import dbConnect from "../utils/dbConnect";
 import Resource from "../models/resource";
+import Axios from "axios";
 
 const Resources = ({ resourceData }) => {
 	//Creating a state for the different filtering and sorting controllers
@@ -13,7 +14,6 @@ const Resources = ({ resourceData }) => {
 		industryProfessional: false,
 		incomeMin: false,
 	});
-
 	// const [roleGroup, setRoleGroup] = useState({
 	// 	musician: false,
 	// 	engineer: false,
@@ -45,6 +45,7 @@ const Resources = ({ resourceData }) => {
 			})
 		);
 	};
+
 	return (
 		<Layout>
 			<div>
@@ -127,7 +128,7 @@ const Resources = ({ resourceData }) => {
 };
 
 export async function getStaticProps() {
-	dbConnect();
+	//dbConnect();
 	const data = await Resource.find({}, "organization _id status");
 	const string = JSON.stringify(data);
 	const resourceData = JSON.parse(string);
