@@ -3,3 +3,4 @@ node_modules/
 next.config.js
 .history/
 .env
+.utils/resources-for-offline.js
