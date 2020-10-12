@@ -1,6 +1,7 @@
 import styles from "./Button.module.scss";
 const Button = (props) => {
 	const handleClick = (e) => {
+<<<<<<< HEAD
 		props.filterClick(props.id);
 
 		// if (status == ["all"] && target == "all") {
@@ -16,6 +17,8 @@ const Button = (props) => {
 
 		//if status != ['all'] && status includes the button pressed the button pressed should change
 
+=======
+>>>>>>> financial_filters
 		const target = e.target;
 
 		target.className == styles.unClicked
@@ -25,11 +28,15 @@ const Button = (props) => {
 
 	return (
 		<div className={styles.regButton}>
+<<<<<<< HEAD
 			<button
 				className={props.id == "all" ? styles.clicked : styles.unClicked}
 				id={props.id}
 				onClick={handleClick}
 			>
+=======
+			<button className={styles.unClicked} id={props.id} onClick={handleClick}>
+>>>>>>> financial_filters
 				{props.children}
 			</button>
 		</div>
