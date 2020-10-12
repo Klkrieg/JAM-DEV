@@ -15,32 +15,39 @@ const Resources = ({ resourceData }) => {
 		incomeMin: false,
 	});
 
-	// const [roleGroup, setRoleGroup] = useState({
-	// 	musician: false,
-	// 	engineer: false,
-	// 	business: false,
-	// 	educator: false,
-	// });
+	const [roleGroup, setRoleGroup] = useState({
+		musician: false,
+		engineer: false,
+		business: false,
+		educator: false,
+	});
 
 	// const [years, setYears] = useState("1");
+
+	const [sort, setSort] = useState("");
 
 	//usestate hook for filter buttons
 	const [status, setStatus] = useState(["all"]);
 	//Use effect to listen to filter buttons and update state conditionally
 
 	//This is what we will refer to to load user inputs
-	// const resourceCriteria = {
-	// 	...financialGroup,
-	// 	...roleGroup,
-	// 	years,
-	// 	status,
-	// 	sort,
-	// };
+	const resourceCriteria = {
+		...financialGroup,
+		...roleGroup,
+		//years,
+		status,
+		sort,
+	};
 
+	//Sets the financialGroup state to be equal to the buttons pressed
 	const handleFinancialFilterButton = (id) => {
 		setFinancialGroup((financialGroup) => ({ ...financialGroup, [id]: !financialGroup[id] }));
 	};
-	//assigns status based on the id of the targets
+	const handleRolesFilterButton = (id) => {
+		setRoleGroup((roleGroup) => ({ ...roleGroup, [id]: !roleGroup[id] }));
+	};
+
+	//Sets status based on the id of the targets
 	const handleStatusFilterButton = (id) => {
 		if (id == "all") {
 			setStatus(["all"]);
@@ -63,8 +70,16 @@ const Resources = ({ resourceData }) => {
 	//This will end updating resource results based on change in financialgroup state
 	useEffect(() => {
 		console.log(financialGroup);
+	}, [financialGroup]);
+	useEffect(() => {
 		console.log(status);
-	}, [financialGroup, status]);
+	}, [status]);
+	useEffect(() => {
+		console.log(roleGroup);
+	}, [roleGroup]);
+	useEffect(() => {
+		console.log(sort);
+	}, [sort]);
 	const [resource, setResource] = useState(resourceData);
 	//handles the removal of irrelavent items
 	const handleNotRelevantClick = (key) => {
@@ -73,7 +88,6 @@ const Resources = ({ resourceData }) => {
 				return resource._id !== key;
 			})
 		);
-		console.log(resource);
 	};
 	return (
 		<Layout>
@@ -100,19 +114,27 @@ const Resources = ({ resourceData }) => {
 				<div className={styles.divider}></div>
 				<div className={styles.rolesGroup}>
 					<a>
-						<p id='musician'>Musician</p>
+						<p id='musician' onClick={() => handleRolesFilterButton("musician")}>
+							Musician
+						</p>
 					</a>
 					<div className={styles.vertDivider}></div>
 					<a>
-						<p id='engineer'>Engineer/Crew</p>
+						<p id='engineer' onClick={() => handleRolesFilterButton("engineer")}>
+							Engineer/Crew
+						</p>
 					</a>
 					<div className={styles.vertDivider}></div>
 					<a>
-						<p id='business'>Business</p>
+						<p id='business' onClick={() => handleRolesFilterButton("business")}>
+							Business
+						</p>
 					</a>
 					<div className={styles.vertDivider}></div>
 					<a>
-						<p id='educator'>Educator</p>
+						<p id='educator' onClick={() => handleRolesFilterButton("educator")}>
+							Educator
+						</p>
 					</a>
 				</div>
 				<label>
@@ -138,11 +160,11 @@ const Resources = ({ resourceData }) => {
 					</div>
 					<div className={styles.sortContainer}>
 						<span>SORT:</span>
-						<p>A-Z</p>
+						<p onClick={() => setSort("a-z")}>A-Z</p>
 						<div className={styles.vertDividerThin}></div>
-						<p>Z-A</p>
+						<p onClick={() => setSort("z-a")}>Z-A</p>
 						<div className={styles.vertDividerThin}></div>
-						<p>$</p>
+						<p onClick={() => setSort("$")}>$</p>
 					</div>
 				</div>
 			</div>
