@@ -4,13 +4,8 @@ import Button from "../components/Buttons/Button.component";
 import styles from "../pageStyles/resources.module.scss";
 import { useEffect, useState } from "react";
 import dbConnect from "../utils/dbConnect";
-<<<<<<< HEAD
 //import Resource from "../models/resource";
 import resourceOffline from "../utils/resources-for-offline";
-=======
-import Resource from "../models/resource";
-import Axios from "axios";
->>>>>>> financial_filters
 
 const Resources = ({ resourceData }) => {
 	//Creating a state for the different filtering and sorting controllers
@@ -19,7 +14,6 @@ const Resources = ({ resourceData }) => {
 		industryProfessional: false,
 		incomeMin: false,
 	});
-<<<<<<< HEAD
 
 	const [roleGroup, setRoleGroup] = useState({
 		musician: false,
@@ -27,44 +21,35 @@ const Resources = ({ resourceData }) => {
 		business: false,
 		educator: false,
 	});
-=======
-	// const [roleGroup, setRoleGroup] = useState({
-	// 	musician: false,
-	// 	engineer: false,
-	// 	business: false,
-	// 	educator: false,
-	// });
->>>>>>> financial_filters
-
 	// const [years, setYears] = useState("1");
 
 	const [sort, setSort] = useState("");
 
-	//usestate hook for filter buttons
-<<<<<<< HEAD
 	const [status, setStatus] = useState(["all"]);
-	//Use effect to listen to filter buttons and update state conditionally
-=======
-	//const [filters, setFilters] = useState([]);
->>>>>>> financial_filters
 
-	//This is what we will refer to to load user inputs
-	const resourceCriteria = {
-		...financialGroup,
-		...roleGroup,
-		//years,
-		status,
-		sort,
-	};
+	const [resource, setResource] = useState(resourceData);
+
+	const [resourceReference, setResourceReference] = useState(resourceData);
 
 	//Sets the financialGroup state to be equal to the buttons pressed
+	//FINANCIALGROUP Handlers
 	const handleFinancialFilterButton = (id) => {
 		setFinancialGroup((financialGroup) => ({ ...financialGroup, [id]: !financialGroup[id] }));
 	};
+	const handelFinancialButtonStyle = (id) => {
+		if (financialGroup[id] == true) {
+			return styles.clicked;
+		} else {
+			return styles.unClicked;
+		}
+	};
+	//END FINANCIALGROUP Handlers
 	const handleRolesFilterButton = (id) => {
 		setRoleGroup((roleGroup) => ({ ...roleGroup, [id]: !roleGroup[id] }));
 	};
 
+	///////////////
+	//Status Handlers!!!/////
 	//Sets status based on the id of the targets
 	const handleStatusFilterButton = (id) => {
 		if (id == "all") {
@@ -84,23 +69,42 @@ const Resources = ({ resourceData }) => {
 			setStatus((status) => [...status, id]);
 		}
 	};
-	//Effect for financial Group change
-	//This will end updating resource results based on change in financialgroup state
+	//Handles the styling of the button based on the status
+	const handleStatusButtonStyle = (id) => {
+		if (status.includes(id)) {
+			return styles.clicked;
+		} else {
+			return styles.unClicked;
+		}
+	};
+	//END STATUS HANDLERS////////
+	/////////////
+
+	//FILTER RESOURCES
 	useEffect(() => {
-		console.log(financialGroup);
-	}, [financialGroup]);
-	useEffect(() => {
+		//This is what we will refer to for filtering
+		const stateReference = {
+			...financialGroup,
+			...roleGroup,
+			status,
+			sort,
+		};
+		//we will array.filter or array.map the resourceReference to set resource and render the filtered results
 		console.log(status);
-	}, [status]);
-	useEffect(() => {
-		console.log(roleGroup);
-	}, [roleGroup]);
-	useEffect(() => {
-		console.log(sort);
-	}, [sort]);
-	const [resource, setResource] = useState(resourceData);
+		//FINANCIALGROUP FILTERING
+
+		//STATUS FILTERING
+		if (status.includes("all")) {
+			return setResource(resourceReference);
+		} else {
+			let newResource = resourceReference.filter((item) => {
+				return status.includes(item.status.toLowerCase());
+			});
+			setResource(newResource);
+		}
+	}, [status, financialGroup]);
+
 	//handles the removal of irrelavent items
-	console.log(resource);
 	const handleNotRelevantClick = (key) => {
 		setResource(
 			resource.filter((resource) => {
@@ -120,14 +124,26 @@ const Resources = ({ resourceData }) => {
 				<div className={styles.financialGroup}>
 					<h2>Select what you can provide and/or is true for you…</h2>
 
-					<Button filterClick={handleFinancialFilterButton} id='pandemicImpact'>
+					<Button
+						filterClick={handleFinancialFilterButton}
+						className={handelFinancialButtonStyle("pandemicImpact")}
+						id='pandemicImpact'
+					>
 						Proof that you were financially impacted by the pandemic. (e.g. lost gigs,
 						shows, bookings, contracts, unemployment etc.)
 					</Button>
-					<Button filterClick={handleFinancialFilterButton} id='industryProfessional'>
+					<Button
+						filterClick={handleFinancialFilterButton}
+						className={handelFinancialButtonStyle("industryProfessional")}
+						id='industryProfessional'
+					>
 						Proof of professional musicianship and/or music industry employment.
 					</Button>
-					<Button filterClick={handleFinancialFilterButton} id='incomeMin'>
+					<Button
+						filterClick={handleFinancialFilterButton}
+						className={handelFinancialButtonStyle("incomeMin")}
+						id='incomeMin'
+					>
 						The music industry is over 50% of my income
 					</Button>
 				</div>
@@ -165,20 +181,39 @@ const Resources = ({ resourceData }) => {
 				<div className={styles.filtersAndSortContainer}>
 					<div className={styles.filterContainer}>
 						<p>Would you like to see?</p>
-						<Button filterClick={handleStatusFilterButton} status={status} id='all'>
+						<Button
+							filterClick={handleStatusFilterButton}
+							className={handleStatusButtonStyle("all")}
+							status={status}
+							id='all'
+						>
 							All
 						</Button>
-						<Button filterClick={handleStatusFilterButton} status={status} id='open'>
+						<Button
+							filterClick={handleStatusFilterButton}
+							className={handleStatusButtonStyle("open")}
+							status={status}
+							id='open'
+						>
 							Open
 						</Button>
-						<Button filterClick={handleStatusFilterButton} status={status} id='wait'>
+						<Button
+							filterClick={handleStatusFilterButton}
+							className={handleStatusButtonStyle("paused-waitlist")}
+							status={status}
+							id='paused-waitlist'
+						>
 							Waitlisted
 						</Button>
-						<Button filterClick={handleStatusFilterButton} status={status} id='closed'>
+						<Button
+							filterClick={handleStatusFilterButton}
+							className={handleStatusButtonStyle("closed")}
+							status={status}
+							id='closed'
+						>
 							Closed
 						</Button>
 					</div>
-<<<<<<< HEAD
 					<div className={styles.sortContainer}>
 						<span>SORT:</span>
 						<p onClick={() => setSort("a-z")}>A-Z</p>
@@ -186,29 +221,6 @@ const Resources = ({ resourceData }) => {
 						<p onClick={() => setSort("z-a")}>Z-A</p>
 						<div className={styles.vertDividerThin}></div>
 						<p onClick={() => setSort("$")}>$</p>
-=======
-					<label>
-						<span>Years in industry:</span> 1
-						<input type='range' min='1' max='20' step='1'></input> 20+
-					</label>
-					<div className={styles.divider}></div>
-					<div className={styles.filtersAndSortContainer}>
-						<div className={styles.filterContainer}>
-							<p>Would you like to see?</p>
-							<Button id='all'>All</Button>
-							<Button id='open'>Open</Button>
-							<Button id='wait'>Waitlisted</Button>
-							<Button id='closed'>Closed</Button>
-						</div>
-						<div className={styles.sortContainer}>
-							<span>SORT:</span>
-							<p>A-Z</p>
-							<div className={styles.vertDividerThin}></div>
-							<p>Z-A</p>
-							<div className={styles.vertDividerThin}></div>
-							<p>$</p>
-						</div>
->>>>>>> financial_filters
 					</div>
 				</div>
 			</div>
@@ -218,7 +230,8 @@ const Resources = ({ resourceData }) => {
 						<ResourceCard
 							key={data["_id"]}
 							name={data.organization}
-							//benifit={resource.benefit}
+							amount={data.amount}
+							link={data.link}
 							status={data.status}
 							handleNotRelevantClick={() => handleNotRelevantClick(data["_id"])}
 							//eligibilities={resource.eligibilities}
@@ -232,12 +245,8 @@ const Resources = ({ resourceData }) => {
 
 export async function getStaticProps() {
 	//dbConnect();
-<<<<<<< HEAD
 	//const data = await Resource.find({}, "organization _id status");
 	const data = resourceOffline;
-=======
-	const data = await Resource.find({}, "organization _id status");
->>>>>>> financial_filters
 	const string = JSON.stringify(data);
 	const resourceData = JSON.parse(string);
 	return {

@@ -3,13 +3,12 @@
 .controllers {
 	width: 80%;
 	margin: 40px auto;
-	&.unClicked {
+	.unClicked {
 		background-color: $brownGrey;
 	}
-	&.clicked {
+	.clicked {
 		background-color: $brightOrange;
 	}
-
 	h1 {
 		font-family: $subheadFont;
 		font-size: 32px;

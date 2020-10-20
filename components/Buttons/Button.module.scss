@@ -13,11 +13,11 @@
 		font-weight: bold;
 		text-align: center;
 		color: $white;
-		&.unClicked {
-			background-color: $brownGrey;
-		}
-		&.clicked {
-			background-color: $brightOrange;
-		}
+	}
+	.unClicked {
+		background-color: $brownGrey;
+	}
+	.clicked {
+		background-color: $brightOrange;
 	}
 }

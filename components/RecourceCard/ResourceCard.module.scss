@@ -16,6 +16,9 @@
 			font-weight: bold;
 			text-decoration: underline;
 			padding-right: 50px;
+			a {
+				color: $uglyBlue;
+			}
 		}
 		button {
 			cursor: pointer;
@@ -29,7 +32,7 @@
 		font-family: $headFont;
 		display: grid;
 		grid-template-columns: 115px 1fr;
-		grid-template-rows: 40px 40px 1fr;
+		grid-template-rows: 1fr 40px 1fr;
 		grid-template-areas:
 			"label" "info"
 			"label" "info"
