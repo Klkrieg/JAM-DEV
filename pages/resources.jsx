@@ -21,9 +21,9 @@ const Resources = ({ resourceData }) => {
 		business: false,
 		educator: false,
 	});
-	// const [years, setYears] = useState("1");
+	const [years, setYears] = useState("1");
 
-	const [sort, setSort] = useState("");
+	const [sort, setSort] = useState("a-z");
 
 	const [status, setStatus] = useState(["all"]);
 
@@ -44,11 +44,30 @@ const Resources = ({ resourceData }) => {
 		}
 	};
 	//END FINANCIALGROUP Handlers
+
+	//ROLEGROUP Handlers
 	const handleRolesFilterButton = (id) => {
 		setRoleGroup((roleGroup) => ({ ...roleGroup, [id]: !roleGroup[id] }));
 	};
 
-	///////////////
+	const handleRoleButtonStyles = (id) => {
+		if (roleGroup[id] == true) {
+			return styles.textClicked;
+		} else {
+			return styles.textUnClicked;
+		}
+	};
+	useEffect(() => {
+		console.log(roleGroup);
+	}, [roleGroup]);
+	//END ROLEGROUP Handlers
+
+	///YEARS SLIDER HANDLER
+	// let yearsValue = document.getElementById("years").value;
+	// const handleYearsSlider = () => {
+	// 	setYears(yearsValue);
+	// };
+	//
 	//Status Handlers!!!/////
 	//Sets status based on the id of the targets
 	const handleStatusFilterButton = (id) => {
@@ -79,6 +98,20 @@ const Resources = ({ resourceData }) => {
 	};
 	//END STATUS HANDLERS////////
 	/////////////
+
+	///
+	//SORT BUTTONS are handled on their components
+	const handleSortButtonStyle = (id) => {
+		if (sort === id) {
+			return styles.textClicked;
+		} else {
+			return styles.textUnClicked;
+		}
+	};
+	useEffect(() => {
+		console.log(sort);
+	}, [sort]);
+	//////
 
 	//FILTER RESOURCES
 	useEffect(() => {
@@ -150,33 +183,60 @@ const Resources = ({ resourceData }) => {
 				<div className={styles.divider}></div>
 				<div className={styles.rolesGroup}>
 					<a>
-						<p id='musician' onClick={() => handleRolesFilterButton("musician")}>
+						<p
+							id='musician'
+							className={handleRoleButtonStyles("musician")}
+							onClick={() => handleRolesFilterButton("musician")}
+						>
 							Musician
 						</p>
 					</a>
 					<div className={styles.vertDivider}></div>
 					<a>
-						<p id='engineer' onClick={() => handleRolesFilterButton("engineer")}>
+						<p
+							id='engineer'
+							className={handleRoleButtonStyles("engineer")}
+							onClick={() => handleRolesFilterButton("engineer")}
+						>
 							Engineer/Crew
 						</p>
 					</a>
 					<div className={styles.vertDivider}></div>
 					<a>
-						<p id='business' onClick={() => handleRolesFilterButton("business")}>
+						<p
+							id='business'
+							className={handleRoleButtonStyles("business")}
+							onClick={() => handleRolesFilterButton("business")}
+						>
 							Business
 						</p>
 					</a>
 					<div className={styles.vertDivider}></div>
 					<a>
-						<p id='educator' onClick={() => handleRolesFilterButton("educator")}>
+						<p
+							id='educator'
+							className={handleRoleButtonStyles("educator")}
+							onClick={() => handleRolesFilterButton("educator")}
+						>
 							Educator
 						</p>
 					</a>
 				</div>
-				<label>
-					<span>Years in industry:</span> 1
-					<input type='range' min='1' max='20' step='1'></input> 20+
-				</label>
+				<div className={styles.yearsDiv}>
+					<p>{years == "20" ? "20+" : years}</p>
+					<label>
+						<span>Years in industry:</span> 1
+						<input
+							id='years'
+							type='range'
+							min='1'
+							max='20'
+							step='1'
+							onChange={() => setYears(document.getElementById("years").value)}
+						></input>
+						20+
+					</label>
+				</div>
 				<div className={styles.divider}></div>
 				<div className={styles.filtersAndSortContainer}>
 					<div className={styles.filterContainer}>
@@ -216,11 +276,17 @@ const Resources = ({ resourceData }) => {
 					</div>
 					<div className={styles.sortContainer}>
 						<span>SORT:</span>
-						<p onClick={() => setSort("a-z")}>A-Z</p>
+						<p className={handleSortButtonStyle("a-z")} onClick={() => setSort("a-z")}>
+							A-Z
+						</p>
 						<div className={styles.vertDividerThin}></div>
-						<p onClick={() => setSort("z-a")}>Z-A</p>
+						<p className={handleSortButtonStyle("z-a")} onClick={() => setSort("z-a")}>
+							Z-A
+						</p>
 						<div className={styles.vertDividerThin}></div>
-						<p onClick={() => setSort("$")}>$</p>
+						<p className={handleSortButtonStyle("$")} onClick={() => setSort("$")}>
+							$
+						</p>
 					</div>
 				</div>
 			</div>
