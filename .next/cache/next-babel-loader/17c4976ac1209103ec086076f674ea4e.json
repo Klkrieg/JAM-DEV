@@ -1,0 +1,1 @@
+{"ast":null,"code":"import styles from \"./Footer.modules.scss\";","map":{"version":3,"sources":["/Users/karsonkrieg/Desktop/JAM-DEV/components/Footer/Footer.component.jsx"],"names":["styles"],"mappings":"AAAA,OAAOA,MAAP,MAAmB,uBAAnB","sourcesContent":["import styles from \"./Footer.modules.scss\";\n"]},"metadata":{},"sourceType":"module"}
