@@ -6,8 +6,20 @@ import { useEffect, useState } from "react";
 import dbConnect from "../utils/dbConnect";
 //import Resource from "../models/resource";
 import resourceOffline from "../utils/resources-for-offline";
+import Axios from "axios";
 
 const Resources = ({ resourceData }) => {
+
+	const initData = resourceData.filter((record) => {
+		if(record.COVID_income_loss == "" && record.proof_of_experience == "" && record.half_of_income == ""){
+			return record;
+		}
+	});
+	useEffect(()=>{
+		Axios.get("/api/resource-data")
+	}, []);
+	
+	
 	//Creating a state for the different filtering and sorting controllers
 	const [financialGroup, setFinancialGroup] = useState({
 		pandemicImpact: false,
@@ -27,7 +39,7 @@ const Resources = ({ resourceData }) => {
 
 	const [status, setStatus] = useState(["all"]);
 
-	const [resource, setResource] = useState(resourceData);
+	const [resource, setResource] = useState(initData);
 
 	const [resourceReference, setResourceReference] = useState(resourceData);
 
@@ -57,17 +69,8 @@ const Resources = ({ resourceData }) => {
 			return styles.textUnClicked;
 		}
 	};
-	useEffect(() => {
-		console.log(roleGroup);
-	}, [roleGroup]);
 	//END ROLEGROUP Handlers
-
-	///YEARS SLIDER HANDLER
-	// let yearsValue = document.getElementById("years").value;
-	// const handleYearsSlider = () => {
-	// 	setYears(yearsValue);
-	// };
-	//
+	
 	//Status Handlers!!!/////
 	//Sets status based on the id of the targets
 	const handleStatusFilterButton = (id) => {
@@ -108,33 +111,38 @@ const Resources = ({ resourceData }) => {
 			return styles.textUnClicked;
 		}
 	};
-	useEffect(() => {
-		console.log(sort);
-	}, [sort]);
 	//////
 
 	//FILTER RESOURCES
 	useEffect(() => {
 		//This is what we will refer to for filtering
-		const stateReference = {
-			...financialGroup,
-			...roleGroup,
-			status,
-			sort,
-		};
+		// const stateReference = {
+		// 	...financialGroup,
+		// 	...roleGroup,
+		// 	status,
+		// 	years,
+		// 	sort,
+		// };
+		let statusFilter, financialFilter, roleFilter, yearsFilter, newResource = [];
+		
 		//we will array.filter or array.map the resourceReference to set resource and render the filtered results
 		console.log(status);
 		//FINANCIALGROUP FILTERING
+		
+		//Update the resources rendered based on which of the three financialGroup Buttons is pressed
+		//If a button is unselected, it must be "unfiltered"
 
 		//STATUS FILTERING
 		if (status.includes("all")) {
 			return setResource(resourceReference);
 		} else {
-			let newResource = resourceReference.filter((item) => {
+			statusFilter = resourceReference.filter((item) => {
 				return status.includes(item.status.toLowerCase());
 			});
-			setResource(newResource);
+			
 		}
+		newResource = [...newResource, ...statusFilter];
+			setResource(newResource);
 	}, [status, financialGroup]);
 
 	//handles the removal of irrelavent items
@@ -232,6 +240,7 @@ const Resources = ({ resourceData }) => {
 							min='1'
 							max='20'
 							step='1'
+							value={years}
 							onChange={() => setYears(document.getElementById("years").value)}
 						></input>
 						20+

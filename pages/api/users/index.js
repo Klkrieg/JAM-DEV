@@ -12,7 +12,7 @@ export default async (req, res) => {
 				const users = await Users.find({});
 				res.status(200).json({ success: true, data: users });
 			} catch {
-				res.status(400);
+				res.status(400).json({success: false});
 			}
 			break;
 		case "POST":
@@ -23,7 +23,7 @@ export default async (req, res) => {
 			// 		return res.status(200).json({ success: true, user });
 			// 	}
 			// });
-			Users.findOne({ email: req.body.email }, "email", async (err, user) => {
+			Users.find({ email: req.body.email }, "email", async (err, user) => {
 				try {
 					if (user) {
 						console.log("A user with that email already exists.");
