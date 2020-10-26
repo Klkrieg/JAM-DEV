@@ -10,15 +10,15 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/joeldelatte/JAM-DEV.git"
+		"url": "git+https://github.com/Klkrieg/JAM-DEV.git"
 	},
 	"keywords": [],
 	"author": "",
 	"license": "ISC",
 	"bugs": {
-		"url": "https://github.com/joeldelatte/JAM-DEV/issues"
+		"url": "https://github.com/Klkrieg/JAM-DEV/issues"
 	},
-	"homepage": "https://github.com/joeldelatte/JAM-DEV#readme",
+	"homepage": "https://github.com/Klkrieg/JAM-DEV#readme",
 	"dependencies": {
 		"axios": "^0.20.0",
 		"bcrypt": "^5.0.0",
