@@ -1,0 +1,1 @@
+{"ast":null,"code":"import React from \"react\";\nvar __jsx = React.createElement;\nimport styles from \"./Backdrop.module.scss\";\n\nvar Backdrop = function Backdrop(props) {\n  return __jsx(\"div\", {\n    className: styles.backdrop\n  });\n};\n\nexport default Backdrop;","map":null,"metadata":{},"sourceType":"module"}

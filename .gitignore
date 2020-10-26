@@ -1,8 +1,5 @@
-# dependencies
-/node_modules
-
-# misc
-.history
-
-#environment variables
+node_modules/
+next.config.js
+.history/
 .env
+.utils/resources-for-offline.js

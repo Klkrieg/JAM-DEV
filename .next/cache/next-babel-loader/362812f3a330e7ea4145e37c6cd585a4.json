@@ -1,0 +1,1 @@
+{"ast":null,"code":"import dbConnect from \"../../utils/dbConnect\";\ndbConnect();\nexport default (async (req, res) => {\n  res.json({\n    test: \"Db connected\"\n  });\n});","map":null,"metadata":{},"sourceType":"module"}

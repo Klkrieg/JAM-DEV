@@ -1,32 +1,36 @@
 {
-  "name": "jam-dev",
-  "version": "1.0.0",
-  "description": "websiste for Joining Al Musicians",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "compile:sass": "node-sass -w public/sass/main.scss public/css/style.css -o"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/joeldelatte/JAM-DEV.git"
-  },
-  "author": "joeldelatte and karsonkrieg",
-  "license": "ISC",
-  "devDependencies": {
-    "live-server": "^1.2.1",
-    "node-sass": "^4.14.1",
-    "nodemon": "^2.0.4",
-    "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.12"
-  },
-  "dependencies": {
-    "axios": "^0.19.2",
-    "body-parser": "^1.19.0",
-    "cookie-parser": "^1.4.5",
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "mongoose": "^5.9.19",
-    "path": "^0.12.7"
-  }
+	"name": "jam-dev",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Klkrieg/JAM-DEV.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/Klkrieg/JAM-DEV/issues"
+	},
+	"homepage": "https://github.com/Klkrieg/JAM-DEV#readme",
+	"dependencies": {
+		"axios": "^0.20.0",
+		"bcrypt": "^5.0.0",
+		"mongodb": "^3.6.0",
+		"mongoose": "^5.10.3",
+		"next": "^9.5.5",
+		"password-validator": "^5.1.0",
+		"react": "^16.13.1",
+		"react-dom": "^16.13.1",
+		"sass": "^1.26.10"
+	},
+	"devDependencies": {
+		"prettier": "^2.1.1"
+	}
 }
