@@ -8,6 +8,7 @@ import dbConnect from "../utils/dbConnect";
 import resourceOffline from "../utils/resources-for-offline";
 import Axios from "axios";
 
+
 const Resources = ({ resourceData }) => {
 
 	const initData = resourceData.filter((record) => {
@@ -15,8 +16,17 @@ const Resources = ({ resourceData }) => {
 			return record;
 		}
 	});
-	useEffect(()=>{
-		Axios.get("/api/resource-data")
+	useEffect(async ()=>{
+		// let notNull = /\w/;
+
+		const options = {
+			COVID_income_loss: false,
+			half_of_income: false,
+			proof_of_experience: false
+		};
+		const res = await Axios.get("/api/resource-data", {params: options});
+		console.log(res);
+
 	}, []);
 	
 	
