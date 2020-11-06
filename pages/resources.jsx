@@ -1,4 +1,3 @@
-import Axios from 'axios';
 import React, { useEffect, useState } from 'react';
 
 import Button from '../components/Buttons/Button.component';
@@ -17,9 +16,11 @@ const Resources = ({ resourceData }) => {
       return record;
     }
   });
-  useEffect(() => {
-    Axios.get('/api/resource-data');
-  }, []);
+
+  // TODO: Load resources from database
+  // useEffect(() => {
+  //   Axios.get('/api/resource-data');
+  // }, []);
 
   //Creating a state for the different filtering and sorting controllers
   const [financialGroup, setFinancialGroup] = useState({
@@ -34,24 +35,21 @@ const Resources = ({ resourceData }) => {
     business: false,
     educator: false,
   });
+
   const [years, setYears] = useState('1');
-
   const [sort, setSort] = useState('a-z');
-
   const [status, setStatus] = useState(['all']);
-
   const [resource, setResource] = useState(initData);
-
   const [resourceReference, setResourceReference] = useState(resourceData);
 
-  //Sets the financialGroup state to be equal to the buttons pressed
-  //FINANCIALGROUP Handlers
+  // Sets the financialGroup state to be equal to the buttons pressed
   const handleFinancialFilterButton = (id) => {
     setFinancialGroup((financialGroup) => ({
       ...financialGroup,
       [id]: !financialGroup[id],
     }));
   };
+
   const handelFinancialButtonStyle = (id) => {
     if (financialGroup[id] == true) {
       return styles.clicked;
@@ -59,9 +57,7 @@ const Resources = ({ resourceData }) => {
       return styles.unClicked;
     }
   };
-  //END FINANCIALGROUP Handlers
 
-  //ROLEGROUP Handlers
   const handleRolesFilterButton = (id) => {
     setRoleGroup((roleGroup) => ({ ...roleGroup, [id]: !roleGroup[id] }));
   };
@@ -73,10 +69,8 @@ const Resources = ({ resourceData }) => {
       return styles.textUnClicked;
     }
   };
-  //END ROLEGROUP Handlers
 
-  //Status Handlers!!!/////
-  //Sets status based on the id of the targets
+  // Sets status based on the id of the targets
   const handleStatusFilterButton = (id) => {
     if (id == 'all') {
       setStatus(['all']);
@@ -95,7 +89,8 @@ const Resources = ({ resourceData }) => {
       setStatus((status) => [...status, id]);
     }
   };
-  //Handles the styling of the button based on the status
+
+  // Handles the styling of the button based on the status
   const handleStatusButtonStyle = (id) => {
     if (status.includes(id)) {
       return styles.clicked;
@@ -103,11 +98,7 @@ const Resources = ({ resourceData }) => {
       return styles.unClicked;
     }
   };
-  //END STATUS HANDLERS////////
-  /////////////
 
-  ///
-  //SORT BUTTONS are handled on their components
   const handleSortButtonStyle = (id) => {
     if (sort === id) {
       return styles.textClicked;
@@ -115,32 +106,14 @@ const Resources = ({ resourceData }) => {
       return styles.textUnClicked;
     }
   };
-  //////
 
-  //FILTER RESOURCES
   useEffect(() => {
-    //This is what we will refer to for filtering
-    // const stateReference = {
-    // 	...financialGroup,
-    // 	...roleGroup,
-    // 	status,
-    // 	years,
-    // 	sort,
-    // };
     let statusFilter,
       financialFilter,
       roleFilter,
       yearsFilter,
       newResource = [];
 
-    //we will array.filter or array.map the resourceReference to set resource and render the filtered results
-    console.log(status);
-    //FINANCIALGROUP FILTERING
-
-    //Update the resources rendered based on which of the three financialGroup Buttons is pressed
-    //If a button is unselected, it must be "unfiltered"
-
-    //STATUS FILTERING
     if (status.includes('all')) {
       return setResource(resourceReference);
     } else {
@@ -148,11 +121,12 @@ const Resources = ({ resourceData }) => {
         return status.includes(item.status.toLowerCase());
       });
     }
+
     newResource = [...newResource, ...statusFilter];
     setResource(newResource);
   }, [status, financialGroup]);
 
-  //handles the removal of irrelavent items
+  // handles the removal of irrelavent items
   const handleNotRelevantClick = (key) => {
     setResource(
       resource.filter((resource) => {
@@ -199,45 +173,37 @@ const Resources = ({ resourceData }) => {
         </div>
         <div className={styles.divider}></div>
         <div className={styles.rolesGroup}>
-          <a>
-            <p
-              id="musician"
-              className={handleRoleButtonStyles('musician')}
-              onClick={() => handleRolesFilterButton('musician')}
-            >
-              Musician
-            </p>
-          </a>
+          <p
+            id="musician"
+            className={handleRoleButtonStyles('musician')}
+            onClick={() => handleRolesFilterButton('musician')}
+          >
+            Musician
+          </p>
           <div className={styles.vertDivider}></div>
-          <a>
-            <p
-              id="engineer"
-              className={handleRoleButtonStyles('engineer')}
-              onClick={() => handleRolesFilterButton('engineer')}
-            >
-              Engineer/Crew
-            </p>
-          </a>
+          <p
+            id="engineer"
+            className={handleRoleButtonStyles('engineer')}
+            onClick={() => handleRolesFilterButton('engineer')}
+          >
+            Engineer/Crew
+          </p>
           <div className={styles.vertDivider}></div>
-          <a>
-            <p
-              id="business"
-              className={handleRoleButtonStyles('business')}
-              onClick={() => handleRolesFilterButton('business')}
-            >
-              Business
-            </p>
-          </a>
+          <p
+            id="business"
+            className={handleRoleButtonStyles('business')}
+            onClick={() => handleRolesFilterButton('business')}
+          >
+            Business
+          </p>
           <div className={styles.vertDivider}></div>
-          <a>
-            <p
-              id="educator"
-              className={handleRoleButtonStyles('educator')}
-              onClick={() => handleRolesFilterButton('educator')}
-            >
-              Educator
-            </p>
-          </a>
+          <p
+            id="educator"
+            className={handleRoleButtonStyles('educator')}
+            onClick={() => handleRolesFilterButton('educator')}
+          >
+            Educator
+          </p>
         </div>
         <div className={styles.yearsDiv}>
           <p>{years == '20' ? '20+' : years}</p>
@@ -327,7 +293,6 @@ const Resources = ({ resourceData }) => {
               link={data.link}
               status={data.status}
               handleNotRelevantClick={() => handleNotRelevantClick(data['_id'])}
-              //eligibilities={resource.eligibilities}
             />
           );
         })}
@@ -337,8 +302,6 @@ const Resources = ({ resourceData }) => {
 };
 
 export async function getStaticProps() {
-  //dbConnect();
-  //const data = await Resource.find({}, "organization _id status");
   const data = resourceOffline;
   const string = JSON.stringify(data);
   const resourceData = JSON.parse(string);

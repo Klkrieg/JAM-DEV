@@ -10,7 +10,7 @@ const Navbar = () => {
   const [isSignInOpen, setSignInOpen] = React.useState(false);
   const [isSignUpOpen, setSignUpOpen] = React.useState(false);
 
-  React.useLayoutEffect(() => {
+  React.useEffect(() => {
     const handleOffModalClick = (e) => {
       if (e.target.className.match(/backdrop/i)) {
         setSignInOpen(false);
