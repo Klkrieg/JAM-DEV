@@ -1,8 +1,9 @@
-import "../globalStyles/styles.scss";
-import App from "next/app";
+import App from 'next/app';
+
+import '../globalStyles/styles.scss';
 
 function MyApp({ Component, pageProps }) {
-	return <Component {...pageProps} />;
+  return <Component {...pageProps} />;
 }
 
 // Only uncomment this method if you have blocking data requirements for
@@ -11,10 +12,10 @@ function MyApp({ Component, pageProps }) {
 // be server-side rendered.
 //
 MyApp.getInitialProps = async (appContext) => {
-	// calls page's `getInitialProps` and fills `appProps.pageProps`
-	const appProps = await App.getInitialProps(appContext);
+  // calls page's `getInitialProps` and fills `appProps.pageProps`
+  const appProps = await App.getInitialProps(appContext);
 
-	return { ...appProps };
+  return { ...appProps };
 };
 
 export default MyApp;
