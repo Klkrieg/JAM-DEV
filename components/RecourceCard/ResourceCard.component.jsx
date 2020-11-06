@@ -7,7 +7,7 @@ const ResourceCard = (props) => {
     <div className={styles.ResourceCard}>
       <div className={styles.title}>
         <h3>
-          <a href={props.link} target="_blank">
+          <a href={props.link} target="_blank" rel="noreferrer">
             {props.name}
           </a>
         </h3>
@@ -17,13 +17,13 @@ const ResourceCard = (props) => {
         </button>
       </div>
       <div className={styles.content}>
-        <label>Benefit Amount</label>
+        <label htmlFor="benefit-amount">Benefit Amount</label>
         <div className={styles.infoContainer}>
-          <p>{props.amount}</p>
+          <p id="benefit-amount">{props.amount}</p>
         </div>
-        <label>Grant Status</label>
+        <label htmlFor="grant-status">Grant Status</label>
         <div className={styles.infoContainer}>
-          <p>{props.status}</p>
+          <p id="grant-status">{props.status}</p>
         </div>
         <label>Eligibilities</label>
         {/* <div className={styles.infoContainer}>

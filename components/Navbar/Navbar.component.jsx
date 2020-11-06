@@ -69,19 +69,13 @@ class Navbar extends React.Component {
         />
         <ul className={styles.PageLinks}>
           <li>
-            <Link href="/">
-              <a>Home</a>
-            </Link>
+            <Link href="/">Home</Link>
           </li>
           <li>
-            <Link href="/connect">
-              <a>Connect</a>
-            </Link>
+            <Link href="/connect">Connect</Link>
           </li>
           <li>
-            <Link href="/resources">
-              <a>Resources</a>
-            </Link>
+            <Link href="/resources">Resources</Link>
           </li>
         </ul>
         <div className={styles.buttonContainer}>
