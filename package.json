@@ -2,23 +2,29 @@
 	"name": "jam-dev",
 	"version": "1.0.0",
 	"description": "The JAM web app",
+	"author": "JAM Team",
+	"license": "SEE LICENSE",
 	"main": "index.js",
 	"scripts": {
 		"dev": "next dev",
 		"build": "next build",
-		"start": "next start"
+		"start": "next start",
+		"lint": "eslint --ext .js,.jsx .",
+		"lint:fix": "eslint --fix --ext .js,.jsx ."
 	},
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/Klkrieg/JAM-DEV.git"
 	},
-	"keywords": [],
-	"author": "",
-	"license": "ISC",
 	"bugs": {
 		"url": "https://github.com/Klkrieg/JAM-DEV/issues"
 	},
 	"homepage": "https://github.com/Klkrieg/JAM-DEV#readme",
+	"husky": {
+    "hooks": {
+      "pre-commit": "npm run lint:fix"
+    }
+  },
 	"dependencies": {
 		"axios": "^0.20.0",
 		"bcrypt": "^5.0.0",
@@ -39,6 +45,7 @@
 		"sass": "^1.26.10"
 	},
 	"devDependencies": {
+		"husky": "^4.3.0",
 		"prettier": "^2.1.2"
 	}
 }
