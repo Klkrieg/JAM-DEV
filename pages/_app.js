@@ -1,4 +1,5 @@
 import App from 'next/app';
+import React from 'react';
 
 import '../globalStyles/styles.scss';
 

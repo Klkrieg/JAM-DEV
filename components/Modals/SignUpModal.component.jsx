@@ -2,7 +2,6 @@ import React from 'react';
 
 import styles from './SignUpModal.module.scss';
 import validator from '../../utils/passwordValidator';
-import { zipList } from '../../utils/ziplist';
 
 class SignUpModal extends React.Component {
   constructor(props) {

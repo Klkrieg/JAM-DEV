@@ -34,7 +34,6 @@
   ],
   "rules": {
     "react/prop-types": "off",
-    "react/react-in-jsx-scope": "off",
     "sort-imports-es6-autofix/sort-imports-es6": [
       "error",
       {

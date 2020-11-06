@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import React from 'react';
 
 import Layout from '../components/Layout/Layout.component';
 import styles from '../pageStyles/index.module.scss';

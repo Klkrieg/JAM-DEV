@@ -1,3 +1,5 @@
+import React from 'react';
+
 import styles from './ResourceCard.module.scss';
 
 const ResourceCard = (props) => {
