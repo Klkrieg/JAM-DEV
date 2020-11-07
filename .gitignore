@@ -4,3 +4,4 @@ next.config.js
 .history/
 .env
 .utils/resources-for-offline.js
+.DS_Store
