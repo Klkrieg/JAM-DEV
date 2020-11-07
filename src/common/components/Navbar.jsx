@@ -53,13 +53,19 @@ const Navbar = () => {
       />
       <ul className={styles.PageLinks}>
         <li>
-          <Link href="/">Home</Link>
+          <Link href="/">
+            <a>Home</a>
+          </Link>
         </li>
         <li>
-          <Link href="/connect">Connect</Link>
+          <Link href="/connect">
+            <a>Connect</a>
+          </Link>
         </li>
         <li>
-          <Link href="/resources">Resources</Link>
+          <Link href="/resources">
+            <a>Resources</a>
+          </Link>
         </li>
       </ul>
       <div className={styles.buttonContainer}>
