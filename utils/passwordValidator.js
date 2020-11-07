@@ -1,10 +1,7 @@
 import * as passwordValidator from 'password-validator';
 
 export default function validator(password) {
-  //password field validator
-  ///////////
-
-  let passwordSchema = new passwordValidator();
+  const passwordSchema = new passwordValidator();
 
   passwordSchema
     .is()

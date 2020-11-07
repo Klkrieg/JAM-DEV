@@ -3,14 +3,8 @@ import React from 'react';
 import styles from './Button.module.scss';
 
 const Button = (props) => {
-  const handleClick = (e) => {
+  const handleClick = () => {
     props.filterClick(props.id);
-    console.log(e.target.id);
-    console.log(props.id);
-    console.log(props.status);
-    // props.status.includes(e.target.id)
-    // 	? (e.target.className = styles.clicked)
-    // 	: (e.target.className = styles.unClicked);
   };
 
   return (
