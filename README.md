@@ -19,3 +19,22 @@ This repo contains the Next.js app for the JAM website.
 ### Run the app
 1. Run `docker-compose up -d` to create/start the MongoDB Docker container (NOTE: no need to do this if the container is already running)
 2. Run `npm run dev` to start the app in watch mode
+
+## Generating JWT Keys
+1. Install Node JOSE tools: `npm install -g node-jose-tools`
+2. Run `jose newkey -s 256 -t oct -a HS512`
+
+## Required Environment Variables
+```
+# Database (local)
+DB_CONN_STRING
+
+# Auth
+NEXTAUTH_URL
+JWT_SECRET
+JWT_SIGNING_KEY
+GOOGLE_CLIENT_ID
+GOOGLE_CLIENT_SECRET
+FACEBOOK_CLIENT_ID
+FACEBOOK_CLIENT_SECRET
+```
