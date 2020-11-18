@@ -38,6 +38,9 @@ const options = {
   session: {
     jwt: true,
   },
+  jwt: {
+    secret: process.env.JWT_SECRET,
+  },
 };
 
 export default (req, res) => NextAuth(req, res, options);
