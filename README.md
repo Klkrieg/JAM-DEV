@@ -26,11 +26,16 @@ This repo contains the Next.js app for the JAM website.
 
 ## Required Environment Variables
 ```
+# Platform
+NODE_ENV
+
+# If preview deployment
+PREVIEW_DEPLOYMENT
+
 # Database (local)
 DB_CONN_STRING
 
 # Auth
-NEXTAUTH_URL
 JWT_SECRET
 JWT_SIGNING_KEY
 GOOGLE_CLIENT_ID
