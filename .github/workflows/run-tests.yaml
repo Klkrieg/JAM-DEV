@@ -1,0 +1,29 @@
+name: Run Tests
+
+on: [pull_request]
+
+jobs:
+  run-server-tests:
+    name: Run Server Tests
+    runs-on: ubuntu-latest
+
+    env:
+      DB_CONN_STRING: mongodb://root:password@localhost:27018/admin?retryWrites=true&w=majority
+
+    services:
+      mongo-test:
+        image: mongo
+        env:
+          MONGO_INITDB_DATABASE: admin
+          MONGO_INITDB_ROOT_USERNAME: root
+          MONGO_INITDB_ROOT_PASSWORD: password
+        ports:
+          - 27017:27017
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '12.9.0'
+      - run: npm install
+      - run: npm run test:server
