@@ -3,9 +3,9 @@ import styled from 'styled-components';
 import { Box, Divider, Typography } from '@material-ui/core';
 
 import Layout from '../common/components/Layout';
-import ResourceCard from '../resources/components/ResourceCard';
 import { ExperienceSection } from '../resources/components/ExperienceSection';
 import { FinancialImpactSection } from '../resources/components/FinancialImpactSection';
+import { ResourceCard } from '../resources/components/ResourceCard';
 import {
   ResourceListHeader,
   sortByIds,
@@ -88,12 +88,11 @@ const Resources = ({ resources }) => {
             <ResourceCard
               key={resource._id}
               name={resource.organization}
-              amount={resource.amount}
-              link={resource.url}
+              url={resource.url}
+              amount={resource.amountDetail}
               status={resource.status}
-              handleNotRelevantClick={() =>
-                handleNotRelevantClick(resource._id)
-              }
+              eligibilities={resource.eligibilities}
+              onNotRelevantClick={() => handleNotRelevantClick(resource._id)}
             />
           );
         })}

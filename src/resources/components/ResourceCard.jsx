@@ -1,39 +1,79 @@
 import React from 'react';
+import styled from 'styled-components';
+import { Box, Typography } from '@material-ui/core';
 
-import styles from './ResourceCard.module.scss';
+const OrganizationLink = styled.a`
+  color: ${({ theme }) => theme.palette.secondary.main};
+  font-weight: bold;
+  text-decoration: underline;
+`;
 
-const ResourceCard = (props) => {
+const NotRelevantButton = styled.button`
+  color: ${({ theme }) => theme.palette.grey[500]};
+  padding-left: 24px;
+  cursor: pointer;
+  border: none;
+  background-color: inherit;
+`;
+
+export const ResourceCard = ({
+  name,
+  url,
+  amount,
+  status,
+  eligibilities,
+  onNotRelevantClick,
+}) => {
+  let statusText = '';
+  switch (status) {
+    case 'open':
+      statusText = 'Open';
+      break;
+    case 'paused':
+      statusText = 'Paused - Waitlist';
+      break;
+    case 'closed':
+      statusText = 'Closed';
+      break;
+    default:
+      statusText = status;
+  }
+
+  const renderDetailRow = (name, values) => {
+    return (
+      <Box display="flex" mt={1}>
+        <Box minWidth="112px">
+          <Typography variant="caption" color="textSecondary">
+            {name}
+          </Typography>
+        </Box>
+        <div>
+          {values.map((value) => (
+            <Typography key={value} gutterBottom>
+              {value}
+            </Typography>
+          ))}
+        </div>
+      </Box>
+    );
+  };
+
   return (
-    <div className={styles.ResourceCard}>
-      <div className={styles.title}>
-        <h3>
-          <a href={props.link} target="_blank" rel="noreferrer">
-            {props.name}
-          </a>
-        </h3>
-        <button onClick={props.handleNotRelevantClick}>
-          {' '}
+    <Box mt={3}>
+      <div>
+        <OrganizationLink href={url} target="_blank" rel="noreferrer">
+          {name}
+        </OrganizationLink>
+        <NotRelevantButton onClick={onNotRelevantClick}>
           Not relevant to me
-        </button>
+        </NotRelevantButton>
       </div>
-      <div className={styles.content}>
-        <label htmlFor="benefit-amount">Benefit Amount</label>
-        <div className={styles.infoContainer}>
-          <p id="benefit-amount">{props.amount}</p>
-        </div>
-        <label htmlFor="grant-status">Grant Status</label>
-        <div className={styles.infoContainer}>
-          <p id="grant-status">{props.status}</p>
-        </div>
-        <label>Eligibilities</label>
-        {/* <div className={styles.infoContainer}>
-					{props.eligibilities.map((el) => (
-						<p key={Math.random()}>{el}</p>
-					))}
-				</div> */}
-      </div>
-    </div>
+
+      <Box mt={2}>
+        {renderDetailRow('Benefit Amount', [amount])}
+        {renderDetailRow('Grant Status', [statusText])}
+        {renderDetailRow('Eligibilities', eligibilities)}
+      </Box>
+    </Box>
   );
 };
-
-export default ResourceCard;
