@@ -1,17 +1,5 @@
-import { getSession } from 'next-auth/client';
-
 import { HttpError } from './httpError';
 import { MongoDb } from './mongodb';
-
-async function authenticate(req) {
-  const session = await getSession({ req });
-  if (!session) {
-    console.log('No user signed in');
-    return null;
-  }
-
-  return session.user;
-}
 
 export function createHandler(config) {
   return async (req, res) => {
@@ -23,24 +11,12 @@ export function createHandler(config) {
       return;
     }
 
+    await MongoDb.connect();
+
     const context = {
       req,
       res,
     };
-
-    if (!configForMethod.allowUnauthenticated) {
-      const user = await authenticate(req);
-      if (user) {
-        context.user = user;
-      } else {
-        res.status(401).json({
-          message: 'Unauthorized',
-        });
-        return;
-      }
-    }
-
-    await MongoDb.connect();
 
     try {
       await configForMethod.handle(context);
