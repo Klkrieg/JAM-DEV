@@ -1,8 +1,8 @@
-import { model, models, Schema } from 'mongoose';
+import mongoose from 'mongoose';
 
 import { auditingMixin } from '../../utils/schemaMixins';
 
-const resourceSchema = new Schema({
+const resourceSchema = new mongoose.Schema({
   ...auditingMixin,
   organization: {
     type: String,
@@ -49,4 +49,7 @@ const resourceSchema = new Schema({
   },
 });
 
-export const Resource = models.Resource || model('Resource', resourceSchema);
+export const Resource =
+  mongoose.models && mongoose.models.Resource
+    ? mongoose.models.Resource
+    : mongoose.model('Resource', resourceSchema);
