@@ -1,6 +1,7 @@
+# Misc
 node_modules/
 .next/
-next.config.js
 .history/
-.env
+.env.*
 .utils/resources-for-offline.js
+.DS_Store

@@ -1,0 +1,523 @@
+[
+  {
+    "organization": "ACM Lifting Lives",
+    "url": "https://www.acmliftinglives.org/covid-19-relief",
+    "status": "paused",
+    "estimatedAmount": 500.0,
+    "amountDetail": "$500",
+    "yearsInIndustry": 2,
+    "industryRoles": ["musician"],
+    "requiredProofs": ["financial-impact"],
+    "eligibilities": [
+      "Must be a member of Academy Of Country Music (ACM)",
+      "Must be a Country musician"
+    ]
+  },
+  {
+    "organization": "The Actors Fund",
+    "url": "https://actorsfund.jotform.com/200766730518860",
+    "status": "open",
+    "estimatedAmount": 0.0,
+    "amountDetail": "Not listed",
+    "yearsInIndustry": 5,
+    "industryRoles": ["business"],
+    "requiredProofs": ["employment"],
+    "eligibilities": [
+      "Must have entertainment industry earnings over $6,500 for three out of the last five years. Income from teaching does not qualify. Dancers, comedians and comedy professionals must document three years of recent earnings of at least $2,000 a year."
+    ]
+  },
+  {
+    "organization": "AFM - American Federation Of Musicians",
+    "url": "https://www.afm.org/covid-19/#plus",
+    "status": "paused",
+    "estimatedAmount": 800.0,
+    "amountDetail": "$800 to $1,200",
+    "yearsInIndustry": 0,
+    "industryRoles": [],
+    "requiredProofs": ["over-half-of-income"],
+    "eligibilities": [
+      "Must be a member of AFM - American Federation of Musicians"
+    ]
+  },
+  {
+    "organization": "Artist Relief Project",
+    "url": "https://artistreliefproject.org/request_funding/",
+    "status": "closed",
+    "estimatedAmount": 200.0,
+    "amountDetail": "$200",
+    "yearsInIndustry": 0,
+    "industryRoles": ["musician"],
+    "requiredProofs": ["employment"],
+    "eligibilities": [
+      "Must have been impacted by COVID19-related cancellations"
+    ]
+  },
+  {
+    "organization": "Artist Relief Tree",
+    "url": "https://docs.google.com/forms/d/e/1FAIpQLSff9ddL9AhG9GtD6HEkLCHU6eh2XTxKcSz2BwN1RdJyMsuRlQ/viewform",
+    "status": "Paused",
+    "estimatedAmount": 250.0,
+    "amountDetail": "$250",
+    "yearsInIndustry": 0,
+    "industryRoles": ["musician"],
+    "requiredProofs": ["employment"],
+    "eligibilities": ["Just upload a resume or point us to your website."]
+  },
+  {
+    "organization": "Arts Administrators Of Color",
+    "url": "https://docs.google.com/forms/d/e/1FAIpQLSfv4AazvLFVUNAgXoxqBqfZ7jJVkrMroa-CET6Vt6XygR-CaQ/viewform",
+    "status": "open",
+    "estimatedAmount": 200.0,
+    "amountDetail": "$200",
+    "yearsInIndustry": 0,
+    "industryRoles": [],
+    "requiredProofs": [],
+    "eligibilities": [
+      "Must be Black, Indeginous, or Person Of Color (BIPOC)", 
+      "BIPOC artists and administrators- Members Only"
+    ]
+  },
+  {
+    "organization": "The Blues Foundation",
+    "url": "https://blues.org/covid-19-fund/",
+    "status": "open",
+    "estimatedAmount": 0.0,
+    "amountDetail": "",
+    "yearsInIndustry": 0,
+    "industryRoles": [],
+    "requiredProofs": ["over-half-of-income"],
+    "eligibilities": [
+      "Must be a Blues Musician",
+      "Must have financial need due to a broad range of health concerns. The Fund provides for acute, chronic and preventive medical and dental care as well as funeral and burial expenses."
+    ]
+  },
+  {
+    "organization": "The Creator Fund",
+    "url": "https://creatorfund.ck.page/",
+    "status": "closed",
+    "estimatedAmount": 200.0,
+    "amountDetail": "Up to $500",
+    "yearsInIndustry": 0,
+    "industryRoles": [],
+    "requiredProofs": [],
+    "eligibilities": []
+  },
+  {
+    "organization": "Crew Nation Global Relief Fund",
+    "url": "https://www.livenationentertainment.com/relief-fund/",
+    "status": "paused",
+    "estimatedAmount": 1000.0,
+    "amountDetail": "$1,000",
+    "yearsInIndustry": 0,
+    "industryRoles": ["crew"],
+    "requiredProofs": ["over-half-of-income"],
+    "eligibilities": []
+  },
+  {
+    "organization": "Equal Sound",
+    "url": "https://equalsound.org/project/request-financial-assistance-from-the-corona-relief-fund/",
+    "status": "open",
+    "estimatedAmount": 200.0,
+    "amountDetail": "$500",
+    "yearsInIndustry": 0,
+    "industryRoles": ["musician"],
+    "requiredProofs": ["employment"],
+    "eligibilities": ["Upload evidence that you had this gig confirmed and then canceled IN A SINGLE PDF"]
+  },
+  {
+    "organization": "Facebook For Business",
+    "url": "",
+    "status": "closed",
+    "estimatedAmount": 0.0,
+    "amountDetail": "",
+    "yearsInIndustry": 0,
+    "industryRoles": ["business"],
+    "requiredProofs": ["financial-impact"],
+    "eligibilities": [
+      "Must have between 2 and 50 employees",
+      "Must have experienced challenges from COVID-19"
+    ]
+  },
+  {
+    "organization": "Foundation For Contemporary Arts",
+    "url": "https://foundationforcontemporaryarts.submittable.com/submit/b9feb8b2-3b40-4a12-bee3-b0e71294d17f/fca-emergency-grants-covid-19-fund",
+    "status": "open",
+    "estimatedAmount": 1500.0,
+    "amountDetail": "$1500",
+    "yearsInIndustry": 0,
+    "industryRoles": ["musician", "business"],
+    "requiredProofs": ["financial-impact"],
+    "eligibilities": [
+      "Must be work of a contemporary, experimental nature",
+      "Relief will be provided to artists who can demonstrate that they have had an engagement canceled or postponed due to the COVID-19 pandemic."
+    ]
+  },
+  {
+    "organization": "Freelancer COOP",
+    "url": "https://freelancecoop.org/emergencyfund/",
+    "status": "closed",
+    "estimatedAmount": 0.0,
+    "amountDetail": "Not Listed",
+    "yearsInIndustry": 0,
+    "industryRoles": ["business","musician","crew"],
+    "requiredProofs": ["financial-impact"],
+    "eligibilities": ["Your child’s school has been closed and you have unexpected childcare expenses",
+      "Your client has cancelled an event or contract and you are unable to pay basic living expenses.",
+      "Someone in your family has contracted the virus and you have unexpected medical expenses.",
+      "This fund is for freelancers specifically affected by the COVID-19 virus or resulting public response."]
+  },
+  {
+    "organization": "Freelancers Union",
+    "url": "",
+    "status": "closed",
+    "estimatedAmount": 500.0,
+    "amountDetail": "Up to $1,000",
+    "yearsInIndustry": 1,
+    "industryRoles": [],
+    "requiredProofs": ["over-half-of-income", "financial-impact"],
+    "eligibilities": ["Eligible freelance businesses include sole proprietors, limited liability companies, or other entity provided there is no more than one employee."]
+  },
+  {
+    "organization": "Gospel Music Trust Fund",
+    "url": "http://www.gospelmusictrustfund.org/",
+    "status": "open",
+    "estimatedAmount": 0.0,
+    "amountDetail": "Not Listed",
+    "yearsInIndustry": 10,
+    "industryRoles": ["musician", "business"],
+    "requiredProofs": ["over-half-of-income"],
+    "eligibilities": [
+      "Must be a Gospel, Christian musician/band"
+    ]
+  },
+  {
+    "organization": "International Bluegrass Music Association",
+    "url": "https://ibma.org/bluegrass-trust-fund/impact/",
+    "status": "open",
+    "estimatedAmount": 500.0,
+    "amountDetail": "$500",
+    "yearsInIndustry": 5,
+    "industryRoles": ["business", "musician", "crew"],
+    "requiredProofs": ["over-half-of-income", "employment"],
+    "eligibilities": [
+      "Must be a Bluegrass musician/band",
+      "Must have an unforeseen circumstance that has prevented the applicant from being able to pay for basic living expenses such as housing, transportation, groceries and medical/dental expenses"
+    ]
+  },
+  {
+    "organization": "Jazz Foundation Of America",
+    "url": "https://jazzfoundation.org/covid19fund/",
+    "status": "open",
+    "estimatedAmount": 0.0,
+    "amountDetail": "Basic Living Expenses",
+    "yearsInIndustry": 0,
+    "industryRoles": ["musician"],
+    "requiredProofs": [],
+    "eligibilities": ["Must be a Jazz musician/band"]
+  },
+  {
+    "organization": "Music Health Alliance",
+    "url": "https://www.musichealthalliance.com/wp-content/uploads/2020/03/COVID-19Tornado-Relief-Grant-Application.pdf",
+    "status": "open",
+    "estimatedAmount": 500.0,
+    "amountDetail": "$250-$500/month for up to 8 weeks",
+    "yearsInIndustry": 3,
+    "industryRoles": ["musician","crew","business","educator"],
+    "requiredProofs": ["employment"],
+    "eligibilities": [
+      "Must have copy of your contract, flyers or links to event sites listing your involvement in the canceled event or letter or email from employer identifying cancellation, etc."
+    ]
+  },
+  {
+    "organization": "Musicans Foundation",
+    "url": "https://musiciansfoundation.submittable.com/submit/163068/musicians-foundation-cv19-emergency-aid-grant-program-application",
+    "status": "open",
+    "estimatedAmount": 500.0,
+    "amountDetail": "$500-$3000",
+    "yearsInIndustry": 5,
+    "industryRoles": ["musician"],
+    "requiredProofs": ["over-half-of-income"],
+    "eligibilities": [
+      "Must have an acute need, due to personal, medical, dental, or family crisis, natural disaster, or other emergency situation. We also aid musicians who need assistance supporting their family members in times of emergency.",
+      "Must provide tax documentation detailing that for five (5) or more years, your principal income has been derived from your work as a musician."
+    ]
+  },
+  {
+    "organization": "PEAR Fund- Passim Emergency Artist Relief Fund",
+    "url": "https://www.passim.org/pearfund/",
+    "status": "open",
+    "estimatedAmount": 500.0,
+    "amountDetail": "$500 or les",
+    "yearsInIndustry": 0,
+    "industryRoles": ["musician", "educator"],
+    "requiredProofs": ["employment"],
+    "eligibilities": [
+      "Artists must have performed a show for Passim or taught at the School of Music in the last 10 years. This includes shows in the club, live music brunches, outdoor events & series booked by Passim, classes, and workshops in the School.",
+      "Must have links to venue sites, Facebook events, social media posts, etc, where possible to show cancellations."
+    ]
+  },
+  {
+    "organization": "Pine Top Perkins Foundation",
+    "url": "https://www.pinetopperkinsfoundation.org/pal-application",
+    "status": "open",
+    "estimatedAmount": 500.0,
+    "amountDetail": "$500.00",
+    "yearsInIndustry": 0,
+    "industryRoles": ["musician"],
+    "requiredProofs": [],
+    "eligibilities": [
+      "Plays professionally on stage on a local, regional or national level Has played on professional albums/CDs. Website/Facebook/YouTube; Name of a Reference, Email, Phone.",
+      "Preference will be given to Blues artists. Musicians in other genres will be eligible depending on available funds.",
+      "Household adjusted gross income is less than $30,000",
+      "Must be 50 years or older"
+    ]
+  },
+  {
+    "organization": "Sag-Aftra Foundation",
+    "url": "https://actorsfund.jotform.com/200766730518860",
+    "status": "open",
+    "estimatedAmount": 0.0,
+    "amountDetail": "Not Listed",
+    "yearsInIndustry": 0,
+    "industryRoles": ["musician"],
+    "requiredProofs": [],
+    "eligibilities": [
+      "Members Only; Suspended Payment, Terminated, and Fee-Paying-Non-Member (Ficore) are NOT ELIGIBLE to receive assistance from the SAG-AFTRA Foundation. Copy of your current membership card or confirmation by SAG-AFTRA membership department – including end date. Your membership must be current through October 2019 to be eligible.",
+      "Same application as The Actors Fund"
+    ]
+  },
+  {
+    "organization": "The Soze Agency",
+    "url": "https://www.wearesoze.com/relief-fund",
+    "status": "paused",
+    "estimatedAmount": 250.0,
+    "amountDetail": "$250-$750",
+    "yearsInIndustry": 0,
+    "industryRoles": ["musician"],
+    "requiredProofs": [],
+    "eligibilities": [
+      "Must be above age 16"
+    ]
+  },
+  {
+    "organization": "SoundGirls",
+    "url": "https://docs.google.com/forms/d/e/1FAIpQLScnpSvBkeW4IV1yMoNE92xsTVlgLTboeK0_atnpkEMLgvkBrw/closedform",
+    "status": "closed",
+    "estimatedAmount": 0.0,
+    "amountDetail": "Not Listed",
+    "yearsInIndustry": 3,
+    "industryRoles": ["crew","business"],
+    "requiredProofs": ["employment"],
+    "eligibilities": []
+  },
+  {
+    "organization": "Sweet Relief",
+    "url": "https://www.sweetrelief.org/get-help.html",
+    "status": "open",
+    "estimatedAmount": 0.0,
+    "amountDetail": "Not Listed",
+    "yearsInIndustry": 0,
+    "industryRoles": ["musician","business","crew","educator"],
+    "requiredProofs": ["financial-impact","over-half-of-income", "employment"],
+    "eligibilities": [
+      "Must have relevant medical documentation if requesting medical support (under 55)",
+      "Must have a diagnosis by a medical doctor, or hospital or medical bills indicating such condition, must be provided.",
+      "Any individual who does not meet these criteria, but believes he or she to be eligible for assistance may request an application for a grant by providing a written explanation as to why the Grant Committee should make an exception to the above policies."
+    ]
+  },
+  {
+    "organization": "Red River Cultural Fund",
+    "url": "https://redriverculturaldistrict.org/funding-distribution-application/",
+    "status": "open",
+    "estimatedAmount": 100.0,
+    "amountDetail": "Up to $100 in grocery gift cards",
+    "yearsInIndustry": 0,
+    "industryRoles": ["musician", "crew", "business"],
+    "requiredProofs": ["employment"],
+    "eligibilities": [
+      "Must have lost employment as a direct result of the COVID-19 Pandemic"
+    ]
+  },
+  {
+    "organization": "Austin Creative Alliance",
+    "url": "https://www.austincreativealliance.org/emergencyapplication",
+    "status": "open",
+    "estimatedAmount": 0.0,
+    "amountDetail": "Up to $500",
+    "yearsInIndustry": 0,
+    "industryRoles": ["musician"],
+    "requiredProofs": ["financial-impact"],
+    "eligibilities": [
+      "Not required, but priority given to ACA Member"
+    ]
+  },
+  {
+    "organization": "Group Muse",
+    "url": "https://www.groupmuse.com/musician-relief",
+    "status": "closed",
+    "estimatedAmount": 0.0,
+    "amountDetail": "Not Listed",
+    "yearsInIndustry": 0,
+    "industryRoles": ["musician"],
+    "requiredProofs": [],
+    "eligibilities": []
+  },
+  {
+    "organization": "Musicares",
+    "url": "https://www.austintexas.gov/department/austin-music-disaster-relief-fund",
+    "status": "closed",
+    "estimatedAmount": 0.0,
+    "amountDetail": "Not Listed",
+    "yearsInIndustry": 5,
+    "industryRoles": ["musician", "crew", "business"],
+    "requiredProofs": [],
+    "eligibilities": [
+      "Must have documented 5 years or credited contribution to six commercially released recordings or videos; liner note credits, copies of contracts, check stubs, brochures, flyers and newspaper articles",
+      "Financial assistance for medical expenses including doctor, dental and hospital bills, prescriptions, addiction recovery treatment, psychotherapy, treatment for HIV/AIDS, Parkinson's, Alzheimer's and other critical illnesses, as well as basic living expenses such as rent and utilities."
+    ]
+  },
+  {
+    "organization": "Home Austin",
+    "url": "",
+    "status": "open",
+    "estimatedAmount": 500.0,
+    "amountDetail": "$500 for rent",
+    "yearsInIndustry": 20,
+    "industryRoles": ["musician"],
+    "requiredProofs": ["employment"],
+    "eligibilities": [
+      "Must be 55+",
+      "Must link to your website, recordings, press or the name and contact information of a music industry reference."
+    ]
+  },
+  {
+    "organization": "Health Well Foundation",
+    "url": "https://www.healthwellfoundation.org/fund/covid-19-fund/",
+    "status": "closed",
+    "estimatedAmount": 0.0,
+    "amountDetail": "Up to $250 Copay",
+    "yearsInIndustry": 0,
+    "industryRoles": ["musician"],
+    "requiredProofs": [],
+    "eligibilities": [
+      "Must be 18+"
+    ]
+  },
+  {
+    "organization": "Austin Music Disaster Relief",
+    "url": "https://covid-19-relief.recordingacademy.com/",
+    "status": "closed",
+    "estimatedAmount": 1000.0,
+    "amountDetail": "$1000 grant",
+    "yearsInIndustry": 2,
+    "industryRoles": ["musician"],
+    "requiredProofs": ["financial-impact","employment"],
+    "eligibilities": [
+      "An Austin professional musician with 6 released recordings (singles) or 6 promotionally released music videos.",
+      "Must have detailed music industry background documentation (articles, liner notes, letters from employers, etc): A biography, resume, discography, key songs or film/TV credits",
+      "Documentation of loss of income (copy of your contract, flyers or links to event sites listing your involvement in the canceled event, letter/email from employer identifying cancellation, etc)."
+    ]
+  },
+  {
+    "organization": "Austin Energy",
+    "url": "https://austinbillhelp.com/",
+    "status": "open",
+    "estimatedAmount": 0.0,
+    "amountDetail": "Up to 3 months in utilitites forgiven",
+    "yearsInIndustry": 0,
+    "industryRoles": [],
+    "requiredProofs": [],
+    "eligibilities": [
+      "Must be an Austin Energy Member"
+    ]
+  },
+  {
+    "organization": "Pedernales Electric Cooperative (PEC) - Member Assistance Program - Electric Bill Assistance",
+    "url": "https://www.pec.coop/your-service/billing-payments/member-assistance-program/",
+    "status": "Open",
+    "estimatedAmount": 300.0,
+    "amountDetail": "$300 per year for utilities",
+    "yearsInIndustry": 0,
+    "industryRoles": [],
+    "requiredProofs": [],
+    "eligibilities": [
+      "Must be a Pedernales Electric Cooperative Member"
+    ]
+  },
+  {
+    "organization": "Travis County Health & Human Services: Rental Assistance",
+    "url": "https://www.traviscountytx.gov/images/health_human_services/Docs/application_for_assistance.pdf\n\nhttps://www.traviscountytx.gov/health-human-services/individuals-families/apply",
+    "status": "open",
+    "estimatedAmount": 0.0,
+    "amountDetail": "",
+    "yearsInIndustry": 0,
+    "industryRoles": [],
+    "requiredProofs": [],
+    "eligibilities": []
+  },
+  {
+    "organization": "City of Austin- Creative Workers Relief Grant",
+    "url": "http://www.austintexas.gov/department/austin-creative-worker-relief-grant",
+    "status": "closed",
+    "estimatedAmount": 2000.0,
+    "amountDetail": "$2,000 grant",
+    "yearsInIndustry": 0,
+    "industryRoles": [],
+    "requiredProofs": [],
+    "eligibilities": [
+      "If already applied & recieved Austin Musician Grant, only eligible for $1,000 grant"
+    ]
+  },
+  {
+    "organization": "Positive Legacy",
+    "url": "https://www.positivelegacy.com/",
+    "status": "closed",
+    "estimatedAmount": 0.0,
+    "amountDetail": "Not Listed",
+    "yearsInIndustry": 0,
+    "industryRoles": [],
+    "requiredProofs": [],
+    "eligibilities": []
+  },
+  {
+    "organization": "SBA Loan- EIDL",
+    "url": "https://www.sba.gov/funding-programs/loans/coronavirus-relief-options/economic-injury-disaster-loans",
+    "status": "open",
+    "estimatedAmount": 0.0,
+    "amountDetail": "Not Listed",
+    "yearsInIndustry": 0,
+    "industryRoles": ["business"],
+    "requiredProofs": [],
+    "eligibilities": [
+      "Must be registered business with less than 500 employees, sole proprietor; independent contractor or cooperative (less than 500 employees)"
+    ]
+  },
+  {
+    "organization": "RENT Relief Emergency Needs for Tenants (City of Austin)",
+    "url": "http://www.austintexas.gov/rent",
+    "status": "open",
+    "estimatedAmount": 0.0,
+    "amountDetail": "",
+    "yearsInIndustry": 0,
+    "industryRoles": [],
+    "requiredProofs": [],
+    "eligibilities": [
+      "The total household income must be less than 80% of the local Median Family Income (MFI) currently and as of 12/31/2019 (pre COVID-19)",
+      "Must currently be on a lease or in a contractually-bound relationship & not be recipients of other federally subsidized rent programs",
+      "Must provide lease, rental agreement, or invoice (of hotel staying at); Must provide landlords name & contact info"
+    ]
+  },
+  {
+  "organization": "Save Our Stages Act",
+  "url": "https://www.saveourstages.com/",
+  "status": "closed",
+  "estimatedAmount": 0.0,
+  "amountDetail": "",
+  "yearsInIndustry": 0,
+  "industryRoles": [],
+  "requiredProofs": [],
+  "eligibilities": []
+}
+]
+
+
