@@ -102,21 +102,25 @@ const Navbar = () => {
       </Box>
 
       <Box display="flex" mr="90px">
-        <WideButton
-          variant="outlined"
-          color="primary"
-          onClick={() => setSignInOpen(true)}
-        >
-          Sign in
-        </WideButton>
+        <Link href="/login">
+          <WideButton
+            variant="outlined"
+            color="primary"
+            onClick={() => setSignInOpen(true)}
+          >
+            Login
+          </WideButton>
+        </Link>
         <Box ml={3} />
-        <WideButton
-          variant="outlined"
-          color="secondary"
-          onClick={() => setSignUpOpen(true)}
-        >
-          Sign up
-        </WideButton>
+        <Link href="/signup">
+          <WideButton
+            variant="outlined"
+            color="secondary"
+            onClick={() => setSignUpOpen(true)}
+          >
+            Sign up
+          </WideButton>
+        </Link>
       </Box>
 
       {(isSignInOpen || isSignUpOpen) && <Backdrop />}
