@@ -1,22 +1,34 @@
-import App from 'next/app';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import NextApp from 'next/app';
 import React from 'react';
+import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles';
+import { ThemeProvider as StyledThemeProvider } from 'styled-components';
+
+import { theme } from '../common/utils/theme';
 
 import './app.scss';
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />;
+export default function App({ Component, pageProps }) {
+  React.useEffect(() => {
+    // Remove the server-side injected CSS.
+    const jssStyles = document.querySelector('#jss-server-side');
+    if (jssStyles) {
+      jssStyles.parentElement.removeChild(jssStyles);
+    }
+  }, []);
+
+  return (
+    <StyledThemeProvider theme={theme}>
+      <MuiThemeProvider theme={theme}>
+        <CssBaseline />
+        <Component {...pageProps} />
+      </MuiThemeProvider>
+    </StyledThemeProvider>
+  );
 }
 
-// Only uncomment this method if you have blocking data requirements for
-// every single page in your application. This disables the ability to
-// perform automatic static optimization, causing every page in your app to
-// be server-side rendered.
-//
-MyApp.getInitialProps = async (appContext) => {
-  // calls page's `getInitialProps` and fills `appProps.pageProps`
-  const appProps = await App.getInitialProps(appContext);
+App.getInitialProps = async (appContext) => {
+  const appProps = await NextApp.getInitialProps(appContext);
 
   return { ...appProps };
 };
-
-export default MyApp;

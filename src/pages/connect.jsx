@@ -4,7 +4,7 @@ import Layout from '../common/components/Layout';
 
 const Connect = () => {
   return (
-    <Layout>
+    <Layout title="JAM | Connect">
       <div>
         <h1>CONNECT</h1>
       </div>

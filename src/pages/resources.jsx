@@ -136,7 +136,7 @@ const Resources = ({ resourceData }) => {
   };
 
   return (
-    <Layout>
+    <Layout title="JAM | Resources">
       <div className={styles.controllers}>
         <h1>
           Are you a musician that has been affected by the COVID-19 Pandemic?

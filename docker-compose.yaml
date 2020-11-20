@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  mongo:
+    image: mongo
+    container_name: jam-mongo
+    environment:
+      - MONGO_INITDB_DATABASE=jam-db
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=password
+    ports:
+      - 27017:27017
+    volumes:
+      - mongo-data:/var/lib/mongodb/data
+      - ./scripts/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+  mongo-test:
+    image: mongo
+    container_name: jam-mongo-test
+    environment:
+      - MONGO_INITDB_DATABASE=jam-db
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=password
+    ports:
+      - 27018:27017
+    volumes:
+      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+    
+volumes:
+  mongo-data:
