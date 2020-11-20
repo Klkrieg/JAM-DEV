@@ -2,25 +2,37 @@ import { Resource } from '../models/resource';
 
 export class ResourceService {
   async searchResources(queryFields) {
-    const {
-      proofs,
-      roles,
+    let {
+      proofs = [],
+      roles = [],
       years = 0,
-      statuses,
+      statuses = [],
       sortBy = 'organization',
       sortDirection = 'asc',
     } = queryFields;
 
+    if (!Array.isArray(proofs)) {
+      proofs = [proofs];
+    }
+
+    if (!Array.isArray(roles)) {
+      roles = [roles];
+    }
+
+    if (!Array.isArray(statuses)) {
+      statuses = [statuses];
+    }
+
     const andConditions = [];
 
-    if (proofs && proofs.length > 0) {
+    if (proofs.length > 0) {
       const orProofs = proofs.map((proof) => ({ requiredProofs: proof }));
       andConditions.push({
         $or: [...orProofs, { requiredProofs: { $size: 0 } }],
       });
     }
 
-    if (roles && roles.length > 0) {
+    if (roles.length > 0) {
       const orRoles = roles.map((role) => ({ industryRoles: role }));
       andConditions.push({
         $or: [...orRoles, { industryRoles: { $size: 0 } }],
@@ -33,7 +45,7 @@ export class ResourceService {
       });
     }
 
-    if (statuses && statuses.length > 0 && !statuses.includes('all')) {
+    if (statuses.length > 0 && !statuses.includes('all')) {
       const orStatuses = statuses.map((status) => ({ status }));
       andConditions.push({
         $or: [...orStatuses],

@@ -3,13 +3,12 @@ import styled from 'styled-components';
 import { Box, Divider, Typography } from '@material-ui/core';
 
 import Layout from '../common/components/Layout';
+import { buildQueryString } from '../common/utils/buildQueryString';
 import { ExperienceSection } from '../resources/components/ExperienceSection';
+import { fetcher } from '../swrConfig';
 import { FinancialImpactSection } from '../resources/components/FinancialImpactSection';
 import { ResourceCard } from '../resources/components/ResourceCard';
-import {
-  ResourceListHeader,
-  sortByIds,
-} from '../resources/components/ResourceListHeader';
+import { ResourceListHeader } from '../resources/components/ResourceListHeader';
 
 const Title = styled(Typography)`
   font-style: italic;
@@ -17,14 +16,28 @@ const Title = styled(Typography)`
 `;
 
 const Resources = ({ resources }) => {
-  const [relevantResources, setRelevantResources] = React.useState(resources);
+  const [filteredResources, setFilteredResources] = React.useState(resources);
+  const [notRelevantIds, setNotRelevantIds] = React.useState([]);
   const [filters, setFilters] = React.useState({
-    financialImpact: [],
+    proofs: [],
     roles: [],
     years: 1,
     statuses: ['all'],
+    sortBy: 'organization',
+    sortDirection: 'asc',
   });
-  const [sortBy, setSortBy] = React.useState(sortByIds.nameAsc);
+
+  React.useEffect(() => {
+    const fetchResources = async () => {
+      const queryString = buildQueryString(filters);
+      const data = await fetcher(`/api/resources?${queryString}`);
+      if (data) {
+        setFilteredResources(data);
+      }
+    };
+
+    fetchResources();
+  }, [filters]);
 
   const updateFilter = (key, value) => {
     setFilters({
@@ -33,10 +46,16 @@ const Resources = ({ resources }) => {
     });
   };
 
+  const updateSort = (by, direction) => {
+    setFilters({
+      ...filters,
+      sortBy: by,
+      sortDirection: direction,
+    });
+  };
+
   const handleNotRelevantClick = (id) => {
-    setRelevantResources(
-      relevantResources.filter((resource) => resource._id !== id),
-    );
+    setNotRelevantIds([...notRelevantIds, id]);
   };
 
   return (
@@ -56,8 +75,8 @@ const Resources = ({ resources }) => {
 
         <Box mt={2} />
         <FinancialImpactSection
-          activeProofs={filters.financialImpact}
-          onProofsChange={(value) => updateFilter('financialImpact', value)}
+          activeProofs={filters.proofs}
+          onProofsChange={(value) => updateFilter('proofs', value)}
         />
 
         <Box my={3}>
@@ -77,13 +96,18 @@ const Resources = ({ resources }) => {
 
         <ResourceListHeader
           activeStatuses={filters.statuses}
-          sortBy={sortBy}
+          sortBy={filters.sortBy}
+          sortDirection={filters.sortDirection}
           onStatusesChange={(value) => updateFilter('statuses', value)}
-          onSortByChange={setSortBy}
+          onSortChange={updateSort}
         />
 
         <Box mt={2} />
-        {relevantResources.map((resource) => {
+        {filteredResources.map((resource) => {
+          if (notRelevantIds.includes(resource._id)) {
+            return null;
+          }
+
           return (
             <ResourceCard
               key={resource._id}
@@ -102,8 +126,7 @@ const Resources = ({ resources }) => {
 };
 
 export async function getServerSideProps() {
-  const response = await fetch(`${process.env.VERCEL_URL}/api/resources`);
-  const resources = await response.json();
+  const resources = await fetcher('/api/resources');
 
   return {
     props: {

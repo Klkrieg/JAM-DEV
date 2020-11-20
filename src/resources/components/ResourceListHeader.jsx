@@ -11,12 +11,6 @@ export const statusIds = {
   closed: 'closed',
 };
 
-export const sortByIds = {
-  nameAsc: 'name-asc',
-  nameDesc: 'name-desc',
-  amount: 'amount',
-};
-
 const VerticalDivider = styled.div`
   height: 15px;
   width: 1px;
@@ -27,8 +21,9 @@ const VerticalDivider = styled.div`
 export const ResourceListHeader = ({
   activeStatuses,
   sortBy,
+  sortDirection,
   onStatusesChange,
-  onSortByChange,
+  onSortChange,
 }) => {
   const isStatusActive = (id) => {
     return activeStatuses.includes(id);
@@ -96,28 +91,25 @@ export const ResourceListHeader = ({
         </Typography>
         <Box ml={2} />
         <ToggleButton
-          id={sortByIds.nameAsc}
           variant="text"
-          active={sortBy === sortByIds.nameAsc}
-          onClick={() => onSortByChange(sortByIds.nameAsc)}
+          active={sortBy === 'organization' && sortDirection === 'asc'}
+          onClick={() => onSortChange('organization', 'asc')}
         >
           A-Z
         </ToggleButton>
         <VerticalDivider />
         <ToggleButton
-          id={sortByIds.nameDesc}
           variant="text"
-          active={sortBy === sortByIds.nameDesc}
-          onClick={() => onSortByChange(sortByIds.nameDesc)}
+          active={sortBy === 'organization' && sortDirection === 'desc'}
+          onClick={() => onSortChange('organization', 'desc')}
         >
           Z-A
         </ToggleButton>
         <VerticalDivider />
         <ToggleButton
-          id={sortByIds.amount}
           variant="text"
-          active={sortBy === sortByIds.amount}
-          onClick={() => onSortByChange(sortByIds.amount)}
+          active={sortBy === 'amount'}
+          onClick={() => onSortChange('amount', 'desc')}
         >
           $
         </ToggleButton>
