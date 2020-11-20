@@ -1,0 +1,42 @@
+[
+  {
+    "organization": "ACM Lifting Lives",
+    "url": "https://www.acmliftinglives.org/covid-19-relief",
+    "status": "paused",
+    "estimatedAmount": 500.0,
+    "amountDetail": "$500",
+    "yearsInIndustry": 2,
+    "industryRoles": ["musician"],
+    "requiredProofs": ["financial-impact"],
+    "eligibilities": [
+      "Must be a member of Academy Of Country Music (ACM)",
+      "Must be a Country musician"
+    ]
+  },
+  {
+    "organization": "The Actors Fund",
+    "url": "https://actorsfund.jotform.com/200766730518860",
+    "status": "open",
+    "estimatedAmount": 0.0,
+    "amountDetail": "Not listed",
+    "yearsInIndustry": 5,
+    "industryRoles": ["business"],
+    "requiredProofs": ["employment"],
+    "eligibilities": [
+      "Must have entertainment industry earnings over $6,500 for three out of the last five years. Income from teaching does not qualify. Dancers, comedians and comedy professionals must document three years of recent earnings of at least $2,000 a year."
+    ]
+  },
+  {
+    "organization": "AFM - American Federation Of Musicians",
+    "url": "https://www.afm.org/covid-19/#plus",
+    "status": "paused",
+    "estimatedAmount": 800.0,
+    "amountDetail": "$800 to $1,200",
+    "yearsInIndustry": 0,
+    "industryRoles": [],
+    "requiredProofs": ["over-half-of-income"],
+    "eligibilities": [
+      "Must be a member of AFM - American Federation of Musicians"
+    ]
+  }
+]

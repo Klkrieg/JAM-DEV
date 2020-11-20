@@ -4,9 +4,9 @@ export class ResourceService {
   async searchResources(queryFields) {
     const {
       proofs,
-      role,
+      roles,
       years = 0,
-      status,
+      statuses,
       sortBy = 'organization',
       sortDirection = 'asc',
     } = queryFields;
@@ -20,9 +20,10 @@ export class ResourceService {
       });
     }
 
-    if (role) {
+    if (roles && roles.length > 0) {
+      const orRoles = roles.map((role) => ({ industryRoles: role }));
       andConditions.push({
-        $or: [{ industryRoles: role }, { industryRoles: { $size: 0 } }],
+        $or: [...orRoles, { industryRoles: { $size: 0 } }],
       });
     }
 
@@ -32,9 +33,10 @@ export class ResourceService {
       });
     }
 
-    if (status && status !== 'all') {
+    if (statuses && statuses.length > 0 && !statuses.includes('all')) {
+      const orStatuses = statuses.map((status) => ({ status }));
       andConditions.push({
-        status,
+        $or: [...orStatuses],
       });
     }
 

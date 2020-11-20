@@ -5,7 +5,7 @@ import { ResourceService } from '../../src/server/resources/services/resourceSer
 
 describe(ResourceService.name, () => {
   before(async () => {
-    const seedData = require('../seed/resources.json');
+    const seedData = require('../seed/test-resources.json');
     await Resource.insertMany(seedData);
   });
 
@@ -29,10 +29,10 @@ describe(ResourceService.name, () => {
       expect(resources.length).to.equal(2);
     });
 
-    it('can find by industry role', async () => {
+    it('can find by industry roles', async () => {
       const resourceService = new ResourceService();
       const resources = await resourceService.searchResources({
-        role: 'musician',
+        roles: ['musician'],
       });
 
       expect(resources.length).to.equal(2);
@@ -47,10 +47,10 @@ describe(ResourceService.name, () => {
       expect(resources.length).to.equal(2);
     });
 
-    it('can find by status', async () => {
+    it('can find by statuses', async () => {
       const resourceService = new ResourceService();
       const resources = await resourceService.searchResources({
-        status: 'open',
+        statuses: ['open'],
       });
 
       expect(resources.length).to.equal(1);
