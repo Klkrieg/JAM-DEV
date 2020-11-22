@@ -1,8 +1,5 @@
-import Backdrop from './Backdrop';
 import Link from 'next/link';
 import React from 'react';
-import SignInModal from './SignInModal';
-import SignUpModal from './SignUpModal';
 import styled from 'styled-components';
 import { Box, Button } from '@material-ui/core';
 
@@ -35,43 +32,6 @@ const WideButton = styled(Button)`
 `;
 
 const Navbar = () => {
-  const [isSignInOpen, setSignInOpen] = React.useState(false);
-  const [isSignUpOpen, setSignUpOpen] = React.useState(false);
-
-  React.useEffect(() => {
-    const handleOffModalClick = (e) => {
-      if (e.target.className.match(/backdrop/i)) {
-        setSignInOpen(false);
-        setSignUpOpen(false);
-      }
-    };
-
-    const handleEscKeyPress = (e) => {
-      if (e.keyCode == 27) {
-        setSignInOpen(false);
-        setSignUpOpen(false);
-      }
-    };
-
-    document.addEventListener('click', handleOffModalClick);
-    document.addEventListener('keydown', handleEscKeyPress);
-
-    return () => {
-      document.removeEventListener('click', handleOffModalClick);
-      document.removeEventListener('keydown', handleEscKeyPress);
-    };
-  }, []);
-
-  const handleSwitchToSignUpClick = () => {
-    setSignInOpen(false);
-    setSignUpOpen(true);
-  };
-
-  const handleSwitchToSignInClick = () => {
-    setSignUpOpen(false);
-    setSignInOpen(true);
-  };
-
   return (
     <NavContainer>
       <Box display="flex">
@@ -102,29 +62,17 @@ const Navbar = () => {
 
       <Box display="flex" mr="90px">
         <Link href="/login">
-          <WideButton
-            variant="outlined"
-            color="primary"
-            onClick={() => setSignInOpen(true)}
-          >
+          <WideButton variant="outlined" color="primary">
             Login
           </WideButton>
         </Link>
         <Box ml={3} />
-        <Link href="/sign">
-          <WideButton
-            variant="outlined"
-            color="secondary"
-            onClick={() => setSignUpOpen(true)}
-          >
+        <Link href="/signup">
+          <WideButton variant="outlined" color="secondary">
             Sign up
           </WideButton>
         </Link>
       </Box>
-
-      {(isSignInOpen || isSignUpOpen) && <Backdrop />}
-      {isSignInOpen && <SignInModal switchHandle={handleSwitchToSignUpClick} />}
-      {isSignUpOpen && <SignUpModal switchHandle={handleSwitchToSignInClick} />}
     </NavContainer>
   );
 };
