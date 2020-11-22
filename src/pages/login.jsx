@@ -71,7 +71,7 @@ const login = () => {
                 <SwitchText tabIndex="0">Sign Up.</SwitchText>
               </Link>
             </Grid>
-            <Grid item justifySelf="flex-end">
+            <Grid item>
               <Button type="submit" variant="contained" color="primary">
                 Login
               </Button>
