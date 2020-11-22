@@ -1,37 +1,34 @@
 import Layout from '../common/components/Layout';
+import Link from 'next/link';
 import React from 'react';
-import { Button, Container, TextField, Typography } from '@material-ui/core';
+import {
+  Button,
+  Container,
+  Grid,
+  TextField,
+  Typography,
+} from '@material-ui/core';
 import { styled } from '@material-ui/core/styles';
 import { useForm } from 'react-hook-form';
 
-const WideTextField = styled(TextField)({
-  width: '100%',
-});
-
 const LoginContainer = styled(Container)({
-  display: 'flex',
-  flexDirection: 'column',
-  height: '300px',
-  marginTop: '10rem',
-  marginBottom: '10rem',
-  alignItems: 'center',
-  justifyContent: 'space-around',
+  margin: '10vh auto',
   border: 'solid',
   borderWidth: '1px',
   borderRadius: '8px',
+  padding: '20px',
 });
 
 const LoginHead = styled(Typography)({
   fontSize: '18px',
-  alignSelf: 'flex-start',
 });
-
-const LoginButton = styled(Button)({
-  alignSelf: 'flex-end',
+const SwitchText = styled(Typography)({
+  fontWeight: 'bold',
+  cursor: 'pointer',
 });
 const login = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  const { register, handleSubmit, watch, errors } = useForm();
+  const { register, handleSubmit, watch } = useForm();
   const onSubmit = (data) => console.log(data);
 
   console.log(watch('email'));
@@ -40,29 +37,46 @@ const login = () => {
     <Layout title="JAM | login">
       <form onSubmit={handleSubmit(onSubmit)}>
         <LoginContainer maxWidth="sm">
-          <LoginHead>Login</LoginHead>
-          <WideTextField
-            type="email"
-            variant="outlined"
-            label="Email"
-            size="small"
-            color="primary"
-            name="email"
-            inputRef={register}
-          ></WideTextField>
-          {errors.email && <span>This fielf is required</span>}
-          <WideTextField
-            type="password"
-            variant="outlined"
-            label="Password"
-            size="small"
-            color="primary"
-            inputRef={register}
-            name="password"
-          />
-          <LoginButton type="submit" variant="contained" color="primary">
-            Login
-          </LoginButton>
+          <Grid container spacing={2}>
+            <Grid item xs={12}>
+              <LoginHead>Login</LoginHead>
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                type="email"
+                variant="outlined"
+                label="Email"
+                size="small"
+                color="primary"
+                name="email"
+                fullWidth
+                inputRef={register}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                type="password"
+                variant="outlined"
+                label="Password"
+                size="small"
+                color="primary"
+                inputRef={register}
+                name="password"
+                fullWidth
+              />
+            </Grid>
+            <Grid item xs={10}>
+              <Typography>Not a member of JAM?</Typography>
+              <Link href="/signup">
+                <SwitchText tabIndex="0">Sign Up.</SwitchText>
+              </Link>
+            </Grid>
+            <Grid item justifySelf="flex-end">
+              <Button type="submit" variant="contained" color="primary">
+                Login
+              </Button>
+            </Grid>
+          </Grid>
         </LoginContainer>
       </form>
     </Layout>
