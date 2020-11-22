@@ -11,6 +11,8 @@ const FooterContainer = styled.footer`
   padding: 30px 50px;
   background-color: #221f1f;
   color: white;
+  position: fixed;
+  bottom: 0;
 `;
 
 const Column = styled.div`

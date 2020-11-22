@@ -1,11 +1,10 @@
+import Backdrop from './Backdrop';
 import Link from 'next/link';
 import React from 'react';
-import styled from 'styled-components';
-import { Box, Button } from '@material-ui/core';
-
-import Backdrop from './Backdrop';
 import SignInModal from './SignInModal';
 import SignUpModal from './SignUpModal';
+import styled from 'styled-components';
+import { Box, Button } from '@material-ui/core';
 
 const NavContainer = styled.nav`
   background-color: ${({ theme }) => theme.palette.secondary.main};
@@ -112,7 +111,7 @@ const Navbar = () => {
           </WideButton>
         </Link>
         <Box ml={3} />
-        <Link href="/signup">
+        <Link href="/sign">
           <WideButton
             variant="outlined"
             color="secondary"
